@@ -1,0 +1,45 @@
+<%= javascript_tag do %>
+	<% if @fit_data.size > 2 %>
+	<% temp="["; @fit_data.each do |entry| %>
+	<% temp = temp + entry + "," %>
+	<% end %>
+	<% temp = temp.chop + "]" %>
+
+	fitData = <%= temp %>;
+	fqmax = <%= number_with_precision @fqmax, :precision => 3 %>
+	<% end %>
+	
+	<% temp="["; @iofq_data.each do |entry| %>
+	<% temp = temp + entry + "," %>
+	<% end %>
+	<% temp = temp.chop + "]" %>
+
+	iofqData = <%= temp %>;
+    qmax = <%= number_with_precision @qmax, :precision => 2 %>
+
+	<% temp="["; @kratky_data.each do |entry| %>
+	<% temp = temp + entry + "," %>
+	<% end %>
+	<% temp = temp.chop + "]" %>
+
+	kratkyData = <%= temp %>;
+
+	<% if @guinier_data.size > 2 %>    
+      gLow = <%= @low %>;
+      gHigh = <%= @upper %>;
+	  <% temp="["; @guinier_data.each do |entry| %>
+	    <% temp = temp + entry + "," %>
+	  <% end %>
+	  <% temp = temp.chop + "]" %>
+      guinierData = <%= temp %>;
+    <% end %>
+
+	<% temp="["; @pofr_data.each do |entry| %>
+	<% temp = temp + entry + "," %>
+	<% end %>
+	<% temp = temp.chop + "]" %>
+
+	pofrData = <%= temp %>; 
+    rmax = <%= number_with_precision @rmax, :precision => 0 %>
+
+<% end %>

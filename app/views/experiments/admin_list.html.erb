@@ -1,0 +1,34 @@
+<% content_for :left do %>
+  <%= render :partial => "admin_left_menu" %>  
+<% end -%>
+
+<% content_for :right do %>
+  <%= render :partial => "right_side_list_menu" %>  
+<% end -%>
+<hr />
+
+<table width="100%" class="SAXSDisplay">
+
+   <tr class="ListLine2">
+	<td colspan="1"><B>ID</B></td>
+	<td colspan="1" align="center">
+		<B>Title</B>
+        <span class="data_date"></span></td>
+	<td colspan="1"><B>BioIsis ID</B></td>
+  </tr>
+	
+<% @experiments.each do |experiment| %>
+
+   <tr class="ListLine2">
+	<td colspan="1">
+	<%= link_to "#{experiment.id}", edit_experiment_path(experiment.id) %></td>
+	<th colspan="1" align="left">
+		<%= truncate_words(experiment.title) %>
+        <span class="data_date"></span></td>
+	<td colspan="1"><%= experiment.bioisis_id %></td>
+  </tr>
+ 
+<% end %>
+<tr><th colspan="3" class="specalt"><%= will_paginate @experiments %></th></tr>
+</table>
+

@@ -1,0 +1,10 @@
+
+<div id="LeftMenu">
+<h3>FOUND:</h3>
+<% @ids.each do |x| %>
+
+<p><%= link_to(x.bioisis_id, {:controller => "experiments", :action => "details", :id =>x.id}) %></p>
+<p class="leftsearch"><%= truncate_words(x.title, 8) %></p>
+
+<% end %>
+</div>

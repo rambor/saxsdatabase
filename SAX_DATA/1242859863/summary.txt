@@ -1,0 +1,83 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1242859863
+EMAIL		glhura@lbl.gov
+CREATED_ON	2009-06-22
+
+#REMARK SUMMARY
+TITLE	PF0553 - Pyrococcus furiosus monomeric product
+BIOISIS_ID	1ASRDP
+EXP_DESCRIPTION	PF0553 - the structure of this monomeric gene product is novel. The structure shows a floppy tail which perhaps suggests why it has yet to be crystallized despite systematic SGI efforts.
+SOURCE_LOCATION	ALS bl12.3.1 SIBYLS
+PUBLICATION	Robust, high-throughput solution structural analyses by small angle X-ray scattering (SAXS). Nat Methods. 2009 Aug;6(8):606-12.
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	
+BUFFER			20mM Tris-Base
+pH			8.0
+TEMPERATURE		25.0
+SALT			KCl
+SALT_CONCENTRATION	200
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		4mM TCEP
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			61.94
+SIG_Io			0.26
+Io_MOLECULAR_WEIGHT	18035
+DMAX			80
+RG			19.2
+SIG_RG			0.25
+RG_REAL			20.37
+SIG_RG_REAL		0.25
+V_POROD			30000
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Rambo		R.P.
+AUTHOR	Hura		G.L.
+AUTHOR	Menon		A.L.
+AUTHOR	Tainer		J.A.
+AUTHOR	Adams		M.W.W.
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	PF0553
+EXP_MW		18035
+ANNOTATION	arsenate reductase
+EXP_SEQUENCE	AHHHHHHGSEEKIILFVCVKNSARSQMAEAFFNYYNDDPRFKAMSAGTEPADDIDPLAKKVMEEIGISLEGQKPKLYTPEMADKAYIVITMGCLDKCPYAPPEKTWDWGLEDPYGKPIEKYREVRDEIKRRVLKLIEDLKAGKSREEIIGRKSLFAI
+
+
+#REMARK DAMMIN
+SPACEGROUP		P1
+NSD			0.508
+STDEV_NSD		0.1
+AVERAGE_OF		8
+
+
+#REMARK GASBOR
+SPACEGROUP		P1
+NSD			0.84
+STDEV_NSD		0.1
+AVERAGE_OF		8
+CHI_SQUARE		1.19
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/p0553.dat
+pofr_data_file			originals/p0553.pofr
+single_dammin_model.pdb		dammin/dP1_7-1.pdb
+average_dammin_model.pdb	dammin/damfilt.pdb
+hires_dammin_model.pdb		dammin/
+single_gasbor_model.pdb		gasbor/gP1_7.pdb
+average_gasbor_model.pdb	gasbor/damfilt_gP1.pdb
+hires_gasbor_model.pdb		gasbor/

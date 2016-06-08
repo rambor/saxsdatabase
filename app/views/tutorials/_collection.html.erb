@@ -1,0 +1,59 @@
+
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+<p class="about">
+SAXS data collection at a synchrotron source typically involves a collection of short (0.1 to 3 second) exposures. Data collection times can be as short as 1 second in total to 5 minutes depending on the source.  Beamlines like BM29, SOLIEL and SIBYLS have ~10<sup>12</sup> to 10<sup>13</sup> photons per second at the sample whereas P12 can have ~10<sup>14</sup> photons per second.  The exposure set is combined during data reduction to produce a single SAXS curve that is representative of the entire sample.  In practice, we assume the first image (exposure) is damage free and make comparisons to this reference frame for all other exposures.  We merge all exposures that are consistent with the first frame and discard the rest.  Any change to a frame is understood to have demonstrated radiation damage.</p>  
+<br>
+
+<p class="about">
+Per sample, we recommend measuring the corresponding buffer as many times as possible. SAXS is a measurement of two, the sample and buffer and it is absolutely essential that the buffer measurement be made with the same care and attention that went into the sample. Likewise, when using modern sampling robots found at BM29, P12 and B21, the buffer will be measured many times and all buffer measurements should be used in the subtraction.  
+</p>
+	<table class="tutorialtable1">
+		<tr>
+		<td width="320"><%= image_tag('SAX_exposure.gif', :size =>'300x300' ) %></td>
+		<td width="300px">
+                    <table class="tutorialtable">
+			 <tr><th colspan="3" align="left">Table 1:</th></tr>
+                         <tr><td>beam size (mm)</td><td>Flow Rate (ul/min)</td><td>Time (secs)</td></tr>
+                         <tr><td>1x8</td><td>160</td><td>1 to 3</td></tr>
+		    </table>
+		</td>
+		</tr>
+		<tr>
+			<td colspan="2"><span class="tutorial_small_text">Figure:  Single 6 sec exposure of an RNA sample at 1 mg/mL.</span></td>
+		</tr>
+    </table>
+<p class="about">
+For Size Exclusion Chromatography (SEC) coupled SAXS, flow-rates can vary from 50 uL per minute to 240 ul/min depending on the type of analytical column being used. Common columns are the Superdex Increase PC 3.2 columns at 2.4 ml and the Shodex KW-400 series at 4.8 ml. The Shodex columns run at much higher flow rates with at least 10 to 100x better resolving power.  Columns should be run at flow rates that maximize on the number of frames that can be collected across the elution peak of interest.  
+</p>
+<b>Figure 1:</b><br><%= image_tag('collection_figure_1.png', :border=>"0", :width=>"640") %>
+<p class="about">
+Figure 1 illustrates the SEC profile of xylanase run at 100 ul per minute on a Shodex KW-403 column (50 uL injected sample at 10 mg/ml).  Xylanase is a smallish, 21 kDa protein and should run towards the end of the column volume.  We see the sample is a mixture of at least two species as indicated by the two peaks.  Using the same sample, we injected 50 uL of xylanase on a Superdex 200 PC 3.2 column (Figure 2). On the Superdex column, the sample runs as single, asymmetric peak demonstrating poorer resolution of the mixture.
+</p>
+<b>Figure 2:</b><br><%= image_tag('collection_figure_2.png', :border=>"0", :width=>"640") %>
+<p class="about">
+The choice of column is largely determined by resolving power. However, in some cases, your protein may interact with the column. Shodex resins are silicon oxide based whereas Superdex are functionalized carbohydrates.  Interactions may be mitigated by adjusting salt or by using an additive such as sucrose.
+</p>
+<div class="welcometitle">Centrifugation and Filtration</div>
+
+<p class="about">
+SAXS will be sensitive to everything in the sample and can readily detect the presence of oligomeric species in solution.  This is a consequence of the fact that the total intensity of the scattered X-rays is proportional to the square of the total number of electrons.  Therefore, immediately prior to loading the sample for data collection, it may be prudent to either centrifuge or filter the sample in order to remove any contaminating aggregation.  At BL12.3.1 of the ALS, we maintain a small volume gel-filtration chromatography system which may be used for sample preparation at the beamline.  Each gel-filtration run requires 25 ul and takes 24 minutes.  
+</p>  
+<br>
+<div class="welcometitle">Why multiple exposures?</div>
+<p class="about">
+A single SAXS curve from an experiment at a synchrotron source is often the result of two or more exposures of the same sample.  Since synchrotron X-ray radiation is focused into an extremely intense (10<sup>11</sup> photons per second) beam of X-rays, a protein sample is likely to undergo radiation induced damage. The damage will effect the measured SAXS curve preventing an accurate assessment of the molecular form factor.    
+We can use a series of short exposures to monitor for radiation damage and discard the subsequent, damaged frames.  An accurate measurement at the lowest scattering angles is crucial for the estimation of R<sub>g</sub> via the Guinier approximation and for accessing the quality of the sample in terms of aggregation or complexity.  
+
+</p><p class="about">
+Secondly, the intensity of scattered X-rays decays exponentially (q<sup>-4</sup>) as a function of scattering angle, the short exposure does not provide enough X-ray photons for reliable measurements at the greater scattering angles.  Therefore, the accumulation of multiple exposures allows for reliable measurements at the greater scattering angles.  This information is important for calculating an accurate P(r) distribution and for extending the resolution of the SAXS experiment.   	
+</p><p class="about">	
+Clearly, other factors are important for reliably measuring the scattering intensity of your sample such as sample concentration, detector advancements and instrumentation.  The following figure illustrates the changes in scattering intensity as a function of protein concentration.  
+</p><p class="about">		
+<%= image_tag('data_collection_review.png', :size=>'700x200') %>
+<span class="tutorial_small_text">
+Courtesy of <I>Putnam, C.D., Hammel, M., Hura, G.L., and Tainer, J.A. Q Rev Biophys. 2007 40(3):191-285</I>
+</span></p>

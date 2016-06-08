@@ -1,0 +1,53 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+<% if @gasbor.errors.any? %>
+<ul>
+<% @gasbor.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %></ul>
+<% end %>
+<hr>
+<h1 class="NewExperimentH1"><a name="Dammin">GASBOR Model</a></h1>
+<p>
+<ul>
+	<li>You must deposit two PDB files: one describing a single DAMMIN model and another describing a model averaged from several DAMMIN calculations (at least six).  
+    <li>In addition, please specify the number of models used in calculating the averaged model.
+</ul>
+</p>
+<%= form_for @gasbor, :id => @submission.data_directory, :html => { :multipart => true } do |gasbor_fields| %>
+
+  <table  class="YellowParameters">
+      <tr><td>
+          <h1 class="NewExperimentH1">Point Symmetry Group</h1><span class="instructions"><I>...symmetry group used in the GASBOR modeling.</I></span></td><td><%= gasbor_fields.text_field :spacegroup, "size"=> 5 %>
+      </td></tr>
+	  <tr><td>
+	       <h1 class="NewExperimentH1">Chi Square</h1><span class="instructions"><I>...this is the corresponding chi<sup>2</sup> for the single model.</I></span></td><td><%= gasbor_fields.text_field :chi_square, "size"=> 5 %>
+	  </td></tr>
+	
+      <tr><td>
+	          <h1 class="NewExperimentH1">Single Model</h1><span class="instructions"><I>...the single model is the one that best corresponds to the experimental SAXS data as identified by DAMAVER.</I></span></td><td><%= gasbor_fields.file_field :single_model_filename %>
+      </td></tr>
+
+      <tr><td>
+              <h1 class="NewExperimentH1">Averaged Model</h1><span class="instructions"><I>...the averaged model corresponds to the average of the aligned ab initio models typically calculated by DAMAVER.</I></span></td><td><%= gasbor_fields.file_field :average_model_filename %>
+      </td></tr>
+      <tr><td>
+	          <h1 class="NewExperimentH1">Superpositioned Model</h1><span class="instructions"><I>...OPTIONAL; this model is the superpositioned model derived from an atomic model aligned into your averaged <I>ab initio</I> SAXS model.</I></span></td><td><%= gasbor_fields.file_field :subcomb_model %>
+      </td></tr>
+      <tr><td>
+              <h1 class="NewExperimentH1">Mean NSD</h1><span class="instructions"><I>...from DAMSEL/DAMAVER calculation, NSD corresponds to the normalized spatial discrepancy.</I></span></td><td><%= gasbor_fields.text_field :nsd, "size"=> 5 %>
+      </td></tr>
+      <tr><td>
+              <h1 class="NewExperimentH1">Variation of NSD</h1><span class="instructions"><I>...from DAMSEL/DAMAVER calculation, examine output log file.</I></span></td><td><%= gasbor_fields.text_field :sig_NSD, "size"=> 5 %>
+      </td></tr>
+
+ 
+
+
+      <tr><td>
+              <h1>Number of Models Used in Averaging</h1></td><td><%= gasbor_fields.text_field :number_in_average, "size"=> 4 %> 
+      </td></tr>
+
+
+	</table>
+	<%= gasbor_fields.submit :value => "Save GASBOR Model" %>
+<% end %>

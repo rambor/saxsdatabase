@@ -1,0 +1,43 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+
+<% if @author.errors.any? %>
+<ul>
+<% @author.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %></ul>
+<% end %>
+
+<table>
+<tr><td><hr>
+<h1 class="NewExperimentH1"><a name="Authors">Contributors</a></h1><div class="forum_location">
+<p>Please add those individuals considered contributors of this SAS experiment.&nbsp;This does not necessarily imply all the authors of the publication. That information is obviously maintained by PubMed.</p>
+<p>
+	<div>
+	<table border="0">
+	      <tr>
+	      <td>Author&nbsp;<span class="instructions">(lastname | initials)</span></td>
+	      <td>
+	       <%= form_for(@author, :url => add_author_path(@submission.data_directory)) do |f| %>
+		     <%= f.text_field :lastname, :value=>"Rambo" %>&nbsp;|&nbsp;<%= f.text_field :initials, "size" => 6, :value=>"RP" %>
+			   <a name="Update"><%= f.submit :value => "Save and Add Another Author" %></a>
+		   <% end %>
+	      </td>
+	      </tr>
+	</table>
+	</div>	
+</p>
+</td></tr>
+<tr><td><hr>
+	<p>
+	<% if @experiment.authors.size > 0 %>	
+	   <h1 class="NewExperimentH1"><a name="Authors">Added Contributors</a></h1>
+	<table>
+        <% @experiment.authors.each do |author| %>
+          <tr><td>   <%= "#{author.initials}" %><%= "#{author.lastname}" %></td><td>&nbsp; <%= link_to "(-) Remove", remove_author_path(:id => @submission.data_directory, :author_lastname => author.lastname, :author_initials => author.initials) %></td></tr>
+
+        <% end %>
+    </table>
+	<% end %>	
+	</p>
+</td></tr>
+</table>

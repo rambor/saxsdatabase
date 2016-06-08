@@ -1,0 +1,90 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1242952603
+EMAIL		glhura@lbl.gov
+CREATED_ON	2009-05-22 00:36:43 UTC
+
+#REMARK SUMMARY
+TITLE	PF1061 Pyrococcus furiosus monomeric product
+BIOISIS_ID	2HYPHP
+EXP_DESCRIPTION	C-alpha model NMR strucutre 1RWS.
+SOURCE_LOCATION	ALS bl12.3.1 SIBYLS
+PUBLICATION	in press Nature Methods Rapid and robust proteomics-scale solution structural analyses determined efficiently by x-ray scattering (SAXS)
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	
+BUFFER			20mM Tris-Base
+pH			8.0
+TEMPERATURE		25.0
+SALT			KCl
+SALT_CONCENTRATION	200
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		4mM TCEP
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			35.27
+SIG_Io			0.36
+Io_MOLECULAR_WEIGHT	8592
+DMAX			60
+RG			17.1
+SIG_RG			0.73
+RG_REAL			16.34
+SIG_RG_REAL		0.73
+V_POROD			10013
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Rambo		R.P.
+AUTHOR	Hura		G.L.
+AUTHOR	Menon		A.L.
+AUTHOR	Adams		M.W.W.
+AUTHOR	Tainer		J.A.
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	PF1061
+EXP_MW		8592
+ANNOTATION	hypothetical protein
+EXP_SEQUENCE	AHHHHHHGSKMIKVKVIGRNIEKEIEWREGMKVRDILRAVGFNTESAIAKVNGKVVLEDDEVKDGDFVEVIPVVSGG
+
+
+#REMARK DAMMIN
+SPACEGROUP		P1
+NSD			0.538
+STDEV_NSD		0.2
+AVERAGE_OF		8
+
+
+#REMARK GASBOR
+SPACEGROUP		P1
+NSD			0.76
+STDEV_NSD		0.2
+AVERAGE_OF		8
+CHI_SQUARE		1.38
+
+
+#REMARK STRUCTURAL MODEL
+CHI_SQUARE		2.3
+FIT_FILENAME		106119_1_7850000.fit
+DESCRIPTION		C-alpha model NMR strucutre 1RWS.
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/1061.dat
+pofr_data_file			originals/p1061.pofr
+single_dammin_model.pdb		dammin/dP1_6-1.pdb
+average_dammin_model.pdb	dammin/damfilt_dP1.pdb
+hires_dammin_model.pdb		dammin/
+single_gasbor_model.pdb		gasbor/gP1_6.pdb
+average_gasbor_model.pdb	gasbor/damfilt_gP1.pdb
+hires_gasbor_model.pdb		gasbor/106119_1_78500.pdb
+fitted_SAXS_with_model.dat	structure/106119_1_7850000.fit
+pdb_model.pdb			structure/106119_1_78500.pdb

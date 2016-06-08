@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <title> Bioisis: <%= controller.controller_name %> - <%= controller.action_name %></title>
+  <meta name="keywords" content="Small, angle, x-ray, xray, scattering, saxs, structures, maggie, archaea, sulfolobus, pyrococcus" />
+  <meta name="description" content="The resource for the investigation of macromolecular structures by SAXS" />
+ 
+  <%= javascript_include_tag "application", debug: Rails.env.development? %>
+  <%= javascript_include_tag (controller.action_name != "index") ? controller.action_name : controller.controller_name %>
+
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    controller.controller_name %>
+
+  <%= csrf_meta_tags %>
+</head>
+
+<div class="header">
+    <p class="centeredImage"><%= image_tag "bioisis.gif" %>
+
+    <div id="mainnavcontainer">
+	    <ul id="mainnav">
+	<% if user_signed_in? %>
+	<li><span class="welcome_small_text">Signed in as: <%= current_user.email %>. Not you? <%= link_to "Sign out", destroy_user_session_path %></span></li>
+	<% else%>
+	<li><span class="welcome_small_text"><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>.</span></li>
+	<% end %>
+    </ul>
+</div>
+    <div id="mainnavcontainer">
+	    <ul id="mainnav">
+  	         <li><%= link_to "Home", welcome_path %></li>
+             <li><%= link_to "Models", experiments_path %></li>
+             <li><%= link_to "News", news_index_path %></li>
+             <li><%= link_to "Tutorial", tutorial_path %></li>
+             <li><%= link_to "About", about_path  %></li>
+			<% if can? :manage, :all %>
+			<li><%= link_to "Admin", experiments_admin_list_path %></li>
+			<% end %>
+        </ul>
+    </div>
+</div>
+
+

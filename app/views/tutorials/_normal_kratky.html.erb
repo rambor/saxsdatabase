@@ -1,0 +1,38 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+<p class ="about" align="left">
+The dimensionless (normalized) Kratky plot provides a semi-quantitative approach to assessing the state of your biopolymer in solution. For applications regarding intrinsically disordered proteins (IDPs) see <%= link_to "Receveur-Brechot and Durand", "http://www.ncbi.nlm.nih.gov/pubmed/22044150", :class => 'no_decor_link' %> or general considerations see <%= link_to "Rambo and Tainer (Biopolymers)", "http://onlinelibrary.wiley.com/doi/10.1002/bip.21638/abstract", :class => 'no_decor_link' %>. The plot is made dimensionless by multiplying the q-vector (x-axis) by the particle's R<sub>g</sub> 
+ and multiplying I(q) by (q&middot;R<sub>g</sub>)<sup>2</sup> instead of q<sup>2</sup> (see <%= link_to "Durand D, Vives C, et al, 2010 ", "http://www.ncbi.nlm.nih.gov/pubmed/19723583" ,:class => 'no_decor_link' %>). To normalize for particle mass and concentration, the modified I(q) is divided by the experiment's I(0). For particles obeying Guinier's approximation, there will be a peak at &#8730;3 with a magnitude of 3&middot;e<sup>-1</sup> (1.104). </p>
+
+<p class ="about" align="left">Starting with Guinier approximation:</p>	
+<%= image_tag('guinier_equation.gif', :class=>'equation')%>
+<p class ="about" align="left">Multiply by (q&middot;R<sub>g</sub>)<sup>2</sup> and divide by I(0):</p>	
+<%= image_tag('kratky_guinier_equation.gif', :class=>'equation')%>
+<p class ="about" align="left">Do a change of variables letting u = q&middot;R<sub>g</sub>:</p>
+<%= image_tag('u_substituted.gif', :class=>'equation')%>
+<p class ="about" align="left">Find the first maxima by taking the derivative and solving for f'(u) = 0:</p>
+<%= image_tag('derivative_u.gif', :class=>'equation')%>
+<%= image_tag('solve_for_zero.gif', :class=>'equation')%>
+<p class ="about" align="left">Take the square root of both sides thus solving for u or (q&middot;R<sub>g</sub>)=&#8730;3:</p>
+<%= image_tag('final_u_3.gif', :class=>'equation')%>
+
+<p class="about">
+This type of dimensionless Kratky plot should show for most globular compact particles, obeying Guinier's approximation,  a peak maxima at &#8730;3 regardless of particle size, composition and concentration.  Deviations from this suggest either particle flexibility or asymmetry (see <%= link_to "Receveur-Brechot and Durand (2012)", "http://www.ncbi.nlm.nih.gov/pubmed/22044150", :class => 'no_decor_link' %> or <%= link_to "Durand et al. (2010)", "http://www.ncbi.nlm.nih.gov/pubmed/19723583", :class => 'no_decor_link' %>).
+</p>
+<h3>Figure 1</h3>
+<%= image_tag('normal_kratky_figure_1.png', :width=>"650")%>
+<p class="about">In Figure 1, a 21 kDa globular protein, xylanase (cyan), shows a peak maxima at &#8730;3. For asymmetric particles, see Figure 1: P4-P6 RNA domain (orange) and SAM-1 riboswitch (purple), the peak shifts right with a maxima > 1.104. For an intrinsically disordered protein (RAD51-AP1), we get the classic hyperbolic plateau (magenta). Attaching RAD51-AP1 to the well-folded maltose binding protein (blue), the peak shifts right (q&middot;R<sub>g</sub> = 3.5) and reaches a new maxima. The R<sub>g</sub>-based dimensionless Kratky plot is based on I(0) and R<sub>g</sub> derived from either a Guinier analysis or real space transform. Scatter creates both of these plots automatically if the real space parameters have been previously determined.</p>
+<p class="about">Another dimensionless plot can be made using V<sub>c</sub> (Figure 2). Here, we are using q<sup>2</sup>&middot;V<sub>c</sub> instead of q&middot;R<sub>g</sub><sup>2</sup> to make the plot dimensionless. We still normalize to I(0) but peak height is now directly proportional to V<sub>c</sub>/R<sub>g</sub><sup>2</sup>, a ratio inversely related to the particle's surface-to-volume ratio. The maximum theoretical height will be that for a sphere which is 0.82.</p>
+<h3>Figure 2</h3>
+<%= image_tag('normal_kratky_figure_2.png', :width=>"650")%>
+<p class="about">This form of a dimensionless Kratky plot can be more informative for inferring changes in a particle conformation. For instance, compare SAM riboswitch with (+, purple) and without (-, green) ligand in Figures 1 and 2. In the R<sub>g</sub>-based plot, it is clear there is a conformational difference as the SAM(-) curve (green) is more hyperbolic suggesting a flexible ensemble. However, in the V<sub>c</sub>-based plot (Figure 2), the hyperbolic feature is preserved for SAM(-) curve but shifts downward suggesting an increase in the surface-to-volume ratio of the particle in the absence of ligand. </p>
+<p class="about">SC&Aring;TTER can make both types of dimensionless Kratky plots simply by clicking on the button "Normal Kratky" (Figure 3, red arrow). It will make four plots, two plots (real and reciprocal space) using only I(0) and R<sub>g</sub> parameters and two plots (real and reciprocal space) using I(0) and V<sub>c</sub>.</p>
+<h3>Figure 3</h3>
+<%= image_tag('normal_kratky_figure_3.png', :width=>"650")%>
+<ul>
+<li> These plots will be sensitive to the determination of I(0), R<sub>g</sub> and V<sub>c</sub>.
+<li> Inspect the Guinier plots
+<li> Make sure the P(r)-distribution is insensitive to the Guinier region
+</ul>

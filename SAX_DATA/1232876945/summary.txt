@@ -1,0 +1,91 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1232876945
+EMAIL		glhura@gmail.com
+CREATED_ON	2009-01-25 09:49:05 UTC
+
+#REMARK SUMMARY
+TITLE	Folded Trimeric PF1787
+BIOISIS_ID	1ACSHP
+EXP_DESCRIPTION	Part of a set of samples prepared recombinanlty by Mike Adams group in Georgia. Has His-tag attached, see sequence. The trimeric structure is surprising as a homolog had been crystallized in a dimeric form. Data is not on an absolute scale and is a compilation of several data sets collected at different energies.
+SOURCE_LOCATION	ALS BL 12.3.1 
+PUBLICATION	Robust, high-throughput solution structural analyses by small angle X-ray scattering (SAXS). Nat Methods. 2009 Aug;6(8):606-12.
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	
+BUFFER			20mM Tris-Base
+pH			8.0
+TEMPERATURE		25.0
+SALT			NaCl
+SALT_CONCENTRATION	300
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		2mM DTT
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			477.0
+SIG_Io			0.79
+Io_MOLECULAR_WEIGHT	80355
+DMAX			100
+RG			33.9
+SIG_RG			0.06
+RG_REAL			31.5
+SIG_RG_REAL		0.06
+V_POROD			160000
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Rambo		R.P.
+AUTHOR	Hura		G.L.
+AUTHOR	Menon		A.L.
+AUTHOR	Hammel		M.
+AUTHOR	Adams		M.W.W.
+AUTHOR	Tainer		J.A.
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	ActylCoASY
+EXP_MW		26784
+ANNOTATION	acetyl-CoA synthetase
+EXP_SEQUENCE	AHHHHHHGSDRVAKAREIIEKAKAENRPLVEPEAKEILKLYGIPVPEFKVARNEEEAVKFSGEIGYPVVMKIVSPQIIHKSDAGGVKINIKNDEEAREAFRTIMQNARNYKPDADLWGVIIYRMLPLGREVIVGMIRDPQFGPAVMFGLGGIFVEILKDVSFRVAPITKEDALEMIREIKAYPILAGARGEKPVNIEALADIIVKVGELALELPEIKEIDINPIFAYEDSAIAVDARMIL
+
+
+#REMARK DAMMIN
+SPACEGROUP		P1
+NSD			0.703
+STDEV_NSD		0.1
+AVERAGE_OF		10
+
+
+#REMARK GASBOR
+SPACEGROUP		P3
+NSD			1.2
+STDEV_NSD		0.1
+AVERAGE_OF		10
+CHI_SQUARE		1.72
+
+
+#REMARK STRUCTURAL MODEL
+CHI_SQUARE		7.0
+FIT_FILENAME		sas3200.fit
+DESCRIPTION		homolog pdb file
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/p1787m.dat
+pofr_data_file			originals/PF1787.pofr
+single_dammin_model.pdb		dammin/dam17-1.pdb
+average_dammin_model.pdb	dammin/Dammindamfilt.pdb
+hires_dammin_model.pdb		dammin/
+single_gasbor_model.pdb		gasbor/gas35.pdb
+average_gasbor_model.pdb	gasbor/Gasbordamfilt.pdb
+hires_gasbor_model.pdb		gasbor/
+fitted_SAXS_with_model.dat	structure/sas3200.fit
+pdb_model.pdb			structure/sas32.pdb

@@ -1,0 +1,79 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+<% if @ensemble.errors.any? %>
+<ul>
+<% @ensemble.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %></ul>
+<% end %>
+<hr>
+<h1 class="NewExperimentH1"><a name="Dammin">Ensemble Model</a></h1>
+<p>
+<ul>  
+    <li>The Ensemble Model is used for explaining SAXS data that required an ensemble or set of pdb's to model.
+</ul>
+</p>
+
+<%= form_for(:ensemble, :url => save_ensemble_path(@submission.data_directory), :html => { :multipart => true }) do |ensemble_fields| %>
+
+  <table  class="CoralParameters">
+      <tr><td>
+      <h1 class="NewExperimentH1">Fit File</h1><span class="instructions"><I>...this file should contain three columns of data (q, experimental intensities and fitted intensities) that decribe the fit of your structural model to the experimental SAXS data (i.e., the *.fit file from CRYSOL).</I></span></td><td><%= ensemble_fields.file_field :fit_filename %>
+      </td></tr>
+      <tr><td>
+       <h1 class="NewExperimentH1">Selection Method</h1><span class="instructions"><I>...did you use a Genetic Algorithm, Simulated Annealing, a mixture of both?</I></span></td><td><%= ensemble_fields.text_field :selection_method %>
+      </td></tr>
+      <tr><td>
+       <h1 class="NewExperimentH1">Simulation Software</h1><span class="instructions"><I>...CNS, CHARM, GAJOE, BILBOMD.</I></span></td><td><%= ensemble_fields.text_field :simulation_method %>
+      </td></tr>
+      <tr><td>
+       <h1 class="NewExperimentH1">Simulation Algorithm</h1><span class="instructions"><I>...limited torsion angle dynamics, normal modes, etc.</I></span></td><td><%= ensemble_fields.text_field :simulation_algorithm  %>
+      </td></tr>
+      <tr><td>
+       <h1 class="NewExperimentH1">Ensemble Size</h1><span class="instructions"><I>...the size of the parent ensemble used in the selection, typically > 1000.</I></span></td><td><%= ensemble_fields.text_field :ensemble_size, "size"=> 7  %>
+      </td></tr>
+      <tr><td>
+       <h1 class="NewExperimentH1">Member Size</h1><span class="instructions"><I>...the size of the selected members from the parent ensemble used in the final modeling of the experimental SAXS curve, typically < 20.</I></span></td><td><%= ensemble_fields.text_field :member_size, "size"=> 7  %>
+      </td></tr>
+	  <tr><td>
+	   <h1 class="NewExperimentH1">Scoring Function</h1><span class="instructions"><I>...this corresponds to chi<sup>2</sup>, R<sub>SAS</sub> or any other suitable scoring function used to judge the modeling of the SAXS data.</I></span></td><td><%= ensemble_fields.text_field :scoring_function %>
+	  </td></tr>
+	  <tr><td>
+	   <h1 class="NewExperimentH1">Score</h1><span class="instructions"><I>...this corresponds to the value of the scoring function described above.  </I></span></td><td><%= ensemble_fields.text_field :score, "size"=> 5 %>
+	  </td></tr>
+	
+      <tr><td>
+       <h1 class="NewExperimentH1">Diagnostic File</h1><span class="instructions"><I>...the diagnostic file is an image file in either *.tiff or *.png demonstrating the selection such as a Chevron plot (R<sub>g</sub> vs Chi<sup>2</sup>).</I></span></td><td><%= ensemble_fields.file_field :diagnostic %>
+      </td></tr>
+      <tr><td>
+       <h1 class="NewExperimentH1">Diagnostic File Figure Legend</h1><span class="instructions">...use this space to write a brief legend to explain the above figure.</span></td><td><%= ensemble_fields.text_area :figure_legend %>
+      </td></tr>
+      <tr>
+	   <div id="replaceMe">
+		<td>
+       <h1 class="NewExperimentH1">PDB Files</h1><span class="instructions"><I>...the ensemble is a collection of PDB files.  Please upload the set of PDB files used to model the SAXS data.  Each individual PDB file will be uploaded separately by clicking on the following link.</I></span></td><td><%= link_to('Click to Add PDB File', add_pdb_path(:id => @submission.data_directory ), :remote => true) %>
+	   </td>
+     </div>
+	</tr>
+	<tr><td colspan="2" align="center">
+	<div id="pdb">	
+		<% if !params[:ensemble_pdb].nil? || !@temp_files.nil? %>
+          <%= render :partial => "pdb" %> 
+		<% end %>	
+	</div>	
+	<div id="pdbs">
+		
+	</div>
+     </td></tr>
+	<tr><td colspan="2" align="center">
+    To add more PDB files, just click the "ADD PDB File" button above!
+	</td></tr>
+	<tr><td colspan="2" align="center">
+		<hr>
+		<%= ensemble_fields.submit "Final ENSEMBLE Submission", :confirm => 'Ready to Complete Submission? Click YES, if you need to add more PDB files, hit CANCEL.' %>
+	</td></tr>
+  </table>
+<% end %>
+<div id="comment-notice"></div>
+
+
+

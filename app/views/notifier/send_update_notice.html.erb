@@ -1,0 +1,20 @@
+<p>Hi!</p>
+<p>
+Scatter Version <%= @update.version %> has been released at BioIsis.net
+</p>
+<p class="about"><%= @update.title %>:</p>
+<ul>
+	<% rows = @update.comments.split(/[\r\n]+/); rows.each do |row| %>
+	<li><%= row %></li>
+	<% end %>
+</ul>
+<p>
+<%= link_to "Download Scatter", tutorialshow_url(:id =>"9") %>
+</p>
+<p>Check the tutorials at BioIsis.net for instructions and information on new features. Please report any problems or bugs to me directly. Scatter is developed and tested on OS X, Windows 7 and LINUX and requires JAVA 1.7 or greater. Thank you for using Scatter!   
+</p>
+<p>
+Sincerely,
+</p><p>
+Rob Rambo, Ph.D.</p><p>
+Principal Beamline Scientist B21, Diamond Light Source, UK</p>

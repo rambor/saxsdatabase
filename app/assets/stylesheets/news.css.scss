@@ -1,0 +1,26 @@
+.journalText {
+  font-size:0.8em;
+  font-weight:bold;
+}
+
+.news_small_text {
+	font-size:13px;
+	font-style:normal;	
+	color: #666;
+	line-height: 1.5em; 
+	font-family: 'Lucida Grande', Tahoma, Arial, Helvetica, sans-serif;
+	border-top: 0px solid #666;
+	border-bottom: 0px solid #666;
+	text-align: justify; 
+}
+
+.no_decor_link {
+  color: green;
+  text-decoration:none;
+  font-weight: bold;
+}
+
+a.no_decor_link:link {color:green;}     /* unvisited link */
+a.no_decor_link:visited {color:green;}  /* visited link */
+a.no_decor_link:hover {color:green;}    /* mouse over link */
+a.no_decor_link:active {color:green;}   /* selected link */

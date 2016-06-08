@@ -1,0 +1,85 @@
+#REMARK USER INFORMATION 
+CREATED_ON	2009-01-26T20:23:23+00:00
+DATA_DIRECTORY	/users/home/rambor/domains/bioisis.net/web/releases/20090124104810/public/SAX_DATA/1233001403
+IP_ADDRESS	131.243.85.227
+EMAIL	glhura@gmail.com
+SESSION	3a836398ac593394734bd68872b4a78f
+
+#REMARK SUMMARY
+TITLE	Monomeric PF1674
+DESCRIPTION	Part of a set of samples prepared recombinantly by Mike Adams group in Georgia. A sequence homolog of this protein has been crystallized and its calculated scattering profiles resemble that of this protein. See structural model. Has His-tag attached, see sequence. Data is not on an absolute scale and is a compilation of several data sets collected at different energies.
+SOURCE_LOCATION	ALS BL1231 SIBYLS
+PUBLICATION	Rapid and robust proteomics-scale solution structural analyses determined efficiently by x-ray scattering (SAXS). Nature Methods, submitted
+
+#REMARK EXPERIMENTAL CONDITIONS
+WAVELENGTH	1
+EXPERIMENTAL_DETAILS	Extrapolated to zero concentration from 4 different concentrations between 1 and 10 mg/mL
+BUFFER	20mM Tris-Base
+pH	8
+TEMPERATURE	25.0
+SALT	NaCl
+SALT_CONCENTRATION	300
+DIVALENT	none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES	2mM DTT
+
+#REMARK EXPERIMENTAL VALUES
+Io	4039.0
+SIG_Io	7.4
+Io_MOLECULAR_WEIGHT	19696
+DMAX	58
+RG	16.7
+SIG_RG	0.055
+RG_REAL	16.88
+SIG_RG_REAL	0.004
+V_POROD	30000
+iofq_file_name	PF1674.dat
+pofr_file_name	PF1674ModGH.58.pofr
+
+#REMARK AUTHORS
+AUTHOR	Rambo	R.P.
+AUTHOR	Hura	G.L.
+AUTHOR	Menon	A.L.
+AUTHOR	Hammel	M.
+AUTHOR	Adams	M.W.
+AUTHOR	Tainer	J.A.
+
+#REMARK EXPERIMENTAL ORF(S)
+GENE_ID	1233
+LOCUS_NAME	PF1674
+ACCESSION	0
+EXPERIMENTAL_SEQUENCE	AHHHHHHGSLKNVFVKKLSGDIMEVRFVDDYVAFSRMPYEDEIGELVKEFDAFVVLVEEFELEYDLEKVKREVEVLHVPIPDFTAPSIEELKYIVKWIDEKVKEGKKVLVHCYGGSGRSGTVVVAWLMYKYKLPLKEALLEVRTLKPSAVETRDQLEVLKEFEKLLGTIV
+ANNOTATION	Tyrosine/serine phosphatase
+EXP_MW	19696
+
+
+#REMARK DAMMIN
+SPACEGROUP	P1
+CHI_SQUARE	4.8
+NSD	0.49
+NUMBER_IN_AVERAGE	10
+
+#REMARK GASBOR
+SPACEGROUP	P1
+CHI_SQUARE	8.6
+NSD	1.511
+NUMBER_IN_AVERAGE	10
+
+#REMARK STRUCTURAL MODEL
+CHI_SQUARE	1.01
+PDB_MODEL	1FPZmono.pdb
+FIT_FILENAME	1FPZm00.fit
+
+#REMARK
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+RENAMED FILE			ORIGINAL FILE
+iofq_data_file.dat		originals/PF1674.dat
+pofr_data_file.dat		originals/PF1674ModGH.58.pofr
+single_dammin_model.pdb		dammin/dam11-1.pdb
+average_dammin_model.pdb	dammin/Dammindamfilt.pdb
+single_gasbor_model.pdb		gasbor/gas12.pdb
+average_gasbor_model.pdb	gasbor/Gasdamfilt.pdb
+pdb_model.pdb			structure/1FPZmono.pdb
+fitted_SAXS_with_model.dat	structure/1FPZm00.fit

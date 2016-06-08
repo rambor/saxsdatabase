@@ -1,0 +1,15 @@
+<%= javascript_tag do %>
+
+    <% count=1; @datasets.each do |data| %>
+	
+	    <% temp="["; data.each do |entry| %>
+	       <% temp = temp + entry + "," %>
+	    <% end %>
+	    <% temp = temp.chop + "]" %> 
+       
+	    iofqData_<%= count %> = <%= temp %>;
+ 
+        <% count+=1 %>
+    <% end %>
+
+<% end %>

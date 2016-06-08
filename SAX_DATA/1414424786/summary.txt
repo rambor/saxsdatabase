@@ -1,0 +1,68 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1414424786
+EMAIL		
+CREATED_ON	2014-10-27 15:51:41 UTC
+
+#REMARK SUMMARY
+TITLE	Structural analysis of the  Salmonella Type Three Secretion SopB/SigE  Complex 
+
+BIOISIS_ID	
+
+EXP_DESCRIPTION	In this work we performed the biochemical and structural characterization of Salmonella SopB/SigE chaperone/effector complex by SAXS. Our results showed that the SigD/SigE complex is assembled in dynamic homo-hexameric-ring-shaped structures with an internal tunnel. In this ring, the chaperone maintains disordered the N-terminal end of SopB molecules, in good position to be reached and processed by the T3SS. This ring dimensionally fits the ring organized molecules of the injectisome including ATPase hexameric ring suggesting that this structural feature is important for its recognition by T3SS. Our work constitutes the first evidence in solution of such an oligomerization analogous to the organization of the secretion machinery. As effectors share neither sequence nor structural identity, the quaternary oligomeric structure could constitute a strategy selected to promote the specificity and efficiency of T3SS recognition. 
+SOURCE_LOCATION	SWING (SOLEIL)
+
+PUBLICATION	A Salmonella Type Three Secretion Effector/Chaperone Complex adopts Hexameric Ring-Like Structure Journal of Bacteriology in press
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	70 µl of the monodisperse protein sample (10mg/ml) of proteins were injected onto a size-exclusion column (SEC-3 300 Ǻ Agilent), using an Agilent HPLC system, and eluted directly into the SAXS flow-through capillary cell 
+BUFFER			PBS
+pH			7.4
+TEMPERATURE		15.0
+SALT			NaCl
+SALT_CONCENTRATION	150
+DIVALENT		MgCl2
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		glycerol 10%
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			0.002481
+SIG_Io			0.000000946
+Io_MOLECULAR_WEIGHT	522000
+DMAX			255
+RG			65.06
+SIG_RG			0.031
+RG_REAL			65.25
+SIG_RG_REAL		0.0025
+V_POROD			930000
+V_C			20675.0
+POROD_EXPONENT		2.8
+
+#REMARK AUTHORS
+AUTHOR	Roblin		P
+AUTHOR	Bompard		C
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	SopB-D29
+EXP_MW		59734
+ANNOTATION	SopB deleted of the 19 N-ter residues
+EXP_SEQUENCE	>D29SopBHHHHHHMQILSGQGKAPAKAPDARPEIIVLREPGATWGNYLQHQKASNHSLHNLYNLQRDLLTVAATVLGKQDPVLTSMANQMELAKVKADRPATKQEEAAAKALKKNLIELIAARTQQQDGLPAKEAHRFAAVAFRDAQVKQLNNQPWQTIKNTLTHNGHHYTNTQLPAAEMKIGAKDIFPSAYEGKGVCSWDTKNIHHANNLWMSTVSVHEDGKDKTLFCGIRHGVLSPYHEKDPLLRHVGAENKAKEVLTAALFSKPELLNKALAGEAVSLKLVSVGLLTASNIFGKEGTMVEDQMRAWQSLTQPGKMIHLKIRNKDGDLQTVKIKPDVAAFNVGVNELALKLGFGLKASDSYNAEALHQLLGNDLRPEARPGGWVGEWLAQYPDNYEVVNTLARQIKDIWKNNQHHKDGGEPYKLAQRLAMLAHEIDAVPAWNCKSGKDRTGMMDSEIKREIISLHQTHMLSAPGSLPDSGGQKIFQKVLLNSGNLEIQKQNTGGAGNKVMKNLSPEVLNLSYQKRVGDENIWQSVKGISSLITS
+
+INFO_2
+ABBR_NAME	SigE
+EXP_MW		12709
+ANNOTATION	SigE
+EXP_SEQUENCE	MESLLNRLYDALGLDAPEDEPLLIIDDGIQVYFNESDHTLEMCCPFMPLPDDTLTLQHFLRLNYASAVTIGADADNTALVALYRLPQTSTEEEALTGFELFISNVKQLKEHYA
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/D29SopB_SigE.dat

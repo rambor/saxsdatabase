@@ -1,0 +1,27 @@
+#aboutnav ul {
+	list-style-type: none;
+}
+
+#aboutnav li {
+	list-style-type: none;
+    text-align: left;
+    margin: 5px;    
+    font-size: 1.2em;
+}
+
+#aboutnav li a {
+	padding: 0px 7px;
+	color: #c62f2f;
+	background-color: #fff;
+	border: 0px solid #ccc;
+	text-decoration: none;
+}
+
+#aboutnav li a:hover {
+	color: #4DD7E3;
+}
+
+a.aboutLink {
+	color: green;
+	text-decoration: none;
+}

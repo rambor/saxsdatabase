@@ -1,0 +1,36 @@
+<table border="0">
+<tr><th class="tutorialtext" colspan="2" align="left">
+
+<div class="welcometitle"><%= @tag.upcase %>
+<span class="tutorial_small_text">
+</span>
+</div>
+</th></tr>
+
+<tr><th colspan="2" align="left" class="tutorialtext">
+<p class="about">
+A deposit requires the experimental SAXS curve and associated P(r)-distribution to be uploaded as two separate column delimited text files.  Any additional models, such as <I>ab initio</I> or homology models must be uploaded as separate PDB files. The following will be required:
+</p>
+
+<ul id="Requirement">
+<li><span>INTENSITY FILE:</span><p class="about"> (3 column text file, column 1: q, column 2: Intensity, column 3: error )</p>
+<li>P(r) FILE:<p class="about">(2 column text file, column 1: distance, column 2: P(r) )</p>
+<li>SAXS Invariants:<p class="about">Guinier R<sub>g</sub>, I(zero), Porod Volume, Real space R<sub>g</sub> and associated errors</p>
+<li> PDB models:<p class="about"> from either DAMMIN/F, GASBOR, BILBOMD, etc</p>
+</ul>
+
+<p class="about">
+To start a deposit, please download this <%= link_to "form", :controller=>"tutorials", :action=>"sendform" %>.&nbsp;&nbsp;The form is a guide for collecting and organizing the requisite information for a successful deposit.  
+
+
+</p><p class="about">A general requirement of peer-reviewed journals and publications is the free distribution of experimental data.  To fulfill that need, BioIsis.net accepts experimental SAXS data and analyses for online redistribution.  Please email <font color="red">robert.rambo at diamond.ac.uk</font> for any questions regarding BioIsis.net.</p>
+
+<br>
+
+<p class="about"></p> 
+
+
+</th>
+</tr>
+
+</table>

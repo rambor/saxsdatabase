@@ -1,0 +1,75 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+<% if @experiment.errors.any? %>
+<ul>
+<% @experiment.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %></ul>
+<% end %>
+Registered as:<font color="skyblue"> <%= @submission.email %> </font>
+
+<%= form_for(@experiment, :url => deposition_save_path(@submission.data_directory), :html => {:multipart => true}) do |f| %>
+<h1 class="NewExperimentH1"><a name="ExperimentalConditions">Experimental Conditions</a></h1>
+<div class="forum_location">
+
+<table class="ExperimentalDetails">
+
+<tr><td><h1>Experimental Details</h1><span class="instructions">Provide information describing how the SAXS experiment was performed such as concentration range, etc.</span></td><td><%= f.text_area :experimental_details, "cols" => 47, "rows" => 8 %></td></tr>
+<tr><td><h1>Buffer</h1><span class="instructions"><I>e.g., </I> Tris-Base, Hepes</span></td><td><%= f.text_field :buffer %></td></tr>
+<tr><td><h1>pH</h1><span class="instructions">This should be the pH of your buffer.</span></td><td><%= f.text_field :pH, "size" => 4 %></td></tr>
+<tr><td><h1>Temperature</h1><span class="instructions"></span></td><td><%= f.text_field :temp, "size" => 4 %>&nbsp;&#176;C</td></tr>
+<tr><td><h1>type of salt</h1><span class="instructions"><I>e.g., </I>NaCl, KCl </span></td><td>
+
+<%= select(:experiment, :salt, @salt, :selected => "#{@experiment.salt.strip}") %> SELECTED: <%= @experiment.salt %>
+
+</td></tr>
+<tr><td><h1>salt concentration</h1><span class="instructions">Number only, the units are in mM.</span></td><td><%= f.text_field :salt_concentration, "size" => 10 %></td></tr>
+<tr><td><h1>Divalent</h1><span class="instructions"><I>e.g.,</I>&nbsp;MgCl<sub>2</sub></span></td><td>
+
+<%= select(:experiment, :divalent, @divalent, :selected => "#{@experiment.divalent.strip}") %> SELECTED: <%= @experiment.divalent %>
+
+</td></tr>
+<tr><td><h1>Divalent concentration</h1><span class="instructions">Number only, the units are in mM.</span></td><td><%= f.text_field :divalent_concentration, "size" => 10 %></td></tr>
+<tr><td><h1>Any Additional Additives?</h1><span class="instructions"><I>e.g.,</I>ATP, 0.1% Tween 20, glycerol...</span></td><td><%= f.text_field :additives, "size" => 45 %></td>
+
+<tr><td colspan="2" align="left"><h1>Sample Composition</h1></td></tr>
+<tr>
+<td align="right">Protein:</td><td>No
+	<%= @experiment.protein ? (f.radio_button :protein, 0) : (f.radio_button :protein, 0, :checked => true) %>
+	yes
+	<%= @experiment.protein ? (f.radio_button :protein, 1, :checked => true) : (f.radio_button :protein, 1) %>
+</td>
+</tr>
+<tr>
+<td align="right">RNA:</td><td>No 
+	<%= @experiment.rna ? (f.radio_button :rna, 0) : (f.radio_button :rna, 0, :checked => true) %>
+	yes
+	<%= @experiment.rna ? (f.radio_button :rna, 1, :checked => true) : (f.radio_button :rna, 1) %>
+</td>
+</tr>
+<tr>
+<td align="right">DNA:</td><td>No
+	<%= @experiment.dna ? (f.radio_button :dna, 0) : (f.radio_button :dna, 0, :checked => true) %>
+	yes
+	<%= @experiment.dna ? (f.radio_button :dna, 1, :checked => true) : (f.radio_button :dna, 1) %>
+</td>
+</tr>
+<tr>
+<td align="right">Membrane:</td><td>No
+	<%= @experiment.membrane ? (f.radio_button :membrane, 0) : (f.radio_button :membrane, 0, :checked => true) %>
+	yes
+	<%= @experiment.membrane ? (f.radio_button :membrane, 1, :checked => true) : (f.radio_button :membrane, 1) %>
+</td>
+</tr>
+<tr>
+<td align="right">Nanoparticle:</td><td>No
+	<%= @experiment.nanoparticle ? (f.radio_button :nanoparticle, 0) : (f.radio_button :nanoparticle, 0, :checked => true) %>
+	yes
+	<%= @experiment.nanoparticle ? (f.radio_button :nanoparticle, 1, :checked => true) : (f.radio_button :nanoparticle, 1) %>
+</td>
+</tr>
+</table>
+
+<%= f.hidden_field :data_directory, :value => @submission.data_directory %>
+   <a name="Update"><%= f.submit :value => "Save and Return to Main Form" %></a>
+<% end %>
+</div>

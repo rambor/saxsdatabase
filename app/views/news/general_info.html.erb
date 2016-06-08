@@ -1,0 +1,38 @@
+<% content_for :right do %>
+  <%= render :partial => "right_side_menu" %>
+<% end -%>
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>
+<% end -%>
+<p class="welcometitle">General Information</p>
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @news.each do |news| %>
+<tr>	
+  <th colspan="3" align="left">
+<span class="red_text"><%= news.title.upcase %></span><span class="grey_text"> &nbsp; &nbsp; (posted: <%= nice_date(news.created_at) %>)</span>
+
+<%= raw RedCloth.new("p(about). #{news.notes}").to_html %>
+
+<% if !news.journal_info.empty? %>
+<span class="RightText"><%= raw RedCloth.new(news.journal_info).to_html %></span>
+<% end %>
+<hr>
+</th>
+</tr>
+  <tr>
+    <td></td>
+<% if can? :update, @news %>
+    <td><%= link_to 'Edit', edit_news_path(news.id) %></td>
+    <td><%= link_to 'Destroy', news, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>	
+	</td>
+
+  </tr>
+<% end %>
+</table>

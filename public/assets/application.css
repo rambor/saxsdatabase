@@ -1,0 +1,364 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *
+ */
+
+
+body{
+  font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  color: #000000;
+  background: #ffffff;
+}
+
+#container
+{
+	width:1112px;
+	border: 0px solid#666;
+	margin-right:auto;
+	margin-left:auto;
+    min-height:500px;
+}
+
+#mainnavcontainer {
+	padding: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	z-index: 1;
+}
+
+#mainnav {
+	text-align: center;
+	margin: -13px;
+	padding: 0px;
+	position: relative;
+	z-index: 2;
+    font-family:'Lucida Grande', 'Trebuchet MS', Arial, Helvetica, sans-serif;	
+}
+
+#mainnav ul {
+	list-style-type: none;
+}
+
+#mainnav li {
+	display: inline;
+    text-align: center;
+    margin: 0 5px;    
+    font-size: 20px;
+}
+
+#mainnav li a {
+	padding: 1px 7px;
+	color: #666;
+	background-color: #fff;
+	border: 0px solid #ccc;
+	text-decoration: none;
+}
+
+#mainnav li a:hover {
+	color: #4DD7E3;
+}
+
+.centeredImage {
+	text-align:center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 2px;
+}
+
+.mainsearch {
+	text-align:center;
+	padding: 0px;
+	margin-bottom: 30px;
+
+}
+
+#left {
+       float:left;
+       top:200px;
+       width:190px;
+       padding:5px;
+       background-color: #f0e8ff;
+       border-right:3px solid #666;
+       border-bottom:3px solid #666;
+       border-top: 1px solid #666;
+       border-left:1px solid #666;
+       min-height:600px;
+       z-index: 0;
+}
+
+#content {
+	margin:auto;
+	background:#fff;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+    width:670px;
+	padding-left:20px;
+    float:left;
+	border: 0px solid #666;
+	min-height:265px;
+	z-index: 0;
+}
+
+#right {
+	float:right;
+	z-index: 0;
+	padding:3px;	
+	top:200px;
+	width:190px;
+    min-height:600px;
+	background: #ffffff;
+	border-right:0px solid #666;
+	border-bottom:0px solid #666;
+	border-top: 0px solid #666;
+    border-left:2px solid #666;
+	font-family:'Lucida Grande', 'Trebuchet MS', Arial, Helvetica, sans-serif;
+}
+
+#footer
+{
+	margin:0 auto;
+	margin-bottom:1em;
+	font-family:'Lucida Grande', Tahoma, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size:0.9em;
+	color:#666;
+	padding:0px 15px;
+	margin-bottom:3.5em;
+}
+
+p.subtitle
+{
+	font-family: 'Lucida Grande', Tahoma, Arial, Helvetica, sans-serif;
+	font-size:0.75em;
+	color:#888;
+	font-weight:bold;
+	margin-top:-0.8em;
+}
+
+#footer p.copyright a.subtle
+{
+	color:#666;
+}
+#footer p.legal
+{
+	margin-right:1.5em;
+}
+
+#footer p.links a
+{
+	font-size: 1em;
+	text-decoration: none;
+	color:#666;
+}
+
+
+
+
+.about {
+	text-align: justify;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 12pt;
+	line-height: 2em; 
+	color: #4c3a3a;
+}
+
+#LeftMenu {
+  font: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 100%;
+  padding: 10px;
+  margin: 0px;
+}
+
+#LeftMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+#LeftMenu ul li {
+  margin: 0px;
+  padding: 0px;
+}
+
+#LeftMenu ul li a {
+  font-size: 12pt;
+  display: block;
+  border-top: 0px dashed #C39C4E;
+  border-bottom: 1px dashed #666;
+  padding: 10px 0px 6px 4px; 
+  text-decoration: none;
+  width: 170px;
+}
+
+#LeftMenu li {
+  background-color: transparent;
+}
+
+#LeftMenu a:link, #links a:visited {
+  text-decoration: none;
+  color: #000;	
+  background-color: transparent;
+}
+
+#LeftMenu a:hover {
+  color: #FFFFFF;	
+  background-color: #6A5ACD;
+}
+
+table.RightMenu_Details {
+
+}
+
+table.RightMenu_Details tr th {
+  font:bold 13px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  color:#666;
+  padding:2px;
+}
+
+table.RightMenu_Details tr td {
+  font:normal 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  color: #4c3a3a;
+  text-align:left;
+  padding:4px 6px; 
+}
+
+.forum_location
+{
+	font-size:0.75em;
+	font-family: 'Lucida Grande', Tahoma, Arial, Helvetica, sans-serif;
+}
+.forum_location a { color:#468; text-decoration: none;}
+.forum_location a:hover { color:#00c; text-decoration: none; }
+
+tr.sequence th {
+        background:#fff;
+        color:#666;
+        font: 12pt Courier;
+        padding:10px;
+		border-top: 1px solid #e6b2f7;
+		border-right: 1px solid #e6b2f7;
+		border-left: 1px solid #e6b2f7;
+		border-bottom: 1px solid #e6b2f7;	
+}
+
+#download { 
+	padding: 0 0 1em 1em;
+	}
+#download ul {
+	font-size: 14px;
+	padding-left: 1em;
+	text-align: left;
+	list-style-type:none; 
+	}
+
+#download li a:link, a:visited, a:active {
+  text-decoration: none;
+  color: #000;		
+}
+
+#download li a:hover { text-decoration: underline; color:red; }
+
+.welcome_small_text {
+	font-size:13px;
+	font-style:normal;	
+	color: #666;
+	line-height: 1em; 
+	font-family: 'Lucida Grande', Tahoma, Arial, Helvetica, sans-serif;
+	border-top: 0px solid #666;
+	border-bottom: 0px solid #666;
+}
+
+.welcometitle {
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 17pt;
+	line-height: 1em; 
+	color: #4c3a3a;
+	border-bottom:2px solid #666;
+}
+
+#RightTitle  { 
+  background:#cee8ff;
+  background-color: #8d9fb2;
+  border-top: 0px solid #666; 
+  border-left: 0px solid #666;
+  border-bottom:1px solid #666;
+  width: 180px;
+  padding:1px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+}
+
+td.spec {	
+    padding:6px;
+	border-right: 0px solid #C1DAD7;
+	border-top: 0;
+	background: #fff;
+	font: bold 14px "Trebuchet MS", Verdana, Arial, Helvetica,
+	sans-serif;
+}
+
+th.specalt {
+	border-left: 1px solid #e6b2f7;
+	border-right: 1px solid #e6b2f7;
+	border-top: 1px solid #e6b2f7;
+	border-bottom: 1px solid #e6b2f7;	
+	height: 20px;
+	background: #f5fafa;
+	font: bold 16px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #938c85;
+}
+
+.white_text {
+    color: orange;
+    font-weight: bold;
+    font: normal 20px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.green_text {
+        color: green;
+        font: normal 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.blue_text {
+        color: blue;
+        font: normal 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.darkred_text {
+        color: #c62f2f;
+        font: normal 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.red_text {
+        color: red;
+        font: normal 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.yellow_text {
+        color: yellow;
+        font: normal 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.grey_text {
+        color: #494949;
+        font: normal 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+

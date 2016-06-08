@@ -1,0 +1,11 @@
+<%= javascript_tag do %>
+	
+	<% temp="["; @pofr_data.each do |entry| %>
+	  <% temp = temp + entry + "," %>
+	<% end %>
+	<% temp = temp.chop + "]" %>
+	
+	pofrData = <%= escape_javascript(temp) %>;
+    rmax = <%= number_with_precision @rmax, :precision => 0 %>;
+
+<% end %>

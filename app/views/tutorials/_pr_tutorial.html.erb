@@ -1,0 +1,41 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+<p class="about">
+SC&Aring;TTER uses a modification of the Moore function<sup>1</sup> for transforming the data to real space. We implement an L1-norm regularization constraint on the second derivative of the P(r) distribution to help mitigate noise. The smoothness constraint is ultimately imposed on the Moore coefficients. In addition, we offer a Shannon-limited sampling method that minimizes on the median residual for fitting the Moore function to the SAXS data. The parameters for the sampling method are in the "Settings" tab (Figure 1). The strength of the regularization is controlled by lambda (default 0.01). Noisy datasets can be transformed by increasing C.  C (default 2) effectively increases the number of points that are used to evaluate smoothness. As a comparison, GNOM uses ~101 equally spaced data points to evaluate smoothness.
+</p>
+
+<p class="about" align="left"><b>Figure 1 |</b></p>
+	<%= image_tag('pr_figure_1.png', :width => '650') %>
+<p class="about" align="left">Most datasets require about 2000 "pr_refinement rounds" (Figure 1). The "pr_refinement rounds" represent the number of fits and sub-samplings used during the P(r) determination. Noisy datasets will require 3,000 to 4,000 rounds. During the sub-sampling, we are effectively searching parameter space and can use the search to determine which subset of the data best explains the entire dataset. This is possible since SAXS datasets are highly over-sampled (see <%= link_to "Rambo and Tainer Nature 496, 477-481 2013", "http://www.nature.com/nature/journal/v496/n7446/full/nature12070.html", :class=>'no_decor_link' %>). The cut-off for the selection is set by the "rejection cut-off" and essentially acts as a standard deviation cut-off meaning data points with standardized residuals that sit outside the cut-off are rejected from the final fit.</p>
+<p class="about" align="left">Using default parameters, load a dataset and switch to "Analysis" tab. Here, I am using the dataset labeled SRNA_2.dat (Figure 2). SRNA_2.dat is a particularly difficult dataset, it is a mixture of RNA species, including misfolded RNAs produced during the refolding step. </p><p class="about" align="left">Make sure the Guinier parameters have been determined using either "Guinier Rg" or "Auto Rg" buttons. Now, click on the "P(r)" button under the blue "REAL SPACE" label in the lower lefthand corner. Also, during the P(r)-determination, I suggest plotting the data as q vs. q*I(q) as this representation of the SAXS data illustrates the form of the data that is used in Fourier space (see checkbox in lower right next to "SVD Reduce"" button).</p>	
+<p class="about" align="left"><b>Figure 2 |</b></p>
+	<%= image_tag('pr_figure_2.png', :width => '650') %>
+<p class="about" align="left">The "P(r)" button switches to the "P(r)" tab and runs a preliminary fit using the d-max (default: 96) specified in the "Settings" tab (Figure 1). We are seeking a P(r) distribution that is smooth (not too many humps). Here, there are many humps and the finish is abrupt. It would appear that the d-max is too small. </p><p class="about" align="left">The P(r)-distribution is determined using an Indirect Fourier Transform (IFT) method. IFT approximates the real-space distribution with a representative function (such as a sine or Zernike series or other basis set) to model the SAXS data in real-space. The parameters for the representative function are determined via a fitting routine such as least squares.  Scatter uses a convex optimization method (interior point) with an L1-norm regularization term to stabilize the solution. There are two methods for regularization, 1) minimizing on the absolute sum of the Moore coefficients and 2) maximizing smoothness of the P(r)-distribution. The choice of the regularization can be made in the "Settings" tab (Figure 3, orange arrow). Method 1 can be considered least bias. </p>
+	<p class="about" align="left"><b>Figure 3 |</b></p>
+		<%= image_tag('pr_figure_1a.png', :width => '650') %>
+	<p class="about" align="left">
+	To start, I recommend trimming back the first 10 to 20 points using the "Start" box (Figure 4), typically removing the entire Guinier region of the SAXS dataset. This can be important for samples with suspect Guinier regions and can be used to attenuate the effects of aggregation in the sample. The Guinier region is not essential for IFT, due to the over-sampling of modern SAXS datasets, the IFT method interpolates the missing information. A well behaved sample and dataset should not show much differences between the P(r)-distributions determined with and without the Guinier region.</p>	
+<p class="about" align="left"><b>Figure 4 |</b></p>
+	<%= image_tag('pr_figure_3.png', :width => '650') %>
+
+<p class="about" align="left">After removing the first ~10 points, the undulations are much more severe (Figure 4). Now, we will increase d-max by clicking on the up-arrow in the d-max box.</p>	
+<p class="about" align="left">Figure 5:</p>	
+	<%= image_tag('pr_figure_4.png', :width => '650') %>
+<p class="about">Increase d-max until most of the undulations are smooth-ed out. We tend to choose the largest d-max that leads to a smooth and positive distribution. Any negative values should be avoided. Here, I settled on d-max of 113 (Figure 5). Chi-squared should be near 1 and S<sub>k2</sub> should be as low as possible. These values look good and we can test the solution using the "refine" button. </p>	
+<p class="about" align="left">Figure 5:</p>		
+	<%= image_tag('pr_figure_5.png', :width => '650') %>
+<p class="about">After settling on a d-max, press the "refine" button. This will determine how consistent the data is with the underlying P(r)-distribution defined by the d-max. As stated previously, the "pr_refinement rounds" and "rejection cut-off" are used here during the refinement.</p>	
+<p class="about" align="left">Figure 5a:</p>		
+	<%= image_tag('pr_figure_5a.png', :width => '650') %>
+	<p class="about">Here, we see the P(r)-distribution is worse (increased undulations), suggesting the distribution is not fully defined by this d-max and that chi-squared is too low (< 1).  We can impose a smoothing constraint on the distribution by checking the "Use second derivative" (see Figure 2) and testing different d-max's around 113.</p>	
+		
+<p class="about" align="left">Figure 6:</p>		
+	<%= image_tag('pr_figure_6.png', :width => '650') %>
+<p class="about">Setting dmax to 118 and performing refinement removed ~10% of the points (Figure 6) and resulted in a smoother but positive P(r) distribution.  The Chi2 is slightly higher but this is a good compromise between finding a solution that maximizes smoothness, with a Chi-squared near 1 and an S<sub>k2</sub> near zero.  The refined dataset is automatically written to file for use in GNOM and then DAMMIN/F or GASBOR.</p>			
+<p class="about">A poor quality buffer subtraction will make the P(r) determination difficult. If you are having problems determining a dmax, try truncating the data to a lower resolution.</p>		
+<span class="tutorial_small_text">
+1. <I>Moore, P.B. Journal of Applied Crystallography. 1980 13:168-175</I>
+</span>

@@ -1,0 +1,56 @@
+
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+<p class="about">
+The Guinier analysis, named after Andre Guinier, refers to the analysis of the SAXS scattering curve at very small scattering angles.  His analysis allows for the direct estimation of two SAXS invariants, the radius-of-gyration, R<sub>g</sub>, and the extrapolated intensity at zero scattering angle, I(0).  We present Sc&#8491;tter and the old Primus version for determining R<sub>g</sub>.</p>
+
+<p class="about">After loading a file, click on "Analysis" tab (black arrow Figure 1). </p>
+Figure 1<br><%= image_tag('guinier_figure_1.png') %>
+<p class="about">There are two methods for determining R<sub>g</sub>, an automated method and a manual method. The automated method (Auto Rg) determines the best fit line within the low q-range of data limited by q x R<sub>g</sub> < 1.3 (see page 71 of Svergun and Feign, 1982). This method does not trim bad points from the curve but the generated plot of the fit can be a useful guide for seeing where the data may be corrupted due to inter-particle interference or aggregation.
+</p>
+<p class="about">
+For manual Guinier analysis, press the "G" button, highlighted in blue (on right).
+
+</p>
+Figure 2<br><%= image_tag('guinier_figure_2.png') %>
+<p class="about">
+A plot will pop up showing the best initial guess at the Guinier region.  The upper plot is the data and fit plotted as ln[I(q)] vs q^2 with the corresponding residuals in the lower plot. The Guinier parameters are updated in the analysis tab and the number of visual points has been automatically updated in the "LEFT" and "RIGHT" boxes (Figure 2, lower right). To manually add or remove points, use the arrows next to the numbers. 
+</p>
+
+<p class="about">
+The goal is to remove any non-linear points from the starting low-q region of the data. Curvature in the residuals suggests non-linear behavior. The maximum q value should be limited to a q x R<sub>g</sub> < 1.3 (yellow circle Figure 2) specified by the "RIGHT" box. Why 1.3?  From Feign and Svergun's SAXS book, the inequality helps insure the estimated parameters are within 10% of the true value. Remember, Guinier analysis is an approximation of the SAXS curve; therefore, these parameters I(0) and R<sub>g</sub> will be prone to approximation errors depending on how many points were used to define the Guinier region and likewise the quality of the data. 
+</p>
+
+<p class="about">
+The Guinier parameters are continuously updated in the Analysis tab.  The currently displayed value is the value stored in the collection.  
+</p>
+
+
+<p class="about" align="left">
+Qualitatively, inspection of the Guinier region can reveal unexpected sample behaviour and is useful for evaluating the presence of sample aggregation or concentration-dependent scattering.  This is typified by non-linearity in the Guinier region.  For further information, please see the review by Putnam, C.D. <I>et al.</I>
+</p>
+
+<p class="about">	
+<%= image_tag('data_evaluation_review.png', :size=>'700x627') %>
+<span class="tutorial_small_text">
+Courtesy of <I>Putnam, C.D., Hammel, M., Hura, G.L., and Tainer, J.A. Q Rev Biophys. 2007 40(3):191-285</I>
+</span>
+<hr>
+<h1>PRIMUS (WINDOWS ONLY)</h1>
+<p class="about">For Primus, open your merged data.  You can clear the previous data by hitting the "Clear" button in the lower right hand corner of the Data processing window.  After selecting your data, hit the "Plot" button and then the "Guinier" button.  The curve should look horribly wrong like in Figure 3. The sR<sub>g</sub> or (qR<sub>g</sub>) limit circled in red is 9.29, much to large, it should be less than 1.3.  So, we have to cut down on the number of end points by adjusting down nEnd.  You can type 50 in where it says 502 and then hit the "Guinier" button again.</p>
+Figure 3<br><%= image_tag('guinier_incorrect.png') %>
+<p class="about">
+The re-plotted data should look much more linear within the small q range that you have selected.  The data shown in Figure 4 is from the 30S ribosomal subunit, a very large macromolecule and the Guinier region contains approximately 18 points.  In most cases, for smaller macromolecules (less than 1,000 kDa) you will have many more useful points in the Guinier region, ~30 points for something around 100 kDa at 12,000 eV.  
+</p>
+Figure 4<br><%= image_tag('guinier_correct.png') %>
+<p class="about">The bottom line in Figure 4 displays the residuals for the linear fit.  You should adjust nBeg and nEND such that the sRg limit is less than 1.3 for small globular particles (proteins) while cutting back on points that appear to bias the residuals.  The fit in Figure 4 is reasonable with an Rg of 70.8 and an I(0) of 17,454.  If I required more data at a smaller scattering angle, I would need to reduce my energy from 12,000 eV to 8,000 eV. </p>
+
+<p class="about" align="left">
+For a well behaved sample, a plot of the natural logrithm of the measured intensities vs <I>q</I><sup>2</sup> should reveal a linear region in the smallest q-region of the data.  The intercept, b, is the extrapolated intensity at zero angle and the slope, m, is the negative square of R<sub>g</sub> divided by 3.  
+</p>
+
+</p>
+

@@ -1,0 +1,29 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+<p class="about">
+SC&Aring;TTER can estimate the mass of the scattering particle using a method from <%= link_to "Rambo and Tainer Nature 496, 477-481 2013", "http://www.nature.com/nature/journal/v496/n7446/full/nature12070.html", :class=>'no_decor_link' %>. This method requires an accurate assessment of I(0), R<sub>g</sub> and V<sub>c</sub>. Given that I(0) and R<sub>g</sub> can be estimated from real and reciprocal space, we calculate mass using both methods. Based on the paper, the mass is determined from the Q<sub>R</sub> ratio defined as the ratio of V<sub>c</sub><sup>2</sup> to R<sub>g</sub>. To determine the particle mass of your sample, perform the following steps:
+</p>
+
+<ol>
+	<li class="blue_text">Perform a Guinier analysis or use "Auto Rg".</li>
+	<li class="green_text">Perform a real space analysis determining the P(r) distribution.</li>
+	<li class="darkred_text">Determine the volume-of-correlation via "Vc" button.</li>				
+</ol>
+<p class="about" align="left">Figure 1 | (adapted from <I>Rambo and Tainer Nature 496, 477-481 2013</I>)</p>
+	<%= image_tag('protein_mass_figure_1.png', :width => '650') %>
+<p class="about">
+The mass parameter Q<sub>R</sub> follows a power-law relationship with particle mass (Figure 1). For each type of particle (e.g. protein, RNA, or DNA), the power-law relationship can be parameterized from a set of known samples. In Figure 1 is the power-law relationship for protein (black), mixed nucleic acid protein complexes (cyan) and RNA (red) structures from the PDB. Q<sub>R</sub> was calculated from <I>in water</I> SAXS simulations by D. Svergun's program CRYSOL. 
+</p>	
+<p class="about" align="left">Figure 2 | (adapted from <I>Rambo and Tainer Nature 496, 477-481 2013</I>)</p>
+	<%= image_tag('protein_mass_figure_2.png', :width => '650') %>
+<p class="about">
+Q<sub>R</sub> is linear over a large mass range. Using actual protein and RNA samples (Figure 2), Q<sub>R</sub> was calculated using highly purified and determined samples resulting in the determination of k and c from Figure 1. These parameters can be used to determine mass of either protein or RNA samples, independent of instrumentation or buffer composition. 
+</p>
+<p class="about">	
+	<%= link_to "SAXS MoW", "http://www.if.sc.usp.br/~saxs/", :class =>'no_decor_link' %> is an alternative method for estimating protein molecular mass directly from a SAXS curve. This method requires GNOM output from ATSAS version 2.4.2.  
+</p>
+	
+	

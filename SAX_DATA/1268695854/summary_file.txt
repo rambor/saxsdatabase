@@ -1,0 +1,73 @@
+#REMARK USER INFORMATION 
+CREATED_ON	2010-03-15T23:30:54+00:00
+DATA_DIRECTORY	/users/home/rambor/domains/bioisis.net/web/releases/20100312091323/public/SAX_DATA/1268695854
+IP_ADDRESS	131.243.85.165
+EMAIL	glhura@gmail.com
+SESSION	6ce4f17b8cb8103a9077ece7e87c0ebf
+
+#REMARK SUMMARY
+TITLE	The Structure and Conformation of Lys63-Linked Tetra-Ubiquitin(Ub)
+DESCRIPTION	Since the crystal structure of the extended conformation of the Lys63 tetra - Ubiquitin is clearly influenced by lattice contacts, we used small-angle X-ray scattering combined with molecular dynamics simulations to explore the structure of Lys63 tetra-Ub in solution. Small-angle X-ray scattering experiments show that the tetra-Ub chain is dynamic, adopting an ensemble of conformations that are more compact than the extended form in the crystal. The results of these studies provide a basis for understanding the differences in the behavior and recognition of Lys63 poly-Ub chains.
+SOURCE_LOCATION	ALS SIBYLS beamline 12.3.1
+PUBLICATION	The Structure and Conformation of Lys63-Linked Tetraubiquitin  JOURNAL OF MOLECULAR BIOLOGY   Volume: 392   Issue: 5   Pages: 1117-1124   Published: OCT 9 2009
+LINK	0
+
+#REMARK EXPERIMENTAL CONDITIONS
+WAVELENGTH	1.03320
+EXPERIMENTAL_DETAILS	Extrapolated to zero concentration from 4 different concentrations between 1 and 10 mg/mL
+BUFFER	Tris-Base
+pH	7.6
+TEMPERATURE	10.0
+SALT	NaCl
+SALT_CONCENTRATION	50
+DIVALENT	none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES	0.5 mM EDTA acid
+
+#REMARK EXPERIMENTAL VALUES
+Io	219.08
+SIG_Io	0.617
+Io_MOLECULAR_WEIGHT	33600
+DMAX	118
+RG	32.4
+SIG_RG	0.156
+RG_REAL	33.9
+SIG_RG_REAL	0.2
+V_POROD	39149
+iofq_file_name	UbMerge.dat
+pofr_file_name	UbMerge118.pofr
+
+#REMARK AUTHORS
+AUTHOR	Datta	A. B.
+AUTHOR	Hura	G.L
+AUTHOR	Wolberger	C.
+
+#REMARK NEW ORF(S)
+GENE_ID	0
+LOCUS_NAME	not known
+ACCESSION	
+EXPERIMENTAL_SEQUENCE	MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGGMQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGGMQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGGMQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG
+ANNOTATION	Tetra - ubiquitin connected via Lys63
+EXP_MW	34204.57016
+
+#REMARK ENSEMBLE MODEL
+CHI_SQUARE	7.0
+SELECTION_METHOD	Genetic Algorithm
+SIMULATION_METHOD	CHARMM
+SIMULATION_ALGORITHM	bilboMD - no long range electrostatics
+ENSEMBLE_SIZE	100000
+MEMBER_SIZE	3
+FIT_FILE	ubmergeM.fit
+DIAGNOSTIC_FILE	DiagnosticFile.txt
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+RENAMED FILE			ORIGINAL FILE
+iofq_data_file.dat		originals/UbMerge.dat
+pofr_data_file.dat		originals/UbMerge118.pofr
+ensemble_fit.dat		ensemble/ubmergeM.fit
+ensemble_diagnostic.txt		ensemble/DiagnosticFile.txt
+#<File:0x964e4f8> maps to ensemble_model_1.pdb
+#<File:0x9647950> maps to ensemble_model_2.pdb
+#<File:0x9642130> maps to ensemble_model_3.pdb

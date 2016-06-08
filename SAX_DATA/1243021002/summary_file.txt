@@ -1,0 +1,86 @@
+#REMARK USER INFORMATION 
+CREATED_ON	2009-05-22T19:36:42+00:00
+DATA_DIRECTORY	/users/home/rambor/domains/bioisis.net/web/releases/20090216104533/public/SAX_DATA/1243021002
+IP_ADDRESS	131.243.85.144
+EMAIL	glhura@lbl.gov
+SESSION	668d38c451980033c1a9fce538b6d06d
+
+#REMARK SUMMARY
+TITLE	PF0021 - Pyrococcus Furiosus ORF#0021 monomeric product
+DESCRIPTION	PF0021 has been solved crystallographically (PDB: 1NNW). Model does not fit the crystal structure perfectly. Some flexible termini and loops could improve the agreement. Further modeling is necessary, some flexible termini and loops could improve the aggreement.  However, its monomeric form in solution has been confirmed and the atomic model fits the envelope with sufficient accuracy.
+SOURCE_LOCATION	ALS bl12.3.1 SIBYLS
+PUBLICATION	in press Nature Methods Rapid and robust proteomics-scale solution structural analyses determined efficiently by x-ray scattering (SAXS)
+LINK	0
+
+#REMARK EXPERIMENTAL CONDITIONS
+WAVELENGTH	1
+EXPERIMENTAL_DETAILS	Extrapolated to zero concentration from 4 different concentrations between 1 and 10 mg/mL
+BUFFER	20mM Tris-Base
+pH	8.0
+TEMPERATURE	25.0
+SALT	KCl
+SALT_CONCENTRATION	200
+DIVALENT	none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES	4mM TCEP
+
+#REMARK EXPERIMENTAL VALUES
+Io	127.8
+SIG_Io	1.39
+Io_MOLECULAR_WEIGHT	27333
+DMAX	73
+RG	22.1
+SIG_RG	0.4
+RG_REAL	22.86
+SIG_RG_REAL	0.0
+V_POROD	72000
+iofq_file_name	0021.dat
+pofr_file_name	p0021.pofr
+
+#REMARK AUTHORS
+AUTHOR	Rambo	R.P.
+AUTHOR	Hura	G.L.
+AUTHOR	Tainer	J.A.
+AUTHOR	Adams	M.W.W.
+
+#REMARK EXPERIMENTAL ORF(S)
+GENE_ID	944
+LOCUS_NAME	PF0021
+ACCESSION	0
+EXPERIMENTAL_SEQUENCE	AHHHHHHGSRVLKSEGVSMLNTELLTTGVKGLDELLGGGVAKGVILQVYGPFATGKTTFAMQVGLLNEGKVAYVDTEGGFSPERLAQMAESRNLDVEKALEKFVIFEPMDLNEQRQVIARLKNIVNEKFSLVVVDSFTAHYRAEGSREYGELSKQLQVLQWIARRKNVAVIVVNQVYYDSNSGILKPIAEHTLGYKTKDILRFERLRVGVRIAVLERHRFRPEGGMVYFKITDKGLEDVKNED
+ANNOTATION	recombinase
+EXP_MW	27332
+
+
+#REMARK DAMMIN
+SPACEGROUP	P1
+CHI_SQUARE	1.366
+NSD	0.531
+NUMBER_IN_AVERAGE	8
+
+#REMARK GASBOR
+SPACEGROUP	P1
+CHI_SQUARE	1.33
+NSD	1.216
+NUMBER_IN_AVERAGE	8
+
+#REMARK STRUCTURAL MODEL
+DESCRIPTION	PF0021 has been solved crystallographically. Here we have added additional His-tag residues. The SAXS result an even more globular protein then visualized crystallographically. Something is missing in this current model
+CHI_SQUARE	10.0
+PDB_MODEL	002118_1_101500.pdb
+FIT_FILENAME	002118_1_10150000.fit
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+RENAMED FILE			ORIGINAL FILE
+iofq_data_file.dat		originals/0021.dat
+pofr_data_file.dat		originals/p0021.pofr
+single_dammin_model.pdb		dammin/dP1_1-1.pdb
+average_dammin_model.pdb	dammin/damfilt_dP1.pdb
+single_gasbor_model.pdb		gasbor/gP1_7.pdb
+average_gasbor_model.pdb	gasbor/damfilt_gP1.pdb
+hires_gasbor_model.pdb		gasbor/002118_1_101500.pdb
+pdb_model.pdb			structure/002118_1_101500.pdb
+fitted_SAXS_with_model.dat	structure/002118_1_10150000.fit

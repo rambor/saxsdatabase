@@ -1,0 +1,37 @@
+
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+<p class="about">
+Data reduction in SAXS generally involves the merging of data collected at different exposures.  There are several ways to merge data including any typical spreadsheet program but we will use a great program utility written by Dimitri Svergun of EMBL called <%= link_to("Primus", "http://www.embl-hamburg.de/ExternalInfo/Research/Sax/manual_primus.html") %>.  Here is an example of merging two sets of data collected at different exposures (5 and 50 seconds) from Beamline 12.3.1 of the ALS.   </p>
+<p class="about">
+Primus only operates in a MS Windows-based machine, if you have a Mac, you will need a virtual machine such as VM or Parallels.  So, start Primus and an empty window should appear as seen in Figure 1.  
+</p>
+Figure 1:<br><%= image_tag('primus_start.png', :border=>"0") %>
+<p class="about">
+In the open window, click on the <font color="red">Tools</font> tab.  The <font color="red">Tools</font> window will appear which for some reason is labelled <font color="red">Data processing</font>, this is how data is loaded and managed in Primus.  The window will sometimes disappear, depending on how you are clicking on the various windows/regions, so to bring it back, check the Task bar.
+</p>
+<p class="about">
+Now, to load some data, click on the <font color="red">Select</font> button.  This will open another window.  Your data must be tab delimited in two (scattering angle, intensity) or three (scattering angle, intensity, error) columns.  In this case I am going to load two data files collected on the 30S ribosomal subunit exposed for 5 and 50 seconds.  After selecting the two data files, click on the "Plot" button in the lower left corner of the <font color="red">Data processing</font> window.
+</p>
+Figure 2:<br><%= image_tag('primus_tools.png', :border=>"0") %>
+<p class="about">
+In Figure 3, the <font color="red">Data Processing</font> window shows that each file contains 503 data points (nEnd).  You should note that for the most part, each curve coincides.  This is due to the fact the data is integrated and normalized. The <font color="red">red</font> curve is the short 5 sec exposure and the <font color="blue">blue</font> curve is the longer, 50 sec exposure.  The y-axis is intensity and the x-axis is scattering angle labeled s (we like to use q).  Close to the zero scattering angle (near the beam-stop), the 50 sec curve is tailing downwards.  This is due to the sample being over-exposed (50 seconds of synchrotron radiation is intense!). 
+</p>
+Figure 3:<br><%= image_tag('primus_unedited_data.png', :border=>"2") %>
+<p class="about">
+Unlike the long exposure, the short exposure does well at the lowest scattering angle but becomes noisier at the higher scattering angles.  SAXS scattering falls off as 1/q<sup>4</sup>, so it decays rapidly at higher scattering angles.  Therefore, between the long and short exposures we can compile a complete scattering curve for the sample.  This is achieved by selecting up or down the number of points in nBeg and nEnd in the <font color="red">Data processing</font> window (see Figure 4).  
+</p>
+Figure 4:<%= image_tag('primus_unedited_cut.png', :border=>"2") %>
+<p class="about">
+In Figure 4, I settled on using the first 100 data points from the 5 sec exposure and data points 60 to 503 from the long exposure.   As illustrated in the figure, all of the noisy data from the short exposure and likewise, the over-exposure artifact from the long exposure have been effectively removed.  At this point, we can "merge" the data to create our single SAXS scattering curve by pressing the <font color="orange">Merge</font> button (see Figure 5).
+</p>
+Figure 5:<%= image_tag('primus_merge.png', :border=>"2") %>
+<p class="about">
+The name for the "merged" file is the default Merge00.dat.  If you wish to use a different name, this can be achieved by putting a filename in the red circle box in Figure 5 prior to hitting the <font color="orange">Merge</font> button.  
+This data file is now ready for analysis.  If you collect at several different concentrations, then the merging of the two time exposures for each concentration must be performed.  On to <%= link_to "Guinier Analysis", tutorial_path(:id=>"4") %>... 
+</p>
+
+

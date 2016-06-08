@@ -1,0 +1,64 @@
+<% if @request.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@request.errors.count, "error") %> prohibited the download</h3>
+    <ul>
+    <% @request.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<h2>Scatter Download Form</h2>
+
+<%= form_for @request do |f| %>
+<p>
+  <%= f.label :pi, "PI (optional)" %>
+  <%= f.text_field :pi %><br></p><p>
+  <%= f.label :institution, :class =>'new_scatter_download' %>
+  <%= f.text_field :institution %><br></p>
+  <%= f.label :country %>
+  <%= f.text_field :country %><br>
+<p>
+  <%= f.radio_button :status, 'Academic' %> 
+  <%= f.label :status, 'Academic', :value => 'academic', :checked => true %><br></p>
+<p>
+  <%= f.radio_button :status, 'Government' %>
+  <%= f.label :status, 'Government', :value => 'government' %><br></p>
+<p>
+  <%= f.radio_button :status, 'Non-Profit' %> 
+  <%= f.label :status, 'Non-Profit', :value => 'nonprofit' %><br></p>
+<p>
+  <%= f.radio_button :status, 'Industry' %>
+  <%= f.label :status, 'Industry', :value => 'industry' %><br>
+</p>
+<%= f.label :email, "Use Email for Version Changes? " %>:
+<%= f.check_box :email, :as => :boolean %><br>
+
+<%= f.hidden_field :user_id %>
+<%= f.hidden_field :ip_address %>
+<%= f.hidden_field :version %>
+
+<div>
+<hr>
+<h3>Terms of Use</h3>
+<p class="about">
+Downloading and using Scatter means you agree to the following: 
+</p>
+<p class="about">
+We are providing the JAVA-based program Scatter “as is” without warranty of any kind, express or implied. The authors of Scatter shall not be, in any event, be held liable for any claim, damages or other liability arising from the use of Scatter. 
+</p>
+<p class="about">
+As the user (person downloading Scatter), you are not allowed to redistribute any or all of the code, in any manner to other parties. The downloaded code is for your use only. Other interested parties must download Scatter from http://bl1231.als.lbl.gov. 
+</p>
+<p class="about">
+In addition, as a user, you are not allowed to modify or create a derivative copy of the code without the expressed written consent of the authors. 
+</p>
+<p class="about">
+Scatter is being provide free of charge to both academic and commercial users.
+</p>
+</div>
+  <%= f.label :terms_of_service, "Agree? " %>:
+  <%= f.check_box :terms_of_service, :as => :boolean %> <br>
+<hr>
+  <%= f.submit "Download" %>
+<% end %>

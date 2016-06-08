@@ -1,0 +1,13 @@
+<p>GASBOR result was determined with the following:</p>
+   <table border="0" width="350">            
+<% for gasbor in @experiment.gasbor_results %>	   
+<tr><td class="spec">Space Group</td><td class="spec"><%= gasbor.spacegroup %></td></tr>	
+<tr><td class="spec">Chi</td><td class="spec"><%= gasbor.chi_square %></td></tr>	
+<tr><td class="spec">NSD | RMSD</td><td class="spec"><%= gasbor.nsd %>&nbsp;</td></tr>
+<tr><td class="spec">variance(NSD | RMSD)</td><td class="spec"><%= gasbor.sig_NSD %>&nbsp;</td></tr>
+<tr><td class="spec">Number of Models in Average</td><td class="spec"><%= gasbor.number_in_average %>&nbsp;</td></tr>
+<% if gasbor.subcomb_model %>
+<tr><td class="spec">Superimposed model</td><td class="spec"><%= gasbor.number_in_average %>&nbsp;</td></tr>		
+<% end %>
+<% end %>
+    </table>

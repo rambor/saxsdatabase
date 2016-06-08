@@ -1,0 +1,41 @@
+
+    <table class="RightMenu_Details">
+        <tr><th colspan="2"><p id="RightTitle">Experimental Values</p></th></tr>
+        <tr><td>R<sub>g</sub> (&Aring;)</td><td><%= @experiment.rg %> </td></tr>   
+        <tr><td>R<sub>g</sub> real (&Aring;)</td><td><%= @experiment.rg_real %>(&plusmn;<%= @experiment.sig_Rg_real %>) </td></tr>
+        <tr><td>D<sub>max</sub> (&Aring;)</td><td><%= @experiment.dmax %> </td></tr>
+        <tr><td>I<sub>o</sub></td><td><%= number_with_delimiter(@experiment.io.to_i) %>(&plusmn;<%= @experiment.sig_Io %>) </td></tr>
+        <% if !@experiment.v_porod.nil?  %>
+           <% if @experiment.v_porod > 2000 %>        
+           <tr><td>V<sub>Porod</sub> (&Aring;<sup>3</sup>)</td><td><%= @experiment.v_porod %> </td></tr> 
+           <% end %>
+        <% end %>
+        <% if !@experiment.volume_of_correlation.nil? %>        
+        <tr><td>V<sub>c</sub></td><td><%= @experiment.volume_of_correlation %> &Aring;<sup>2</sup></td></tr> 
+        <% end %>
+        <% if !@experiment.porod_exponent.nil? %>
+           <tr><td>P<sub>exponent</sub></td><td><%= @experiment.porod_exponent %> </td></tr>        
+        <% end %>
+        <tr><td colspan="2" >Expected MW <%= @experiment.io_molecular_weight/1000 %> kDa </td></tr>   
+		<tr><td colspan="2" align="left" ><p id="RightTitle">ORF(s): </p></td></tr>
+		
+		<% count = 1; for gene in @experiment.expgenes  %>
+
+	           <% locus_names = "#{gene.abbr_name} (#{number_with_delimiter(gene.exp_mw.to_i/1000)} kDa)";	
+	
+	            if count < @experiment.expgenes.count;
+	            locus_names = locus_names ; 
+	            count = count + 1 ;
+	           end %>
+	               <tr><td colspan="2" align="center"><%= "#{locus_names}" %></td></tr>
+	     <% end %>
+	
+	
+	
+        <tr><th colspan="2"><p id="RightTitle">Experimental Conditions</p></th></tr>
+        <tr><td colspan="2"> <%= @experiment.buffer %>, pH <%= @experiment.pH %> and <%= @experiment.salt_concentration %> mM  <%= @experiment.salt %>  </td></tr>   
+
+   
+         <%= divalent = (@experiment.divalent_concentration > 0 ) ? "<tr><td>Divalent</td><td>".html_safe + @experiment.divalent_concentration.to_s + " mM " + @experiment.divalent + "</td></tr>".html_safe : "" %>
+         <%= additives = (!@experiment.additives.empty?) ? '<tr><td colspan=\"2\">Additives<hr></td></tr><tr><td colspan=\"2\">'.html_safe + @experiment.additives.to_s + '</td></tr>'.html_safe : '' %>
+    </table>

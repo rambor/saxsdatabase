@@ -1,0 +1,16 @@
+
+
+<h2>Thank you for Downloading Scatter</h2>
+
+<p class="about">
+You have downloaded Scatter a total of: <%= pluralize(@all.count, "time") %>
+</p>
+<h2>Download History</h2>
+<table>
+	<% @all.each do |entry| %>
+	  <% tempTime = entry.created_at.nil? ? Time.now - 30.days: entry.created_at %>
+	  <tr>
+		<td></td><td><%= tempTime.strftime("%m/%d/%Y") %></td><td>Version: <%= entry.version %></td>	
+	  </tr>
+	<% end %>
+</table>

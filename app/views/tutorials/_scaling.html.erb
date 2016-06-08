@@ -1,0 +1,31 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+<h2>Tip:</h2>
+<ul>
+<li>Setting Scale to 1 defaults the dataset back to original intensities
+</ul>
+<p class="about">
+Scaling is an important step in merging multiple datasets that may arise from a concentration series data collection or when SAXS datasets arise from different instrumentation. Also, we see concentration series type datasets from systems with inline Size Exclusion Chromatography flow cells. Our goal for each putative I(q) observation is to recover the SAXS signal independent of concentration implying a unity structure factor and ideal buffer subtraction.</p>
+
+<p class="about">
+We use scaling as a tool to demonstrate concentration independent regions of the SAXS curve and to guide merging strategies. In general, we do not perform zero concentration extrapolation of a concentration series, for more information see <%= link_to "ATSAS forum", "http://www.saxier.org/forum/viewtopic.php?t=1353", :class => 'no_decor_link'%>. Zero concentration extrapolations tend to introduce gross errors particularly in the low q-region, rather we examine a set of scaled SAXS curves to determine if they exhibit concentration independent scattering.
+</p>
+
+<p class="about">
+Principally, there are two different methods for scaling datasets that either 1) fit the SAXS curves to a reference (Figure 1 lower right) or 2) standardize each dataset such that they are scale invariant (Figure 1 left). One method for standardizing a dataset is to subtract each I(q) from the median I(q) value within a dataset and then divide by a scaling statistic. Since I favor the median for its robust properties, we need an alternative to the standard deviation and I used one defined by Rousseeux.  Standardizing the dataset splits the dataset into halves centered at the median and can be used directly for model fitting. This is useful for examining features or trends at high q but requires each dataset in the collection to have the same number of points within the same q-range. 
+</p>
+<h3>Figure 1:</h3><br><%= image_tag('scaling_figure_1.png', :border=>"0", :width=>"650") %>
+<p class="about">
+Scatter uses a fitting based approach where the last selected file is designated the reference dataset. All datasets used in the scaling must have overlapping q-ranges but they do not require the same q-range. Our linear fitting algorithm is based on the least median square (Figure 1 lower right) approach where small sub-samplings of the overlapping regions are used to determine a scale factor. We minimize on the median residual and this allows the scaling statistic to be resistant to outliers that may occur from interparticle interference, aggregation, poor buffer subtraction or zingers.
+</p>
+<p class="about">
+There are two approaches for scaling datasets in Scatter: 1) uses the LMS approach described above ("Scale"" button), and 2) uses I(0) ("Scale to I(0)" button). In an ideal, multiple concentration experiment without interparticle interference, I(0) will scale directly with particle concentration and can be used as a scaling parameter simply by dividing each dataset by the reference I(0). We offer this tool in Scatter as it can be used to diagnose concentration dependent scattering. If you scale to I(0) and see severe mis-alignment of the data at high q values, then you most likely have interparticle interference, aggregation or multimizerization of the particle.  
+</p>
+<p class="about">In this example, I have a glucose isomerase dataset collected at two low concentrations several times (Figure 2).</p>
+<h3>Figure 2:</h3><br><%= image_tag('scaling_figure_2.png', :border=>"0", :width=>"650") %>
+<p class="about">Click on "Scale to I(0)" (red arrow Figure 3) or "Scale" (green arrow Figure 3) button. Either method will give nearly the same result. In practice, I use the "Scale" button before merging the data into a single file, I rely on the robust properties of LMS fitting to reduce outlier influence (Figure 4) and I use the "Scale to I(0)" button for assessing concentration independence. </p>
+<h3>Figure 3:</h3><br><%= image_tag('scaling_figure_3.png', :border=>"0", :width=>"650") %>
+<p class="about"></p>
+<h3>Figure 4:</h3><br><%= image_tag('scaling_figure_4.png', :border=>"0", :width=>"650") %>

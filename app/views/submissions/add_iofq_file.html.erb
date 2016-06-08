@@ -1,0 +1,43 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+
+<% if @submission.errors.any? %>
+<ul>
+<% @submission.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %>
+</ul>
+<% end %>
+
+<ul>
+<% if !(@files.nil?) %>
+	<% @files.each do |file| %>
+<li><%= link_to "Remove", :controller => 'submissions', :action => 'remove_file', :file => file.split(/SAX_DATA\//)[1], :id => @submission.data_directory %> | <%= file.split(/originals\//)[1].chomp(".int") %> </li>	
+   <% end %>
+<% end %>
+</ul>
+
+<%= form_tag({ :action => 'upload_iofq_file', :id => @submission.data_directory}, :multipart => true) do %>
+
+<p><label for="upload_file">Select File</label> :
+<%= file_field 'submission', 'datafile' %>
+<%= check_box_tag(:isnm) %>
+<%= label_tag(:isnm, "check if q-vector in inverse nm") %>
+</p>
+<%= submit_tag "Upload" %>
+<% end %>
+<p>If q-vector not in Angstroms<sup>-1</sup>, please check box to convert during upload</p>
+<% if @iofqState %>
+<%= render :partial => "load_iofq_file", :formats => [:js], :content_type => 'text/javascript' %>
+<h2>Intensity Plot</h2>
+
+<canvas id="iofqPlot" width="386" height="300">
+<p>Your browser doesn't support canvas.</p>
+</canvas>
+
+<h2>Kratky Plot</h2>
+
+<canvas id="kratkyPlot" width="386" height="300">
+<p>Your browser doesn't support canvas.</p>
+</canvas>
+
+<% end %>

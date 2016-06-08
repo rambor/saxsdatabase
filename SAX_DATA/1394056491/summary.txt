@@ -1,0 +1,77 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1394056491
+EMAIL		MHammel@lbl.gov
+CREATED_ON	2014-09-03 21:31:56 UTC
+
+#REMARK SUMMARY
+TITLE	High-affinity interactions with the RING domain mediate stoichiometric GLMN binding to RBX1 complexes
+BIOISIS_ID	GLOMNP
+EXP_DESCRIPTION	Structural and biochemical analyses reveal that GLMN adopts a HEAT-like repeat fold that tightly binds the E2-interacting surface of RBX1, inhibiting CRL-mediated chain formation by the E2 CDC34. The structure explains the basis for GLMN’s selectivity toward RBX1 over RBX2, and how disease-associated mutations disrupt GLMN-RBX1 interactions. Our study reveals a mechanism for RING E3 ligase regulation whereby an inhibitor blocks E2 access, and raises the possibility that other E3s are likewise controlled by cellular proteins that mask E2-binding surfaces to mediate inhibition.
+SOURCE_LOCATION	ALS BL 12.3.1
+PUBLICATION	Structure of a glomulin-RBX1-CUL1 complex: inhibition of a RING E3 ligase through masking of its E2-binding surface, Molecular Cell, Vol. 47(3), 371-382
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	single concentration
+BUFFER			20mM Tris-HCl
+pH			7.6
+TEMPERATURE		20.0
+SALT			NaCl
+SALT_CONCENTRATION	150
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		1mM DTT
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			1500.0
+SIG_Io			0.0
+Io_MOLECULAR_WEIGHT	91000
+DMAX			127
+RG			38.15
+SIG_RG			0.0
+RG_REAL			40.95
+SIG_RG_REAL		0.0
+V_POROD			183388
+V_C			653.8
+POROD_EXPONENT		3.1
+
+#REMARK AUTHORS
+AUTHOR	Hammel		M
+AUTHOR	Tainer		J
+AUTHOR	Weinkam		P
+AUTHOR	Schneidman-duhovny		D
+AUTHOR	Webb		B
+AUTHOR	Sali		A
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	GLOMULIN
+EXP_MW		68191
+ANNOTATION	Monomer. Isoform 1 interacts with non-phosphorylated MET  and is released upon receptor phosphorylation. Isoform 2 interacts with FKBP59 and FKBP12. Isoform 1 is part of a SCF-like complex consisting of CUL7, RBX1, SKP1, FBXW8 and GLMN isoform 1.
+EXP_SEQUENCE	MAVEELQSIIKRCQILEEQDFKEEDFGLFQLAGQRCIEEGHTDQLLEIIQNEKNIVIIKNMGWNLVGPVVRCLLCKDKEDSKRKVYFLIFDLLVKLCNPKELLLGLLELIEEPSGKQISQSILLLLQPLQTVIQKLHNKAYSIGLALSTLWNQLSLLPVPYSKEQIQMDDYGLCQCCKALIEFTKPFVEEVIDNKENSLENEKLKDELLKFCFKSLKCPLLTAQFFEQSEEGGNDPFRYFASEIIGFLSAIGHPFPKMIFNHGRKKRTWNYLEFEEEENKQLADSMASLAYLVFVQGIHIDQLPMVLSPLYLLQFNMGHIEVFLQRTEESVISKGLELLENSLLRIEDNSLLYQYLEIKSFLTVPQGLVKVMTLCPIETLRKKSLAMLQLYINKLDSQGKYTLFRCLLNTSNHSGVEAFIIQNIKNQIDMSLKRTRNNKWFTGPQLISLLDLVLFLPEGAETDLLQNSDRIMASLNLLRYLVIKDNENDNQTGLWTELGNIENNFLKPLHIGLNMSKAHYEAEIKNSQEAQKSKDLCSITVSGEEIPNMPPEMQLKVLHSALFTFDLIESVLARVEELIEIKTKSTSEENIGIK
+
+
+#REMARK ENSEMBLE MODEL
+SCORING_FUNCTION	chi
+SCORE			0.05
+SELECTION_METHOD	MES
+SIMULATION_METHOD	AllosMod-FoXS
+SIMULATION_ALGORITHM	MD
+FIT_FILENAME		4f52-fit.txt
+ENSEMBLE_SIZE		10000
+MEMBER_SIZE		2
+DIAGNOSTIC_LEGEND		Structural populations of glomulin. The full-length unbound SAXS profile (bottom) is not well fit by the method because the sample contains some aggregation, as indicated by the deviation at low q.  <Qa,b> indicates structural ensemble consistency, which is low if aggregation is present (bottom). However, structural ensemble consistency improves after truncation of the unbound SAXS profile in the low q region where aggregation has a strong effect (top). The average weight, sigma weights, and a corresponding structure from the 10 best fits are shown.
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/4f52.dat
+pofr_data_file			originals/4f52_pofr.dat.pofr
+fitted_SAXS_ensemble_with_model.dat		originals/4f52-fit.txt
+pdb_filename_ .pdb			originals/

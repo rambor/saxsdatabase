@@ -1,0 +1,67 @@
+#REMARK USER INFORMATION 
+CREATED_ON	2009-01-30T01:11:27-08:00
+DATA_DIRECTORY	/Users/rambor/rails_svn_projects/bioisis/trunk/public/SAX_DATA/1233306687
+IP_ADDRESS	127.0.0.1
+EMAIL	rprambo@lbl.gov
+SESSION	4c3305c1253bcefac1c760bb902f3cff
+
+#REMARK SUMMARY
+TITLE	Brome Mosaic Virus tRNA-like Structure
+DESCRIPTION	RNA SAXS experiment of a gel-filtration purified sample demonstrating an RNA with a compact folded structure.  The structure and SAXS curve support a more complex shape built upon an underlying tRNA frame.  
+SOURCE_LOCATION	ALS BL 12.3.1
+PUBLICATION	Comparison and functional implications of the 3D architectures of viral tRNA-like structures. RNA, 15:294-307
+
+#REMARK EXPERIMENTAL CONDITIONS
+WAVELENGTH	1.24
+EXPERIMENTAL_DETAILS	Collect as a 2/3-rds dilution concentration series from 2 to 0.6 mg/mL.  
+BUFFER	MOPS
+pH	6
+TEMPERATURE	25.0
+SALT	KCl
+SALT_CONCENTRATION	50
+DIVALENT	MgCl2
+DIVALENT_CONCENTRATION	7.6
+ADDITIVES	
+
+#REMARK EXPERIMENTAL VALUES
+Io	244.0
+SIG_Io	1.0
+Io_MOLECULAR_WEIGHT	55939
+DMAX	108
+RG	30.9
+SIG_RG	0.2
+RG_REAL	31.35
+SIG_RG_REAL	0.06
+V_POROD	90215
+iofq_file_name	BMV_Mg_1.dat
+pofr_file_name	gnom.out
+
+#REMARK AUTHORS
+AUTHOR	Rambo	R.P.
+AUTHOR	Hammond	J.A.
+AUTHOR	Filbin	M.E.
+AUTHOR	Kieft	J.S.
+
+#REMARK NEW ORF(S)
+GENE_ID	0
+LOCUS_NAME	not known
+ACCESSION	NC_002028
+EXPERIMENTAL_SEQUENCE	CGUGGUUGACACGCAGACCUCUCUUACAAGAGUGUCUAGGUGCCUUUGAGAGUUACUCUUUGCUCUCUUCGGAAGAACCCUUAGGGGUUCGUGCAUGGGCUUGCAUAGCAAGUCUUAGAAUGGGGGUACCGUACAGUGUUGAAAAACACUGUAAAUCUCUAAAAGAGACCA
+ANNOTATION	tRNA-Like Sequence (TLS) from the Brome Mosaic Virus.  The TLS is found histidylated and is involved in replication of the genome, fidelity of the 3\' end and viral genome stability. 
+EXP_MW	55211.2
+
+#REMARK GASBOR
+SPACEGROUP	P1
+CHI_SQUARE	1.77
+NSD	1.423
+NUMBER_IN_AVERAGE	7
+
+#REMARK
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+RENAMED FILE			ORIGINAL FILE
+iofq_data_file.dat		originals/BMV_Mg_1.dat
+pofr_data_file.dat		originals/gnom.out
+single_gasbor_model.pdb		gasbor/gas17.pdb
+average_gasbor_model.pdb	gasbor/damfilt.pdb

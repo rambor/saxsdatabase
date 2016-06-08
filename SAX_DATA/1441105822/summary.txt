@@ -1,0 +1,92 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1441105822
+EMAIL		stephane.rety@ibcp.fr
+CREATED_ON	2015-09-01 11:15:30 UTC
+
+#REMARK SUMMARY
+TITLE	Yar1-Rps3 complex (full-length Yar1 with Rps3 N-terminal domain)
+
+BIOISIS_ID	YFLRNP
+EXP_DESCRIPTION	Yar1 is a chaperone of Rps3 and prevents aggreation of Rps3 before its association with 40S ribosomal subunit. Recombinant Yar1-Rps3 complex was studied in solution. Yar1 associates with the N-terminal domain of Rps3 and forms a 1:1 complex in the absence of the C-terminal domain of Rps3.
+SOURCE_LOCATION	SOLEIL SYnchrotron, SWING beamline
+
+PUBLICATION	To be published
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	SAXS profile was recorded on an in-line HPLC SEC peak (agilent BioSec-3 size-exclusion column run at a flow rate of 200microliter/min). THe sample was loaded at 10mg/ml concentration.
+BUFFER			Tris-Base
+pH			7.5
+TEMPERATURE		20.0
+SALT			NaCl
+SALT_CONCENTRATION	200
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			32.9
+SIG_Io			0.052
+Io_MOLECULAR_WEIGHT	33490
+DMAX			105
+RG			30.2
+SIG_RG			2.3
+RG_REAL			29.6
+SIG_RG_REAL		1.8
+V_POROD			53585
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Mitterer		V
+AUTHOR	Murat		G
+AUTHOR	Rety		S
+AUTHOR	Blaud		M
+AUTHOR	Delbos		L
+AUTHOR	Stanborough		T
+AUTHOR	Bergler		H
+AUTHOR	Leulliot		N
+AUTHOR	Kressler		D
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	Yar1FL
+EXP_MW		23967
+ANNOTATION	Full-length Yar 1 with N-terminal His-tag
+EXP_SEQUENCE	MGSSHHHHHHSQDPMGLHSEPLDQEDQDTIILDARAGDLDSLKDIFTTLVSPELLSTCKESESDSTALHMAAANGHIETVRYILETVSRANSAEDLKAFVNEVNKTGNTALHWASLNGKLDVVKLLCDEYEADPFIRNKFGHDAIFEAENSGKEEVETYFLKKYDVEPEDDEEDTQTEGKNSVQITKGTEIEQVTKEATEALREETEKLNINKD
+
+INFO_2
+ABBR_NAME	Rps3Nter
+EXP_MW		12445
+ANNOTATION	Rps3 N-terminal domain (1-95) with N-terminal His-tag
+EXP_SEQUENCE	MGSSHHHHHHSQDPMVALISKKRKLVADGVFYAELNEFFTRELAEEGYSGVEVRVTPTKTEVIIRATRTQDVLGENGRRINELTLLVQKRFKYAPGTIVLYAERVQDRG
+
+
+#REMARK DAMMIN
+SPACEGROUP		P1
+NSD			0.577915
+STDEV_NSD		0.0962877
+AVERAGE_OF		50
+
+
+#REMARK STRUCTURAL MODEL
+CHI_SQUARE		1.373
+FIT_FILENAME		YarRpsN_best00.fit
+DESCRIPTION		Yar1-Rps3 complex modelled from PDB 4BSZ
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/YarRpsN_33_43_A.dat
+pofr_data_file			originals/YarRpsN_33_43_A.out.pofr
+single_dammin_model.pdb		dammin/run50-1.pdb_rt.pdb
+average_dammin_model.pdb	dammin/damfilt.pdb
+hires_dammin_model.pdb		dammin/best.pdb
+fitted_SAXS_with_model.dat	structure/YarRpsN_best00.fit
+pdb_model.pdb			structure/YarRpsN_best.pdb

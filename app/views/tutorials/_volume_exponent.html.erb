@@ -1,0 +1,28 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo
+</span>
+</div>
+<p class="about">	
+The Porod Volume and Exponent are determined simultaneously by Sc&#8491;tter. This is a proactive process and can be facilitated by performing the following steps: 
+</p>
+<ul>
+<li class="green_text">Use "Flexibility" button to determine which and where the dataset plateaus. (note q-max)</li>
+<li class="green_text">Use "Volume" button and define this linear range within the "start" and "end" boxes. </li>
+</ul>
+<p class="about">	
+I am using the apo SAM-I riboswitch (BID: <%= link_to "1SAMRR", experiment_path(42), :class => 'no_decor_link' %>) dataset in this example, so load the data, switch to "Analysis" tab and click on "Flexibility" button.
+</p>
+<h3>Figure 1:</h3><br><%= image_tag('volume_exponent_figure_1.png', :width=>"650") %>
+<p class="about">
+In the "Flexibility" window, I used the slider to find where the data plateaus or straightens out near the first hyperbolic rise (Figure 1, SIBYLS plot). Here, the SIBYLS plot (lower right panel Figure 1) shows a clear plateau with a q-max near 0.24 (read from Porod plot). Next, click on the "Volume" button.
+</p>
+<h3>Figure 2:</h3><br><%= image_tag('volume_exponent_figure_2.png', :width=>"650") %>
+<p class="about">
+The "Volume" button automatically truncates the data but this is not far enough.  Based on the q-max estimate from the flexibility analysis, we need to cut the end point to around q-max = 0.24. Our goal is to find the linear region limited by q-max. The active points of the fit are the black circles in the Porod-Debye plot (lower left panel Figure 2 and 3). During the truncation, follow the dispersion of the residuals in the upper right panel. The linear region will have an even, unbiased distribution of the residuals.  The actual fit may not look linear in the Porod-Debye plot, particularly if the Porod exponent is less than 3, this is due to the fact that power-law relationship that defines the Porod-Debye plot is 4 and not 3 or 2.	
+</p>
+<h3>Figure 3:</h3><br><%= image_tag('volume_exponent_figure_3.png', :width=>"650") %>
+<p class="about">
+After cutting back to around q-max of 0.225, I then truncated the starting points to define the region of data that displays a fair distribution of the residuals.  This determines a Porod exponent of 2.7 and a particle volume of 60,369 &#8491;<sup>3</sup>.
+</p>
+<p class="about">A theoretical treatment for the process is presented in Figure 4. Briefly, the determination of particle volume requires the Porod Invariant, Q, and I(0). I(0) can be determined from either Guinier analysis or real-space transform; therefore, you can have two estimates for the volume.  The fitting (Figures 2 and 3) is attempting to define the region that obeys Porod's law.</p>
+<h3>Figure 4:</h3><br><%= image_tag('volume_exponent_figure_4.png', :width=>"650") %>

@@ -1,0 +1,82 @@
+<% content_for :right do %>
+  <%= render :partial => "right_side_menu" %>
+<% end -%>
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>
+<% end -%>
+
+<div class="welcometitle">Welcome to BIOISIS
+<span class="welcome_small_text">... the resource for macromolecular SAXS.</span>
+</div>
+
+<div class="welcometable">
+<table class="ExperimentMonth">
+<tr><th><div class="experimentofthemonth">Experimental Highlight</div></th></tr>
+
+<tr>
+  <td>
+  <table class="subExperimentMonth">
+    <tr>
+     <td colspan="2" align="left"> <%= @featured_experiment.title %> </td>
+    </tr>
+    <tr>
+       <% image_directory = Dir.pwd+"/public/SAX_DATA/"+ @featured_experiment.data_directory %>
+     <td colspan="1" width="250" height="175">
+      <%= link_to(image_tag("/SAX_DATA/#{@featured_experiment.data_directory}/low_res_thumbnail.png", :size => "150x150", :border => "0"), {:controller => "experiments", :action => "details", :id =>@featured_experiment.id})%>
+     </td>
+     <td colspan="1" align="justify">
+    <%= @featured_experiment.description %>   
+     </td>
+    </tr>
+    <tr>
+    <th colspan="2" align="left" class="AdditionalSmallDetails">&nbsp;&nbsp;&nbsp;&nbsp;<I></I><span class ="grey_text"> </span></th>
+    </tr>
+  </table>
+  </td>
+  </tr>
+</table>
+</div>
+
+<table width="100%">
+<tr valign="top"><td width="30%">
+<div id="download">		
+<p class="welcometitle">Useful Links</p>
+<ul>
+	<li><%= link_to "New Submission Link", new_submission_path %></li>
+	<li><%= link_to "Submission Prep Info", tutorialshow_path(:id =>"8") %></li>
+	<li><%= link_to "FOXS SAXS Server", "http://modbase.compbio.ucsf.edu/foxs/index.html" %></li>
+	<li><%= link_to "QR Biophysics Review", review_attachment_path %></li>
+	<li><%= link_to "BioSAXS @ EMBL", "http://www.embl-hamburg.de/biosaxs/" %></li>
+	<li><%= link_to "WebApps @ SIBYLS", "https://bl1231.als.lbl.gov/saxs/loginForm.jsp" %></li>
+	<li><%= link_to "SAS Tool Box (SASTBX)", "http://sastbx.als.lbl.gov/wiki/index.php/Main_Page" %></li>
+</ul>
+</div>		
+</td>
+
+<td>
+<div id="recentdeposits">
+<p class="welcometitle">Recent Deposits</p>		
+<ul>
+<% @latest.each do |exp| %>
+<li>(<span class ="darkred_text"><%= exp.bioisis_id %></span>) <%= link_to truncate_words(exp.title, 6), {:controller => "experiments", :action => "details", :id =>exp.id} %></li>
+<% end %>
+</ul>
+</div>		
+</td></tr>	
+</table>
+
+<div class="welcome_gray">
+<p class="welcometitle">Recent Posts</p>
+
+<table>
+<% @news.each do |news| %>
+<tr>	
+  <th colspan="3" align="left">
+<span class="green_text"><%= link_to news.title.upcase, news_index_path, :class=>"no_decor_link" %></span><span class="grey_text"> &nbsp;</span>
+<%= raw RedCloth.new("p(about). #{news.notes}").to_html %>
+<hr>
+</th>
+</tr>
+<% end %>
+</table>
+</div>

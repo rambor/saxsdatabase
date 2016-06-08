@@ -1,0 +1,32 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+<ul>
+<li><%= link_to "Resetting Zoom", '#zoom', :class=>'no_decor_link' %></li>
+<li><%= link_to "Saving Images", '#saving', :class=>'no_decor_link' %></li>
+<li><%= link_to "Formatting Text", '#formatting', :class=>'no_decor_link'  %></li>
+<li><%= link_to "Changing Markers", '#changing', :class=>'no_decor_link' %></li>
+<li><%= link_to "PackageIt", '#packageit', :class=>'no_decor_link' %></li>
+<li><%= link_to "CWD", '#cwd', :class=>'no_decor_link' %></li>
+<li><%= link_to "Removing Crosshairs", '#crosshairs', :class=>'no_decor_link' %></li>
+</ul>
+
+<hr>
+
+<a name="zoom" class="anchor_link">Resetting Zoom</a>
+<p class="about">Most graphs and plots have zooming capabilities. To reset a zoomed window, click on the plot (hold down the mouse button) and move the mouse left.</p>
+<a name="saving" class="anchor_link">Saving Images</a>
+<p class="about"> Graphs can be saved as PNG files by right clicking on the graph (on Mac, hold down control key and click). This will display a dropdown box, click on "Save as...".  The file will be saved to the directory specified under the "Settings" tab.</p>
+<h3>Figure 1:</h3><br><%= image_tag('misc_figure_1.png', :border=>"0", :width=>"650") %>
+<a name="formatting" class="anchor_link">Formatting Text</a>
+<p class="about">Titles and axis labels for each graph can be re-formatted through the "Properties..." selector in the dropdown menu (Figure 1). Here, the actual <I>text</I> can be changed as well as color and font. </p>
+<a name="changing" class="anchor_link">Changing Markers</a>
+<p class="about">Markers, by default, are open circles. The markers can be changed to different radii and color by clicking on the "Color Selector" on the far left (Figure 2: green arrow) of each dataset listed in the table.</p>
+<h3>Figure 2:</h3><br><%= image_tag('misc_figure_2.png', :border=>"0", :width=>"650") %>
+<a name="packageit" class="anchor_link">PackageIt</a>
+<p class="about">All selected (checked) files can be written to a specified directory with corresponding Guinier, Kratky and P(r)-plots created.  This directory can be used to archive specific sets of SAXS datasets, zipped and shared.  </p>
+<a name="cwd" class="anchor_link">Current Working Directory</a>
+<p class="about">CWD button allows you to change the current working directory for saving files.</p>
+<a name="crosshairs" class="anchor_link">Cross Hairs</a>
+<p class="about">Crosshairs can be disabled for each graph by right clicking on the graph (on Mac, hold down control key and click) and selecting "Toggle Crosshair"</p>

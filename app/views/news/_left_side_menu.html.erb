@@ -1,0 +1,13 @@
+<div id="LeftMenu">
+<ul id="RightSideList">
+
+
+<li><%= link_to "Publications", news_articles_path %></li>
+<li><%= link_to "Reviews", news_reviews_path %></li>
+<li><%= link_to "General Info", news_general_info_path %></li>
+<li><%= link_to "Updates to BioIsis", news_updates_path %></li>
+<% if can? :create, @news %>
+<li><%= link_to "NEWS", {:controller=>"news", :action=>"new"} %></li>
+<% end %>
+</ul>
+</div>

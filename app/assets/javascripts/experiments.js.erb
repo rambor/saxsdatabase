@@ -1,0 +1,68 @@
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+
+
+var iofq1;
+var iofqData_1;
+var iofq2;
+var iofqData_2;
+var iofq3;
+var iofqData_3;
+var iofq4;
+var iofqData_4;
+var iofq5;
+var iofqData_5;
+var xPadding=3;
+var yPadding=2;
+var radian = 1.5707963267948966;
+
+function createThumbnail(plotId, xLabel, yLabel, cData, color, thirdColumn){
+    var graph = $('#'+plotId);
+	var c = graph[0].getContext('2d');
+	var n = cData.length;
+    var color=Math.floor(Math.random()*11);	
+	c.lineWidth = 2;
+	c.strokeStyle = '#333';
+	c.font = '5pt sans-serif';
+	c.textAlign = "center";
+	// fitGraph Axis
+	c.beginPath();
+	c.moveTo(xPadding, 0);
+	c.lineTo(xPadding, graph.height() - yPadding);
+	c.lineTo(graph.width(), graph.height() - yPadding);
+   // Ticks (x,y)
+	c.moveTo(0,1);
+	c.lineTo(6,1);
+	c.moveTo(149,145);
+	c.lineTo(149,150);
+	
+	c.stroke();
+	// add text, needs to be last to overlap graph
+	c.save();
+		
+	//draw the data for the current time slice
+    cData.forEach(function(d) {
+	  if ((typeof d.x == "number")&&(typeof d.y == "number")&&(d.y != 102872)) {
+        c.save();
+        c.fillStyle = colors[color];
+        c.globalAlpha = 0.5;
+        c.beginPath();
+        c.arc(d.x,d.y,2,0,Math.PI*2);
+        c.fill();
+        c.restore();
+      } else if ((d.x == 102872) && (d.y == 102872)) {
+	    color = color + 1;
+      }
+    });
+}
+
+
+$(document).ready(function() {
+	
+	createThumbnail('iofq1', "q", "log I(q)", iofqData_1 , 0, false);	
+	createThumbnail('iofq2', "q", "log I(q)", iofqData_2 , 1, false);	
+	createThumbnail('iofq3', "q", "log I(q)", iofqData_3 , 2, false);	
+	createThumbnail('iofq4', "q", "log I(q)", iofqData_4 , 3, false);	
+	createThumbnail('iofq5', "q", "log I(q)", iofqData_5 , 4, false);	
+
+});

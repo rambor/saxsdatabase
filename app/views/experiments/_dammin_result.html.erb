@@ -1,0 +1,7 @@
+<p>DAMMIN/F result was determined with the following:</p>
+   <table border="0" width="350">               
+<tr><td class="spec">Space Group</td><td class="spec"><%= @experiment.dammin_result.spacegroup %></td></tr>	
+<tr><td class="spec">NSD | RMSD</td><td class="spec"><%= @experiment.dammin_result.nsd %>&nbsp;</td></tr>
+<tr><td class="spec">variance(NSD | RMSD)</td><td class="spec"><%= @experiment.dammin_result.sig_NSD %>&nbsp;</td></tr>
+<tr><td class="spec">Number of Models in Average</td><td class="spec"><%= @experiment.dammin_result.number_in_average %>&nbsp;</td></tr>		
+    </table>

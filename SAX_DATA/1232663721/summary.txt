@@ -1,0 +1,83 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1232663721
+EMAIL		glhura@gmail.com
+CREATED_ON	2009-01-22 22:35:21 UTC
+
+#REMARK SUMMARY
+TITLE	Folded Dimer of PF0699
+BIOISIS_ID	1KINHP
+EXP_DESCRIPTION	Part of a set of samples prepared recombinantly. Has his-tag attached(see sequence). Scattering profiles show similarity to a shikamate kinase from E. coli. Data is not on an absolute scale and is a compilation of several data sets collected at different energies.
+SOURCE_LOCATION	ALS BL 12.3.1 
+PUBLICATION	Robust, high-throughput solution structural analyses by small angle X-ray scattering (SAXS). Nat Methods. 2009 Aug;6(8):606-12.
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	
+BUFFER			20 mM Tris-Base
+pH			8.0
+TEMPERATURE		25.0
+SALT			NaCl
+SALT_CONCENTRATION	300
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		2 mM DTT
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			1165.0
+SIG_Io			12.0
+Io_MOLECULAR_WEIGHT	32000
+DMAX			74
+RG			23.7
+SIG_RG			0.08
+RG_REAL			23.3
+SIG_RG_REAL		0.08
+V_POROD			500000
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Rambo		R.P.
+AUTHOR	Hura		G.L.
+AUTHOR	Menon		A.L.
+AUTHOR	Adams		M.W.W.
+AUTHOR	Tainer		J.A.
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	PF0699
+EXP_MW		16055
+ANNOTATION	hypothetical protein
+EXP_SEQUENCE	AHHHHHHGSSSLFKSSWNRFILLFFSQISWNQVVFSSPNLLNNLSIKNTPTPPMKTAKPAESRTSLVPTRAIKPPIGLPIDTPTMLNTCYRPTEVPLTSLGTSVTSRVLASIRPESAIPKAPNVPSCTPGVLTTIPSKKAEKDIIDE
+
+
+#REMARK DAMMIN
+SPACEGROUP		P1
+NSD			0.479
+STDEV_NSD		0.1
+AVERAGE_OF		10
+
+
+#REMARK GASBOR
+SPACEGROUP		P2
+NSD			0.89
+STDEV_NSD		0.1
+AVERAGE_OF		10
+CHI_SQUARE		1.74
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/PF0699ModGH.dat
+pofr_data_file			originals/PF0699ModGH.74.pofr
+single_dammin_model.pdb		dammin/dam13-1.pdb
+average_dammin_model.pdb	dammin/Dammindamfilt.pdb
+hires_dammin_model.pdb		dammin/
+single_gasbor_model.pdb		gasbor/GasP2_5.pdb
+average_gasbor_model.pdb	gasbor/GasP2damfilt.pdb
+hires_gasbor_model.pdb		gasbor/

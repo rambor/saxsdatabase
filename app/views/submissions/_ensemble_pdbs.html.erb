@@ -1,0 +1,5 @@
+<% @pdbs.each do |file| %>
+  <div id=pdb_<%= @pdbs.index(file) %> >
+  <span class=""><%= link_to 'Delete', destroy_pdb_path(@submission.data_directory, :filename => file), :remote => true %> <%= file %> </span><br/>
+  </div>
+<% end %>

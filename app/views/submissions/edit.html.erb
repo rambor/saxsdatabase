@@ -1,0 +1,29 @@
+<% content_for :left do %>
+  <%= render :partial => "left_edit_menu" %>  
+<% end -%>
+
+<% content_for :right do %>
+  <%= render :partial => "right_edit_menu" %>  
+<% end -%>
+Registered as:<font color="skyblue"> <%= @submission.email %></font>
+<hr>
+
+<p><%= link_to "Basic Information", edit_basic_information_path(@submission.data_directory), :id=>'nohover' %></p>
+<p><%= %><%= link_to "Experimental Details", edit_experimental_details_path(@submission.data_directory), :id=>'nohover' %></p>
+<p><%= %><%= link_to "SAXS Parameters", edit_saxs_parameters_path(@submission.data_directory), :id=>'nohover' %></p>
+<p><%= %><%= link_to "Add Protein | RNA | Polymer sequence", edit_genes_path(@submission.data_directory), :id=>'nohover' %></p>
+<p><%= %><%= link_to "Contributors", edit_authors_path(@submission.data_directory), :id=>'nohover' %></p>
+<p><%= %><%= link_to "Upload Data Files", edit_data_files_path(@submission.data_directory), :id=>'nohover' %></p>
+<p><%= %><%= link_to "Add Models", add_models_path(@submission.data_directory), :id=>'nohover' %></p>
+<hr>
+
+<p><h1>STATUS OF DEPOSIT | <%= @status %></h1></p>
+<% if @experiment.errors.size > 0 %>
+   <p>To begin the deposition, please click on the links above. As you complete each section, errors will drop from the list below.</p>
+   <% @experiment.errors.full_messages.each do |x| %>
+           <p><%= x.html_safe %></p>
+   <% end %>
+<% end %>
+<% if @status =~ /COMPLETED/ %>
+  <%= render :partial => "create_bioisis_id", :object => @ids, :code_termini => @code_termini %>
+<% end %>

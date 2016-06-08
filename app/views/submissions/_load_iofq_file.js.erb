@@ -1,0 +1,18 @@
+<%= javascript_tag do %>
+	
+	<% temp="["; @iofq_data.each do |entry| %>
+	  <% temp = temp + entry + "," %>
+	<% end %>
+	<% temp = temp.chop + "]" %>
+
+	iofqData = <%= escape_javascript(temp) %>;
+    qmax = <%= number_with_precision @qmax, :precision => 2 %>
+
+	<% temp="["; @kratky_data.each do |entry| %>
+	  <% temp = temp + entry + "," %>
+	<% end %>
+	<% temp = temp.chop + "]" %>
+
+	kratkyData = <%= temp %>;
+
+<% end %>

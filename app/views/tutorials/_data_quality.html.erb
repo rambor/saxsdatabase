@@ -1,0 +1,22 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+<p class="about">
+Defining and assessing data quality of a SAXS experiment is an open area of development see <%= link_to "Jacques 2010", "http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2867006/", :class=> 'no_decor_link' %>, <%= link_to "Putnam 2007", "http://www.ncbi.nlm.nih.gov/pubmed/18078545", :class => 'no_decor_link' %>. We can make attempts to define quality of an individual SAXS curve or of the curves used to generate a merged SAXS dataset. However, we must realize quality is subject to the context of experiment. Consider some basic applications of SAXS such as:
+</p>
+<ul>
+<li>monitoring structural changes in a sample
+<li>testing the solution state of a known crystallographic structure
+<li>determining the shape of the particle using ab initio methods
+</ul>
+<p class="about">
+Each of these place different demands on the quality of the data or sample. Algorithms such as DAMMIN or GASBOR may favor the low q-region of the data thereby necessitating well defined Guinier regions free of aggregation or interparticle interference.  This suggests data quality is also correlated to the software algorithm used for analysis. Nevertheless, we can suggest the following criteria for evaluating SAXS data:
+</p>
+<p class="about">
+	If you are simply screening for structural changes, then a consistent buffer subtraction would be a high priority to detect changes at moderate resolutions. A poor quality buffer subtraction will only allow for the detection of gross changes such that the changes alter the particle's radius-of-gyration. A poor buffer subtraction will likely show that the integration of the total scattered intensity plot found in the "Volume-of-Correlation" window would not plateau but rather have a steady positive slope in at high q-values. 
+</p>
+<p class="about">	
+We can also assess data quality using the P(r)-distribution. How much of the data is rejected during P(r) refinement? Each I(q) is a Fourier transform of the entire P(r) function. For datasets that are experiencing either aggregation, poor buffer subtraction, incorrect merging or a non-unity structure factor, the inverse transform will be inconsistent throughout the entire q-range and the refinement will systematically reject a region of the SAXS data. If you are loosing greater than 20 to 30% of the data at a cut-off of 3, this can be suggestive of a poor quality dataset.
+</p>

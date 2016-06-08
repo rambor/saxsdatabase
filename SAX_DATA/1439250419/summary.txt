@@ -1,0 +1,62 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1439250419
+EMAIL		
+CREATED_ON	2015-08-10 23:49:43 UTC
+
+#REMARK SUMMARY
+TITLE	Structure of the VS ribozyme
+
+BIOISIS_ID	
+
+EXP_DESCRIPTION	VS ribozyme SAXS data. A dimer of the ribozyme fits the data significantly better than a monomer (χ / χfree  = 26.1 / 26.3 for the dimer, in comparison to 59.0 / 59.1 for the monomer), particularly at low q. We suspect that differences at higher q are largely due to movement helix 7, which makes relatively few interactions with the rest of the structure, and is thus likely to be flexible in solution. Pair-distance distribution curves calculated from experimental versus model-derived scattering also better support a dimer model. Finally, ab initio bead models calculated from the experimental data are visually consistent with the dimer model.
+SOURCE_LOCATION	SIBYLS ALS BL 12.3.1,
+
+PUBLICATION	
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	SAXS data with a q range from 0.012467 Å-1 to 0.324398 Å-1 were collected from eight concentrations ranging from 1.5 mg/mL to 4.5 mg/mL, each with exposures of 0.5, 1 and 6 seconds. Buffer blanks were performed both before and after each sample exposure and subtracted from the sample signal. Within each concentration, each buffer-subtracted exposure was checked for radiation damage and any oversaturated points were removed before being averaged together. The final experimental scattering curve was calculated by scaling the averaged datasets for each concentration to the highest concentration (4.5 mg/mL) dataset and merging with extrapolation to infinite dilution.
+BUFFER			Tris-Base
+pH			7.0
+TEMPERATURE		25.0
+SALT			KCl
+SALT_CONCENTRATION	25
+DIVALENT		MgCl2
+DIVALENT_CONCENTRATION	5.0
+ADDITIVES		
+
+PROTEIN			No
+DNA			No
+RNA			Yes
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			4298.0
+SIG_Io			18.0
+Io_MOLECULAR_WEIGHT	124000
+DMAX			164
+RG			38.7
+SIG_RG			0.18
+RG_REAL			41.3
+SIG_RG_REAL		0.13
+V_POROD			239529
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Dasgupta		S
+AUTHOR	Fuller		JR
+AUTHOR	Piccirilli		JA
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	VSRIBOZYME
+EXP_MW		61862
+ANNOTATION	Crystallographic construct of the VS ribozyme, with a mutation in the putative general base residue (G638A).
+EXP_SEQUENCE	GGCGCUGUGUCGCAAUCUGCGAAGGGCGUCGUCGGCCCAAGCGGUAGUAAGCAGGGAACUCACCUCCAAUUUCAGUACUGAAAUUGUCGUAGCAGUUGACUACUGUUAUGUGAUUGGUAGAGGCUAAGUGACGGUAUUGGCGUAAGCCAAUACCGCAGCACAGCACAAGCCCGCUUGCGAGAUUACAGCGC
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE

@@ -1,0 +1,87 @@
+#REMARK USER INFORMATION 
+CREATED_ON	2009-05-22T00:36:43+00:00
+DATA_DIRECTORY	/users/home/rambor/domains/bioisis.net/web/releases/20090216104533/public/SAX_DATA/1242952603
+IP_ADDRESS	131.243.85.144
+EMAIL	glhura@lbl.gov
+SESSION	668d38c451980033c1a9fce538b6d06d
+
+#REMARK SUMMARY
+TITLE	PF1061 Pyrococcus furiosus monomeric product
+DESCRIPTION	PF1061 has been studied by NMR. Only C-alpha residues have been deposited with a single PDB structure 1RWS. The match of the SAXS envelope to the NMR structure is poor in that a flexible region extends from only one side of the molecule rather then both sides. However the agreement between the calculated scattering profile and the measured curve is good. 
+SOURCE_LOCATION	ALS bl12.3.1 SIBYLS
+PUBLICATION	in press Nature Methods Rapid and robust proteomics-scale solution structural analyses determined efficiently by x-ray scattering (SAXS)
+LINK	0
+
+#REMARK EXPERIMENTAL CONDITIONS
+WAVELENGTH	1
+EXPERIMENTAL_DETAILS	Extrapolated to zero concentration from 4 different concentrations between 1 and 10 mg/mL
+BUFFER	20mM Tris-Base
+pH	8.0
+TEMPERATURE	25.0
+SALT	KCl
+SALT_CONCENTRATION	200
+DIVALENT	none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES	4mM TCEP
+
+#REMARK EXPERIMENTAL VALUES
+Io	35.27
+SIG_Io	0.359
+Io_MOLECULAR_WEIGHT	8592
+DMAX	60
+RG	17.1
+SIG_RG	0.733
+RG_REAL	16.34
+SIG_RG_REAL	0.0
+V_POROD	16000
+iofq_file_name	1061.dat
+pofr_file_name	p1061.pofr
+
+#REMARK AUTHORS
+AUTHOR	Rambo	R.P.
+AUTHOR	Hura	G.L.
+AUTHOR	Menon	A.L.
+AUTHOR	Adams	M.W.W.
+AUTHOR	Tainer	J.A.
+
+#REMARK EXPERIMENTAL ORF(S)
+GENE_ID	966
+LOCUS_NAME	PF1061
+ACCESSION	0
+EXPERIMENTAL_SEQUENCE	AHHHHHHGSKMIKVKVIGRNIEKEIEWREGMKVRDILRAVGFNTESAIAKVNGKVVLEDDEVKDGDFVEVIPVVSGG
+ANNOTATION	hypothetical protein
+EXP_MW	8592
+
+
+#REMARK DAMMIN
+SPACEGROUP	P1
+CHI_SQUARE	1.244
+NSD	0.538
+NUMBER_IN_AVERAGE	8
+
+#REMARK GASBOR
+SPACEGROUP	P1
+CHI_SQUARE	1.38
+NSD	0.76
+NUMBER_IN_AVERAGE	8
+
+#REMARK STRUCTURAL MODEL
+DESCRIPTION	C-alpha model NMR strucutre 1RWS.
+CHI_SQUARE	2.3
+PDB_MODEL	106119_1_78500.pdb
+FIT_FILENAME	106119_1_7850000.fit
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+RENAMED FILE			ORIGINAL FILE
+iofq_data_file.dat		originals/1061.dat
+pofr_data_file.dat		originals/p1061.pofr
+single_dammin_model.pdb		dammin/dP1_6-1.pdb
+average_dammin_model.pdb	dammin/damfilt_dP1.pdb
+single_gasbor_model.pdb		gasbor/gP1_6.pdb
+average_gasbor_model.pdb	gasbor/damfilt_gP1.pdb
+hires_gasbor_model.pdb		gasbor/106119_1_78500.pdb
+pdb_model.pdb			structure/106119_1_78500.pdb
+fitted_SAXS_with_model.dat	structure/106119_1_7850000.fit

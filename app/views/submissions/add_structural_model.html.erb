@@ -1,0 +1,35 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+<% if @structure.errors.any? %>
+<ul>
+<% @structure.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %></ul>
+<% end %>
+<hr>
+<h1 class="NewExperimentH1"><a name="Dammin">Structural Model</a></h1>
+<p>
+<ul>
+	<li>Use this form to deposit a single PDB model
+</ul>
+</p>
+
+<%= form_for(@structure, :id => @submission.data_directory, :html => { :multipart => true }) do |structure_fields| %>
+
+  <table  class="PurpleParameters">
+
+      <tr><td>
+       <h1 class="NewExperimentH1">PDB File</h1><span class="instructions"><I>...this should be a single structural model in PDB format derived from either a high resolution technique such as X-ray crystallography or de novo structure prediction.</I></span></td><td><%= structure_fields.file_field :pdb_filename %>
+      </td></tr>
+      <tr><td>
+       <h1 class="NewExperimentH1">Description</h1><span class="instructions"><I>...please provide a description of the model.  Is this a hi-resolution homologue, a predicted structure, etc?</I></span></td><td><%= structure_fields.text_area :description, "cols" =>47, "rows" =>5 %>
+      </td></tr>
+	  <tr><td>
+	   <h1 class="NewExperimentH1">Chi Square</h1><span class="instructions"><I>...this is the corresponding chi<sup>2</sup> for the single model.</I></span></td><td><%= structure_fields.text_field :chi_square, "size"=> 5 %>
+	  </td></tr>
+      <tr><td>
+	   <h1 class="NewExperimentH1">Fit File</h1><span class="instructions"><I>...this can be *.fit output from CRYSOL and should contain 3 columns of data describing:<ul><li>col 1: q</li><li>col 2: I(obs)</li><li>col 3: I(fit)</li></ul> the fit of your structural model to the experimental SAXS data.</I></span></td><td><%= structure_fields.file_field :fit_filename %>
+      </td></tr>	
+	
+  </table>
+	<%= structure_fields.submit :value => "Save Structure Model" %>
+<% end %>

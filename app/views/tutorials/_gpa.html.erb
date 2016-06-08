@@ -1,0 +1,20 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+<p class="about">
+The Guinier analysis presented earlier approximates the linear region using a simple rule that the q x R<sub>g</sub> < 1.3. This is a safe rule however, it is not the best method for understanding the sample.</p> 
+<p class="about">The Guinier region exploits the globularity of the particles involved in the SAXS measurement. Globularity can be influenced by factors such as radiation damage or particle shape.  Chris Putnam at the University of San Diego derived a normalized Guinier analysis that can be performed via the "Guinier Peak Analysis" button. Here, he showed that an ideal, globular particle should have a peak at (q x R<sub>g</sub>)<sup>2</sup> of ~1.5 on a properly normalized plot (Figure 1). Therefore, for problematic data, we can adjust the q-range that defines the Guinier region that optimizes a peak at ~1.5 with an unbiased distribution of the residuals. 
+</p>
+<p class="about" align="left"><b>Figure 1 |</b></p>					
+	<%= image_tag('gpa_figure_1.png', :width => '640') %>
+<p class="about" align="left">A well-behaved, ideal sample will follow the dashed-red line. The residuals of the fit to the ideal line is in the lower panel. For this sample, SEC purified BSA, the sample has a Guinier region that extends well beyond the 1.3 limit or (q x R<sub>g</sub>)<sup>2</sup> of ~2.3. </p><p class="about" align="left">For unpurified BSA, basic Guinier analysis shows a linear region with a slight curvature in the residuals (Figure 2). The bias is slight and could easily suggest the sample is well-behaved with an apparent linear region that is limited by the q x R<sub>g</sub> < 1.3 limit (compare the upper q region between purified and unpurified samples in Normalized Guinier Plot).</p>		
+<p class="about" align="left"><b>Figure 2 |</b></p>					
+	<%= image_tag('gpa_figure_2.png', :width => '640') %>
+<p class="about" align="left">Examining the Normalized Guinier Plot shows the upper q-region is non-ideal as it severely skews away from the dashed-red line (Figure 3).  </p>	
+<p class="about" align="left"><b>Figure 3 |</b></p>					
+	<%= image_tag('gpa_figure_3.png', :width => '640') %>
+<p class="about" align="left">As we try to optimize the peak position, we see the upper and lower q-regions are non-ideal (Figure 4). This analysis clearly suggests the sample is problematic and is likely due to a mixture of states that are defining the Guinier region.   </p>	
+<p class="about" align="left"><b>Figure 4 |</b></p>					
+		<%= image_tag('gpa_figure_4.png', :width => '640') %>		

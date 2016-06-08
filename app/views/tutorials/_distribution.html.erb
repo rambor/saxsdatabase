@@ -1,0 +1,43 @@
+
+
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+<p class="about">
+	SAXS on dilute, non-interacting particles such as protein or RNA measures the <I>pair-distance distribution function</I>, P(r)-distribution. The P(r)-distribution function describes the paired-set of all distances between points within an object. The SAXS measurement is resolution-limited and can be thought of as a resolution-limited sampling of this distribution function. The distribution is measured in real-space, hence the x-axis is in Angstroms. The distribution function is considered to be smooth and non-negative, approaching zero at the maximum dimension of the particle. In SAXS, the P(r)-distribution function is used to describe the paired-set of distances between all of the electrons within the macromolecular structure and is a useful tool for visibly detecting conformational changes within a macromolecule. Since the function describes the set of all paired-distances within a structure, small changes in the relative positions of a few residues can result in detectable changes in a P(r) distribution.
+</p>
+<p class="about">As illustrated in the following figure, the T7 RNA polymerase undergoes a domain rearrangement as the enzyme prepares for transcription initiation.  Although the scattering mass of the object remains unchanged, the change in the relative position of the domain produces changes in the P(r)-distribution (cyan-to-orange) and likewise detectable changes in the respective scattering profiles.
+</p>
+<p class="about" align="left">Figure |</p>
+	<%= image_tag('Pr_T7_changes.png') %>
+<p class="about">The changes in the relative position of a domain consequently changes the mass distribution of the protein around its center of gravity or its radius-of-gyration, R<sub>g</sub>.  The R<sub>g</sub> can be obtained from the P(r) function by integrating the function with r<sup>2</sup> over all values of r.  Thus, the comparison of the R<sub>g</sub> of a macromolecule from two different conditions can reveal condition-specific conformational changes.  Alternatively, the R<sub>g</sub> can be obtained by the Guinier approximation which utilizes a small subset of data from a typical SAXS experiment.  Unlike the former method, the R<sub>g</sub> calculated from the P(r) distribution uses all of the experimental data and is determined in real space (note the units of the abscissa in the P(r) distribution).  The P(r) based radius-of-gyration is commonly referred to as the "Real Space" R<sub>g</sub>.
+</p>	
+
+<div class="welcometitle">BACKGROUND</div>
+<p class="about" align="left">
+Peter Debye first described visible light scattering in terms of dielectric inhomogeneities within a solid, such as lucite<sup>1</sup>.  His formulation made use of a "correlation function" determined at varying values of a distance vector, r,  that related the inhomogeneities to a distance proportional to the wavelength of the incident scattered light.  If the incident scattered wavelength is an X-ray, then there is a direct relation of the correlation function with the P(r) function.  
+</p>
+<%= image_tag('Iq_pr.png') %>	
+<p class="about" align="left">The above equation relates the P(r) distribution of a single macromolecule to the scattered intensity as a function of scattering angle, q.  Thus, the observed scattered intensity at a specific scattering angle, q, is the integration of the product of the P(r) distribution with the sinc function, (sin qr)/qr over all values of allowable distances, r.
+</p>
+
+<p class="about">
+In addition, there are several qualitative features within a P(r) distribution that may be useful for understanding the behaviour of your macromolecular sample.  Please see the review by  Putnam, C.D., <I>et al.</I>, for further information.  
+</p>
+<%= image_tag('pr_review.png', :size=>'699x192') %>
+<span class="tutorial_small_text">
+Courtesy of <I>Putnam, C.D., Hammel, M., Hura, G.L., and Tainer, J.A. Q Rev Biophys. 2007 40(3):191-285</I>
+</span>
+
+
+
+Note:
+<p class="about">
+The P(r) distribution functions for the T7 promoter complex (1cez.pdb) and T7 promoter-transition complex (1msw.pdb) were simulated using Crysol and Gnom. All non-protein components were removed from the respective pdb files prior to SAXS calculations. 
+</p>
+<span class="tutorial_small_text">
+1. <I>Debye, P. and Bueche, A.M. Journal of Applied Physics. 1949 20:518-525</I><br>
+2. <I>Moore, P.B. Journal of Applied Crystallography. 1980 13:168-175</I>
+</span>
+

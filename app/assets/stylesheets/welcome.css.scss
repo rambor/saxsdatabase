@@ -1,0 +1,111 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.experimentofthemonth {
+	text-align:left;
+	background-color: #8d9fb2;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 8px;	
+	height: 20px;
+    border-bottom: 2px solid #666;
+    border-right: 2px solid #666;
+    border-top: 1px solid #666;
+    border-left: 1px solid #666;
+
+}
+
+.welcome_gray {
+    padding:10px 10px;
+    border:0px solid #666;
+}
+table.ExperimentMonth  {
+  font: normal 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  color: #4c3a3a;
+  text-align: left;
+  border-right: 0px solid #4c3a3a;
+  border-left: 0px solid #4c3a3a;
+  border-bottom: 3px solid #4c3a3a;
+  width:100%;
+}
+
+
+table.subExperimentMonth  {
+  font: normal 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  color: #4c3a3a;
+  text-align: center;
+
+}
+
+table.subExperimentMonth tr th  {
+  font: normal 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  color: #4c3a3a;
+  padding: 10px 0px;
+}
+
+#download { 
+	padding: 0 0 1em 1em;
+	}
+	
+#download ul {
+	font-size: 14px;
+	padding-left: 1em;
+	text-align: left;
+	list-style-type:none; 
+	}
+
+
+#download li a:link, a:visited, a:active {
+  text-decoration: none;
+  color: #000;		
+}
+
+#download li a:hover { text-decoration: underline; color:red; }
+
+#recentdeposits {
+	padding: 0 0 1em 1em;
+}
+
+#recentdeposits ul {
+	font-size: 14px;
+	padding-left: 1em;
+	text-align: left;
+	list-style-type:none; 
+	}
+
+#recentdeposits li a:link, a:visited, a:active {
+  text-decoration: none;
+  color: #000;	
+}
+
+#recentdeposits li a:hover { text-decoration: underline; color:red; }
+
+#RecentPost  { 
+  font-weight: normal;
+  border-top: 1px solid #666; 
+  padding-left: 8px;
+  padding-top: 4px;
+  width: 175px;
+  color: #000;
+}
+
+#RecentPost a
+{
+  font-size: 14px;
+  text-decoration: underline;
+  color: #000;
+}
+
+#RecentPost a:hover { color:red; text-decoration: none; }
+
+.no_decor_link {
+  color: green;
+  text-decoration:none;
+  font-weight: normal;
+}
+
+a.no_decor_link:link {color:green;}     /* unvisited link */
+a.no_decor_link:visited {color:green;}  /* visited link */
+a.no_decor_link:hover {color:green;}    /* mouse over link */
+a.no_decor_link:active {color:green;}   /* selected link */

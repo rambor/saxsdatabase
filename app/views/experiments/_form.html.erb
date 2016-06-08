@@ -1,0 +1,374 @@
+<%= form_for @experiment, :html => {:multipart => true} do |f| %>
+     <%= hidden_field(:experiment, :data_directory, :value => @experiment.data_directory)%>
+     <%= hidden_field(:experiment, :iofq_file_name, :value => @experiment.iofq_file_name)%>
+     <%= hidden_field(:experiment, :pofr_file_name, :value => @experiment.pofr_file_name)%>
+     <%= hidden_field(:experiment, :email, :value => @experiment.email)%>
+     <%= hidden_field(:experiment, :id, :value => @experiment.id)%>
+  <% if @experiment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@experiment.errors.count, "error") %> prohibited this experiment from being saved:</h2>
+
+      <ul>
+      <% @experiment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div>
+  <table>
+  <tr>
+  <td colspan="2"><p>BioIsis ID: &nbsp; <%= f.text_field :bioisis_id, :size => 6 %>&nbsp;Data Directory: <%= @experiment.data_directory %></p><p><%= f.text_field :source_location %>
+	<p>
+	<% if !File.exists?(Rails.root.join("public","SAX_DATA", @experiment.data_directory,"low_res_thumbnail.png")) %>
+		<%= f.fields_for :thumbnail do |t| %>
+		    <%= t.file_field :thumbnail %>  (For a 150x150 thumbnail)
+            <%= t.hidden_field(:experiment_id, :value => @experiment.id) %>		
+            <%= t.hidden_field(:data_directory, :value => @experiment.data_directory) %>		
+		<% end %>
+	<% end %>
+	</p>
+	<% if !(Experiment.find(:first, :order => "id DESC").id < @experiment.id) %>
+<div id="recentdeposits">
+	<p> Zip file should be re-created if any changes are made to information</p>
+	<ul>
+	<li><%= @zip_updated %>		
+	<li><%= link_to "Create New ZIP File", create_zip_path(:id => @experiment.id) %> for downloading</li>
+	</ul>
+  </div>
+   <% end %>
+</td>
+  </tr>
+<tr><td colspan="2">
+	<table>
+
+		<% if !@experiment.id.nil? && !@experiment.link_to.empty? %>
+		  <% @experiment.link_to.each do |link| %>
+		    <tr><td>Link</td><td><%= link.id %> | <%= link_to "Remove", :controller => "experimental_links", :action => "destroy", :link_id => link.id, :id => @experiment.id  %> </td></tr>
+	  	  <% end %>
+		<% end %>
+		<% if !@experiment.id.nil? && !@experiment.inverse_link_to.empty?; %>
+		  <% @experiment.inverse_link_to.each do |link| %> 
+		    <tr><td>Link</td><td><%= link.id %> |  <%= link_to "Remove", :controller => "experimental_links", :action => "destroy", :inv_link_id => link.id, :id => @experiment.id  %>  </td></tr>	
+		  <% end %>
+		<% end %>
+
+	    <tr><td colspan="2">	
+	<% if !@experiment.id.nil? %>
+	<font color="orange"><bold>
+	<%= link_to "Add an Experiment to Link", :controller => "experimental_links", :action => "show", :id => @experiment.id %></bold></font>
+	<% end %>
+	</td></tr>
+	</table>
+	</td>
+</tr>
+	<tr><td colspan="2"><hr></td></tr>
+  <tr>
+  <td>Status:</td><td>
+	Pending
+	<%= @experiment.status ? (f.radio_button :status, 0) : (f.radio_button :status, 0, :checked => true) %>
+	Accepted
+	<%= @experiment.status ? (f.radio_button :status, 1, :checked => true) : (f.radio_button :status, 1) %>			
+  </td>
+  </tr>
+  <tr>
+  <td>Title:</td><td> <%= f.text_field :title %></td>
+  </tr>
+  <tr>
+  <td>Description:</td><td> <%= f.text_area :description, "cols" =>47 %></td>
+  </tr>
+  <tr>
+  <td>Publication:</td><td> <%= f.text_area :publication, "cols" =>47, "rows" =>5 %></td>
+  </tr>
+  <tr>
+  <td>Details:</td><td> <%= f.text_area :experimental_details, "cols" =>47, "rows" =>7  %></td>
+  </tr>
+  <tr>
+  <td>Buffer:</td><td> <%= f.text_field :buffer %>pH<%= f.text_field :pH, :size => 10 %></td>
+  </tr>
+  <tr>
+  <td>Salt:</td><td> <%= f.text_field :salt, :size => 10 %>conc<%= f.text_field :salt_concentration, :size => 10 %></td>
+  </tr>
+  <tr>
+  <td>Divalent:</td><td> <%= f.text_field :divalent, :size => 10 %>conc<%= f.text_field :divalent_concentration, :size => 10 %></td>
+  </tr>
+  <tr>
+  <td>Temperature:</td><td> <%= f.text_field :temp, :size => 4 %></td>
+  </tr>
+  <tr>
+  <td>Additives:</td><td> <%= f.text_area :additives, "cols" => 47, "rows" => 7 %></td>
+  </tr>
+</table>
+
+	</div>
+	<hr>
+	<table>
+   <tr>
+   <th colspan="2" align="left"><font color="green">Invariants and Derived Values</font></th>  
+   </tr>
+  <tr>
+  <td>I(0):</td><td> <%= f.text_field :io, :size => 5 %>std dev<%= f.text_field :sig_Io, :size => 5 %></td>
+  </tr>
+  <tr>
+  <td>I(0) MW:</td><td> <%= f.text_field :io_molecular_weight, :size => 5 %></td>
+  </tr>
+  <tr>
+  <td>R<sub>g</sub> real:</td><td> <%= f.text_field :rg_real, :size => 5 %>std dev<%= f.text_field :sig_Rg_real, :size => 5 %></td>
+  </tr>
+  <tr>
+  <td>R<sub>g</sub> Guinier:</td><td> <%= f.text_field :rg, :size => 5 %>std dev<%= f.text_field :sig_Rg, :size => 5 %></td>
+  </tr>
+  <tr>
+  <td>D<sub>max</sub></td><td> <%= f.text_field :dmax, :size => 5 %></td>
+  </tr>
+  <tr>
+  <td>V<sub>porod</sub></td><td> <%= f.text_field :v_porod, :size => 5 %></td>
+  </tr>
+  <tr>
+  <td>V<sub>c</sub>:</td><td> <%= f.text_field :volume_of_correlation, :size => 4 %></td>
+  </tr>
+  <tr>
+  <td>Porod Exponent:</td><td> <%= f.text_field :porod_exponent, :size => 3 %></td>
+  </tr>
+  </table>
+  <table>
+  <tr><th colspan="2" align="left"><font color="skyblue">Composition</font></th></tr>
+  <tr>
+  <td>Protein:</td><td>No
+	<%= @experiment.protein ? (f.radio_button :protein, 0) : (f.radio_button :protein, 0, :checked => true) %>
+	yes
+	<%= @experiment.protein ? (f.radio_button :protein, 1, :checked => true) : (f.radio_button :protein, 1) %>
+  </td>
+  </tr>
+  <tr>
+  <td>RNA:</td><td>No 
+<%= @experiment.rna ? (f.radio_button :rna, 0) : (f.radio_button :rna, 0, :checked => true) %>
+yes
+<%= @experiment.rna ? (f.radio_button :rna, 1, :checked => true) : (f.radio_button :rna, 1) %>
+
+  </td>
+  </tr>
+  <tr>
+  <td>DNA:</td><td>No
+	<%= @experiment.dna ? (f.radio_button :dna, 0) : (f.radio_button :dna, 0, :checked => true) %>
+	yes
+	<%= @experiment.dna ? (f.radio_button :dna, 1, :checked => true) : (f.radio_button :dna, 1) %>
+  </td>
+  </tr>
+  <tr>
+  <td>Membrane:</td><td>No
+	<%= @experiment.membrane ? (f.radio_button :membrane, 0) : (f.radio_button :membrane, 0, :checked => true) %>
+	yes
+	<%= @experiment.membrane ? (f.radio_button :membrane, 1, :checked => true) : (f.radio_button :membrane, 1) %>
+  </td>
+  </tr>
+  </table>
+<hr>
+  <table>
+	  <tr><th colspan="2" align="left"><font color="green">Authors</font></th></tr>
+	  <%= f.fields_for :authors do |ff| %>
+	  <tr>
+	  <td>Last Name:<%= ff.text_field :lastname %></td><td>Initials:<%= ff.text_field :initials %></td>
+	  </tr>
+	  <% end %>
+  </table>
+<hr>
+  <table>
+	  <tr><th colspan="2" align="left"><font color="green">Sequences and Genes</font></th></tr>
+	  <%= f.fields_for :expgenes do |ss| %>
+
+	  <tr><td>Gene ID<%= ss.text_field :gene_id %></td><td>pI<%= ss.text_field :pI, :size => 3 %></td></tr>
+	  <tr><td>Abbreviated Name:</td><td><%= ss.text_field :abbr_name, :size => 10 %>10 character limit</td></tr>
+	  <tr><th colspan="2"><font color="skyblue">Experimental Sequence</font>&nbsp; MW: <%= ss.text_field :exp_mw %></th></tr>
+	  <tr>
+	  <td colspan="2"><%= ss.text_area :experimental_sequence, :rows => 6, :cols => 80 %></td>
+	  </tr>
+	  <tr><th colspan="2"><font color="skyblue">Annotation</font></th></tr>	
+	  <tr>
+	  <td colspan="2"><%= ss.text_area :annotation, :rows => 6, :cols => 80 %></td>
+	  </tr>	
+	  <% end %>
+  </table>
+<p>
+Editing of Details only allowed, if submission requires alterations of the model after acceptance, must delete entire entry or re-submit.  
+</p>
+<table>
+<%= f.fields_for :dammin_result do |dm| %>
+<tr><th colspan="2" align="left"><font color="red">Dammin Result</font></th></tr>
+<tr><td align="right">Space Group</td><td><%= dm.text_field :spacegroup %></td><td></td></tr>
+<tr><td align="right">NSD</td><td><%= dm.text_field :nsd %></td><td></td></tr>
+<tr><td align="right">standard deviation NSD</td><td><%= dm.text_field :sig_NSD %></td><td></td></tr>
+<tr><td align="right">Number in Average</td><td><%= dm.text_field :number_in_average %></td><td></td></tr>
+<tr><td align="right" colspan="2">
+<div id="download">		
+<ul>
+<li><%= link_to("Download Average Model", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => "average_dammin"}) %></li>
+<li><%= link_to("Download Single Model", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => "single_dammin"}) %></li>
+	      <%= dm.hidden_field(:average_model_filename) %>
+	      <%= dm.hidden_field(:single_model_filename) %>	
+	      <%= dm.hidden_field(:subcomb_model) %>		
+</ul>
+</div>
+</td></tr>
+<% end %>
+</table>
+<table>
+<%= f.fields_for :gasbor_results do |gasbor| %>
+<tr><th colspan="2" align="left"><font color="red">Gasbor Result</font></th></tr>
+<tr><td align="right">Space Group</td><td><%= gasbor.text_field :spacegroup %></td><td></td></tr>
+<tr><td align="right">NSD</td><td><%= gasbor.text_field :nsd %></td><td></td></tr>
+<tr><td align="right">standard deviation NSD</td><td><%= gasbor.text_field :sig_NSD %></td><td></td></tr>
+<tr><td align="right">Chi</td><td><%= gasbor.text_field :chi_square %></td><td></td></tr>
+<tr><td align="right">std Chi</td><td><%= gasbor.text_field :sig_chi_square %></td><td></td></tr>
+<tr><td align="right">Number in Average</td><td><%= gasbor.text_field :number_in_average %></td><td></td></tr>
+<tr><td align="right" colspan="2">
+	<div id="download">	
+	<ul>	
+	  <li><%= link_to("Download Average Model", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => "average_gasbor"}) %></li>
+
+	  <li><%= link_to("Download Single Model", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => "single_gasbor"}) %></li>
+	      <%= gasbor.hidden_field(:average_model_filename) %>
+	      <%= gasbor.hidden_field(:single_model_filename) %>
+	      <%= gasbor.hidden_field(:subcomb_model) %>	
+	</ul>
+	</div>
+</td></tr>
+<% end %>
+</table>
+<table>
+<% if @experiment.structural_model.respond_to?(:experiment_id) %>
+<%= f.fields_for :structural_model do |strmodel| %>
+  <tr><th colspan="2" align="left"><font color="red">Structural Models</font></th></tr>
+  <tr><td align="right">Chi</td><td><%= strmodel.text_field :chi_square %></td></tr>
+  <tr><td align="right">Description</td><td><%= strmodel.text_field :description %></td></tr>
+  <tr><td align="right">Fit Filename</td><td><%= strmodel.text_field :fit_filename %></td></tr>
+  <tr><td align="right">PDB Filename</td><td><%= strmodel.text_field :pdb_filename %></td></tr>
+  <tr><td align="right" colspan="2">
+ 	  <div id="download">
+	  <p><ul>
+	  <li><%= link_to("Download Model", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => "structure"}) %>
+	  </ul>
+	  </p>
+	  </div>
+  </td></tr>
+<% end %>
+<% end %>
+</table>
+<table>
+<% if @experiment.ensemble.respond_to?(:experiment_id) %>
+<%= f.fields_for :ensemble do |ensemble| %>
+<tr><th colspan="2" align="left"><font color="red">Ensemble</font></th></tr>
+<tr><td align="right">Scoring Function</td><td><%= ensemble.text_field :scoring_function %></td></tr>
+<tr><td align="right">Score</td><td><%= ensemble.text_field :score %></td></tr>
+<tr><td align="right">Selection Method</td><td><%= ensemble.text_field :selection_method %></td></tr>
+<tr><td align="right">Simulation Method</td><td><%= ensemble.text_field :simulation_method %></td></tr>
+<tr><td align="right">Simulation Algorithm</td><td><%= ensemble.text_field :simulation_algorithm %></td></tr>
+<tr><td align="right">Ensemble Size</td><td><%= ensemble.text_field :ensemble_size %></td></tr>
+<tr><td align="right">Member Size</td><td><%= ensemble.text_field :member_size %></td></tr>
+<tr><td width="390" colspan="2">
+    <% if File.exists?(Rails.root.join("public","SAX_DATA", @experiment.data_directory,"med_res_ensemble_FIT.png")) %>
+	  <p>Ensemble Fit Figure</p>
+      <%= image_tag("/SAX_DATA/#{@experiment.data_directory}/med_res_ensemble_FIT.png", :size => "386x300", :border => "0")%>
+      <%= ensemble.hidden_field(:fit_filename, :value => @experiment.ensemble.fit_filename) %>
+    <% end %>
+
+    <% if File.exists?("#{Rails.root}/public/SAX_DATA/#{@experiment.data_directory}/ensemble/diagnostic.#{@extension}") %>
+	  <p>Ensemble Diagnostic Supportive Figure</p>
+      <%= image_tag("/SAX_DATA/#{@experiment.data_directory}/ensemble/diagnostic.#{@extension}", :size => "579x450", :border => "0")%>
+      <p>Figure File Name: <%= @experiment.ensemble.diagnostic_file_name %> </p>
+      <%= ensemble.hidden_field(:diagnostic_file_name, :value => @experiment.ensemble.diagnostic_file_name) %>
+      <p>Figure File Size: <%= @experiment.ensemble.diagnostic_file_size %> kb </p>
+      <%= ensemble.hidden_field(:diagnostic_file_size, :value => @experiment.ensemble.diagnostic_file_size) %>
+      <p>File Type: <%= ensemble.text_field :diagnostic_content_type, :value => @experiment.ensemble.diagnostic_content_type %></p>	  
+      
+      <%= ensemble.text_area :figure_legend  %>
+    <% end %>
+</td></tr>
+<% @pdbs.each do |pdb| %>
+<tr><td align="right" colspan="2">
+	  <div id="download">
+	  <p><ul>
+	  <li><%= pdb.split(/ensemble\//)[1] %> | <%= link_to("Download Model", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => pdb}) %>
+	  </ul>
+	  </p>
+	  </div>
+</td></tr>
+<% end %>
+<% end %>
+<% end %>
+</table>
+<hr>
+<table>
+<% if @experiment.no_model.respond_to?(:experiment_id) %>
+<%= f.fields_for :no_model do |nomodel| %>
+<tr><th colspan="2" align="left"><font color="red">No Models</font></th></tr>
+<tr><td align="right">Figure File Name</td><td><%= nomodel.text_field :figure_file_name %></td><td></td></tr>
+<tr><td align="right">Description</td><td><%= nomodel.text_area :description, "cols" =>47, "rows" =>5 %></td><td></td></tr>
+<tr>
+<td width="390" colspan="2">
+
+    <% if File.exists?("#{Rails.root}/public/SAX_DATA/#{@experiment.data_directory}/nomodel/nomodel.#{@extension}") %>
+	  <p>No Model Diagnostic Supportive Figure</p>
+      <%= image_tag("/SAX_DATA/#{@experiment.data_directory}/nomodel/nomodel.#{@extension}", :size => "386x300", :border => "0")%>
+      <p>Figure File Size: <%= nomodel.text_field :figure_file_name, :value => @experiment.no_model.figure_file_name %></p>
+      <p>Figure File Size: <%= nomodel.text_field :figure_file_size, :value => @experiment.no_model.figure_file_size, :size=>"10" %> KB (do not change) </p>
+      <p>File Type: <%= nomodel.text_field :figure_content_type, :value => @experiment.no_model.figure_content_type %></p>	
+    <% end %>
+<hr>
+</td>
+</tr>
+<% end %>
+<% end %>
+</table>
+
+<%= render :partial => "plot_info", :formats => [:js], :content_type => 'text/javascript' %>
+
+<h3>Intensity</h3>
+<canvas id="iofq" width="386" height="300">
+<p>Your browser doesn't support canvas.</p>
+</canvas>
+
+<p>
+<%= image_tag("/SAX_DATA/#{@experiment.data_directory}/med_res_IofQ.png", :size => "386x300", :border => "0")%>	
+</p>
+<ul>
+<li><%= link_to("Download IofQ data file", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => "iofq"}) %></li>
+</ul>
+<h3>PofR</h3>
+<canvas id="pofr" width="386" height="300">
+<p>Your browser doesn't support canvas.</p>
+</canvas>
+<p>
+<%= image_tag("/SAX_DATA/#{@experiment.data_directory}/med_res_PofR.png", :size => "386x300", :border => "0")%>
+</p>
+
+<h3>Kratky</h3>
+<canvas id="kratky" width="386" height="300">
+<p>Your browser doesn't support canvas.</p>
+</canvas>
+
+<p>
+<%= image_tag("/SAX_DATA/#{@experiment.data_directory}/med_res_kratky.png", :size => "386x300", :border => "0")%>	
+</p>
+<h3>Guinier</h3>
+<% if File.exists?("#{Rails.root}/public/SAX_DATA/#{@experiment.data_directory}/med_res_guinier.png") %>
+<p>
+<%= image_tag("/SAX_DATA/#{@experiment.data_directory}/med_res_guinier.png", :size => "386x300", :border => "0")%>	
+</p>
+<% else %>
+<p>
+<%= link_to "Create Guinier", create_guinier_path(:id => @experiment.data_directory) %>	
+</p>
+<% end %>
+<h3>Uploaded Intensity Files</h3>
+<% @originals.each do |file| %>
+<ul>
+<li><%= link_to(file.split(/originals\//)[1], {:controller => "experiments", :action => "download_original", :id=>@experiment.id, :file => file}) %></li>
+</ul>
+<% end %>	
+
+
+  <div class="actions">
+   <a name="Update"><%= f.submit %></a>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+// Place all the styles related to the Scatter controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+ 
+.new_scatter_download label {
+  float: left;
+  width: 250px;
+  text-align: left;
+  margin: 2px 10px;
+}
+
+.new_scatter_download div.input {
+  margin-bottom: 10px;
+}
+
+h2 {
+    color:#8A2BE2;
+	font-weight: bold;
+	font-size: 16pt;
+}
+
+h3 {
+    color:red;
+	font-weight: bold;
+	font-size: 14pt;
+}
+
+h4 {
+	font-weight: normal;
+	color:red;
+	font-size: 12pt;
+    text-transform:uppercase;	
+}
+
+div.field_with_errors {
+  color:red;
+}

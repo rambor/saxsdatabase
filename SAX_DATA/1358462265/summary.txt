@@ -1,0 +1,63 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1358462265
+EMAIL		mhammel@lbl.gov
+CREATED_ON	2013-01-25 06:43:53 UTC
+
+#REMARK SUMMARY
+TITLE	Solution state of Superoxide dismutase from Alvinella Pompejana
+BIOISIS_ID	APSODP
+EXP_DESCRIPTION	Solution state of Superoxide dismutase from Alvinella Pompejana
+SOURCE_LOCATION	ALS BL12.3.1
+PUBLICATION	Superoxide dismutase from the eukaryotic thermophile Alvinella pompejana: structures, stability, mechanism, and insights into amyotrophic lateral sclerosis. J  Mol Biol. 2009 February 6; 385(5): 1534–1555.
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	SAXS data sets were collected on ApSOD protein samples at 2, 4, and 6 mg/ml concentrations in phosphate-buffered saline (PBS, pH 7.4) at 25 °C at the Advanced Light Source SIBYLS beamline 12.3.1 using a MAR CCD 165 detector as detailed elsewhere.52
+BUFFER			PBS
+pH			7.4
+TEMPERATURE		20.0
+SALT			NaCl
+SALT_CONCENTRATION	150
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			20.5
+SIG_Io			0.3
+Io_MOLECULAR_WEIGHT	38000
+DMAX			65
+RG			20.5
+SIG_RG			0.3
+RG_REAL			20.4
+SIG_RG_REAL		0.2
+V_POROD			41200
+V_C			
+POROD_EXPONENT		4.0
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	ApSOD
+EXP_MW		15804
+ANNOTATION	Superoxide Dismutase from the eukaryotic thermophile Alvinella pompejana
+EXP_SEQUENCE	ATKAVCVLKGDGPVQGIINFEQKESNGPVKVWGSIKGLTEGLHGFHVHEFGDNTAGCTSAGPHFNPLSRKHGGPKDEERHVGDLGNVTADKDGVADVSIEDSVISLSGDHCIIGRTLVVHEKADDLGKGGNEESTKTGNAGSRLACGVIGIAQ
+
+
+#REMARK STRUCTURAL MODEL
+CHI_SQUARE		1.7
+FIT_FILENAME		dimer1water_wPBS5_23M.dat.txt
+DESCRIPTION		homolog pdb file
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/wPBS5_23M.dat
+pofr_data_file			originals/wPBS5_23M.pofr.dat.pofr
+fitted_SAXS_with_model.dat	structure/dimer1water_wPBS5_23M.dat.txt
+pdb_model.pdb			structure/dimer1water.pdb

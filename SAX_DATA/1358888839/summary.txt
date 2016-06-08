@@ -1,0 +1,63 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1358888839
+EMAIL		mhammel@lbl.gov
+CREATED_ON	2013-01-25 06:17:51 UTC
+
+#REMARK SUMMARY
+TITLE	Lysozyme under varying KCl concentrations varying between 0 and 1000mM
+BIOISIS_ID	LYKClP
+EXP_DESCRIPTION	SAXS profiles for glucose isomerase and lysozyme at the concentration of ~2.5 mg/ml were collected under different ionic strengths using NaCl or KCl concentrations varying between 0 and 1000mM. The SAXS data for contrast variation experiments have been collected using two standard protein glucose isomerase (174 kDa). Protein at the concentration 5mg/ml were first dialyzed in buffer containing 50mM Tris pH 7.6.  Dialyzed proteins were aliquot into the 50uL fractions that were diluted with 50uL of different NaCl salt solutions giving final salt concentration varying between 25mM and 1000mM. The corresponding buffer blanks for SAXS experiments were prepared identically by diluting 50uL aliquots of the dialyzing buffer with salt solutions. SAXS data was collected and analyzed as described previously (Hura, 2009 Nature Method).
+SOURCE_LOCATION	ALS BL12.3.1
+PUBLICATION	Hammel et al
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	concentration 2.5 mg/mL
+BUFFER			Tris-Base
+pH			7.6
+TEMPERATURE		20.0
+SALT			KCl
+SALT_CONCENTRATION	0
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			57.0
+SIG_Io			0.1
+Io_MOLECULAR_WEIGHT	14300
+DMAX			49
+RG			14.8
+SIG_RG			0.1
+RG_REAL			15.3
+SIG_RG_REAL		1.0
+V_POROD			19500
+V_C			
+POROD_EXPONENT		4.0
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	LYSOZ
+EXP_MW		14312
+ANNOTATION	Lysozyme from Galus Galus
+EXP_SEQUENCE	KVFGRCELAAAMKRHGLDNYRGYSLGNWVCAAKFESNFNTQATNRNTDGSTDYGILQINSRWWCNDGRTPGSRNLCNIPCSALLSSDITASVNCAKKIVSDGNGMNAWVAWRNRCKGTDVQAWIRGCRL
+
+
+#REMARK STRUCTURAL MODEL
+CHI_SQUARE		1.9
+FIT_FILENAME		6LYZ_LYS_N100.dat.txt
+DESCRIPTION		homolog pdb file
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/LYS_K300.dat, LYS_K200.dat, LYS_K100.dat, LYS_K1000.dat, LYS_K500.dat, LYS_K0.dat, LYS_K150.dat, LYS
+pofr_data_file			originals/LYS_N150.pofr.dat.pofr
+fitted_SAXS_with_model.dat	structure/6LYZ_LYS_N100.dat.txt
+pdb_model.pdb			structure/1BK1.pdb

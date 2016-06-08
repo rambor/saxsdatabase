@@ -1,0 +1,23 @@
+<div id="LeftMenu">
+<ul id="RightSideList">
+
+<% if params[:action] =~ /add_models/ || params[:action] =~ /edit_authors/ || params[:action] =~ /edit_experimental_details/ || params[:action] =~ /edit_basic_information/ || params[:action] =~ /edit_saxs_parameters/ || params[:action] =~ /edit_data_files/ || params[:action] =~ /edit_gene/ || params[:action] =~ /add_gene/%>
+
+<li><%= link_to "Back", submission_edit_path(@submission.data_directory) %></li>
+
+<% elsif params[:action] =~ /add_dammin_model/ || params[:action] =~ /add_gasbor_model/ || params[:action] =~ /add_ensemble_model/ || params[:action] =~ /add_structural_model/ || params[:action] =~ /add_no_model/ || params[:action] =~ /save_ensemble/ %>
+
+<li><%= link_to "Back", add_models_path(@submission.data_directory) %></li>
+
+<% elsif params[:action] =~ /upload_iofq_file/ || params[:action] =~ /add_pofr_file/ || params[:action] =~ /add_iofq_file/ || params[:action] =~ /remove_file/ || params[:action] =~ /upload_pofr_file/  %>
+
+<li><%= link_to "Back", edit_data_files_path(@submission.data_directory) %></li>
+
+<% elsif params[:action] =~ /code_search/  %>
+
+<li><%= link_to "New Deposit", new_submission_path() %></li>
+
+
+<% end %>
+</ul>
+</div>

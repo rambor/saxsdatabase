@@ -1,0 +1,9 @@
+/* Insert a notice between the last comment and the comment form */
+
+/* Replace the count of comments */
+/* $("#comments_count").html("<%= @pdbs.size %>"); */
+
+/* Add the new comment to the bottom of the comments list */
+/* $("#pdbs").append("<div id=pdb_<%= @pdbs.size-1 %> ><%= escape_javascript(@pdb) %> </div> "); */
+$("#pdbs").append('<%= escape_javascript(render(:partial => "pdbs")) %>'); 
+

@@ -1,0 +1,370 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_details_menu" %>  
+<% end -%>
+
+<% content_for :right do %>
+  <%= render :partial => "right_details_menu" %>  
+<% end -%>
+<%= render :partial => "plot_info", :formats => [:js], :content_type => 'text/javascript' %>
+<table width="100%" class="DataTables" cellpadding="4" >
+
+<tr>
+  <th colspan="2" align="center" class="specalt">"<%= @experiment.title %>"</th>
+</tr>
+
+<tr>
+	<td class="graph_title" align="center"><h1 class="NewExperimentH2">Experimental SAS Curve</h1></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td align="left">
+		<canvas id="iofq" width="386" height="300">
+		<p>Your browser doesn't support canvas.</p>
+		</canvas>
+	</td>
+       <td align="center" valign="middle"><p><%= File.exists?("#{Rails.root}/public/SAX_DATA/#{@experiment.data_directory}/low_res_thumbnail.png") ? image_tag("/SAX_DATA/#{@experiment.data_directory}/low_res_thumbnail.png", :size => "150x150", :border => "0") : image_tag("low_res_thumbnail.gif", :size => "150x150", :border => "0") %>
+
+</p><p><span class ="grey_text">Experimental Mass</span></p><p><span class="grey_text">
+<%= number_with_delimiter(@experiment.io_molecular_weight) %>&nbsp;Da</p></span></td>
+       </tr>
+       <tr>
+         <td colspan="2">
+	 <table cellpadding="8" class="AdditionalSaxsDetails" width="100%">
+		 <tr><th colspan="2" class="specalt" align="left"> Experimental Details for BID: &nbsp;<%= @experiment.bioisis_id.nil? ? "#{@experiment.id}" : "#{@experiment.bioisis_id}" %></th></tr>
+		 <tr>
+			<th align="left" colspan="2"> <span class ="grey_text">Experiment ID:&nbsp;<%= @experiment.id %></span>
+
+			<% if @experiment.link_to.size > 0 || @experiment.inverse_link_to.size > 0 %>			
+			  <span class ="green_text">&nbsp;&nbsp; In addition, this experiment links to experiment(s):
+		 	  <% if !@experiment.link_to.empty?; %> <% @experiment.link_to.each do |link| %>&nbsp;<%= link_to "#{link.id}", :controller =>"experiments", :action => "details", :id => link.id %><% end %>			
+			  <% end %>
+			
+			  <% if !@experiment.inverse_link_to.empty?; %><% @experiment.inverse_link_to.each do |link| %>&nbsp;<%= link_to "#{link.id}", :controller =>"experiments", :action => "details", :id => link.id %><% end %>			
+			  <% end %>
+			
+			<% end %>			
+			</span></th>		
+		 </tr>
+		 <tr>
+			<th align="left" colspan="2"> <span class ="grey_text">Collected at:&nbsp;</span><span class="blue_text"><%= @experiment.source_location %></span></th>		
+		 </tr>
+		 <tr>
+			<th align="left" colspan="2"><span class ="grey_text">Contributors:</span><span class ="red_text"><% authors_count=1; for author in @experiment.authors %>
+						<%= author.lastname+", "+ author.initials %>
+						<% if (@experiment.authors.size > 1) && (authors_count < @experiment.authors.size) %>
+							<%= ",&nbsp;".html_safe %><% authors_count +=1 %>
+						<% end %> 
+				   <% end %>
+			</span></th>			
+		</tr>
+<tr><td colspan="2" align="left"><span class ="grey_text"> </span></td></tr>
+
+		 <tr>
+			<th colspan="2" align ="justify"> <span class ="grey_text"><%= @experiment.description %></span></th>
+		 </tr>
+		 <tr>
+			<th colspan="2" align ="justify"> <span class ="grey_text"><%= @experiment.experimental_details %></span></th>
+		 </tr>		
+	 </table>
+         </td>
+      </tr>
+<tr>
+  <th colspan="2" align="center"><hr /></th>
+</tr>
+<tr>
+	<td align="center" class="graph_title" width="390"><h1 class="NewExperimentH2"><a name="pofr">Electron Pair Distribution</a></h1>
+             <div class="forum_location"><p><a href="#top">back to top<span class="arrow">&rarr;</span></a></p></div>
+        </td>
+        <td>
+        </td>
+</tr>
+
+<tr>	
+	<td width="390">
+		<canvas id="pofr" width="386" height="300">
+		<p>Your browser doesn't support canvas.</p>
+		</canvas>		
+
+	</td>
+    <td width="100%">
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D<sub>max</sub> &rarr; <%= @experiment.dmax %> &Aring;</p>
+    </td>        
+</tr>
+
+<tr>
+  <th colspan="2" align="center"><hr /></th>
+</tr>
+
+<tr>
+       <td align="center"  class="graph_title"><h1 class="NewExperimentH2"><a name="guinier">Guinier Plot</a></h1>
+                                               <div class="forum_location"><p><a href="#top">back to top<span class="arrow">&rarr;</span></a></p></div>
+       </td>
+       <td>
+      </td>
+</tr>
+
+<tr>	
+	<td width="390">
+		<canvas id="guinier" width="386" height="300">
+		<p>Your browser doesn't support canvas.</p>
+		</canvas>		
+
+	</td>
+        <td width="100%">
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guinier R<sub>g</sub> &rarr; <%= @experiment.rg %> &Aring;</p>
+	<p>Real Space R<sub>g</sub> &rarr; <%= @experiment.rg_real %> &Aring;</p>
+        </td>
+</tr>
+<tr>
+<td align="left" colspan="2">
+       <p class="about"> The Guinier plot is used to estimate the radius of gyration, R<sub>g</sub>, which is taken from the slope of a line observed at low scattering angles (typically in the range where <I>q</I>* R<sub>g</sub> < 1.3).  This should be in reasonable agreement with the real space R<sub>g</sub>.</p>
+</td>
+</tr>
+<tr>
+  <th colspan="2" align="center"><hr /></th>
+</tr>
+<tr>
+
+	<td align="center"  class="graph_title"><h1 class="NewExperimentH2"><a name="kratky">Kratky Plot</a></h1>
+
+<div class="forum_location"><p><a href="#top">back to top<span class="arrow">&rarr;</span></a></p></div>
+        </td><td></td>
+
+</tr>
+<tr>
+	<td>
+		<canvas id="kratky" width="386" height="300">
+		<p>Your browser doesn't support canvas.</p>
+		</canvas>			
+	</td>
+<td></td>
+</tr>
+<% if !@experiment.no_model.nil? %>
+<tr>
+	<th colspan="2" align ="left"> <span class ="grey_text"><%= @experiment.no_model.description %></span></th>
+</tr>
+<% end %>
+<tr>
+        <td colspan="2" align="left">
+       <p class="about"> The Kratky plot can be used to visually assess the degree of "unfoldedness" of a protein or RNA sample.  
+	The plot of a well-behaved folded protein approaches the baseline at high <I>q</I> values creating a parabolic shape. </p>
+        </td>
+
+</tr>
+<tr>
+  <th colspan="2" align="center"><hr /></th>
+</tr>
+<% if File.exists?("#{Rails.root}/public/SAX_DATA/#{@experiment.data_directory}/fitted_SAXS_with_model.dat") %>
+<tr>
+
+	<td align="center"  class="graph_title"><h1 class="NewExperimentH2"><a name="fitted_model">PDB Model fit to SAXS Data</a></h1>
+
+<div class="forum_location"><p><a href="#top">back to top<span class="arrow">&rarr;</span></a></p></div>
+        </td><td></td>
+
+</tr>
+
+<tr>
+	<td>
+	<canvas id="fit" width="386" height="300">
+	<p>Your browser doesn't support canvas.</p>
+	</canvas>	
+	</td>
+<td>
+	
+	<%= File.exists?("#{Rails.root}/public/SAX_DATA/#{@experiment.data_directory}/low_res_thumbnail.png") ? image_tag("/SAX_DATA/#{@experiment.data_directory}/low_res_thumbnail.png", :size => "150x150", :border => "0") : image_tag("/images/low_res_thumbnail.gif", :size => "150x150", :border => "0") %>
+	
+	
+	
+	<div id="download">
+	<p><ul>
+	<li><%= link_to("Download Model", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => "structure"}) %>
+	</ul>
+	</p>
+	</div>
+	</td>
+</tr>
+
+<tr>
+        <td colspan="2" align="left">
+       <p class="about"> The red line is the calculated SAXS profile from a PDB model scaled to the experimental SAXS curve (cyan).  The two curves agree with a Chi<sup>2</sup> of <%= @experiment.structural_model.chi_square %>.  </p> 
+        </td>
+
+</tr>
+<tr>
+  <th colspan="2" align="center"><hr /></th>
+</tr>
+<% end %>
+
+<% if !@experiment.dammin_result.nil?  %>
+<tr>
+
+	<td align="center"  class="graph_title"><h1 class="NewExperimentH2"><a name="dammin">DAMMIN/F Model</a></h1>
+
+<div class="forum_location"><p><a href="#top">back to top<span class="arrow">&rarr;</span></a></p></div>
+        </td><td></td>
+
+</tr>
+<tr>
+  <td align="center">
+ <%= render :partial => "dammin_result" %>
+  </td><td>	
+	<div id="download">		
+	<ul>
+	<li><%= link_to("Download Average Model", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => "average_dammin"}) %></li>
+	<li><%= link_to("Download Single Model", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => "single_dammin"}) %></li>
+	</ul>
+	</div>	
+	</td>
+</tr>
+<tr>
+  <th colspan="2" align="center"><hr /></th>
+</tr>
+
+<% end %>
+
+<% if !@experiment.gasbor_results.empty?  %>
+<tr>
+
+	<td align="center"  class="graph_title"><h1 class="NewExperimentH2"><a name="gasbor">GASBOR Model</a></h1>
+
+<div class="forum_location"><p><a href="#top">back to top<span class="arrow">&rarr;</span></a></p></div>
+        </td><td></td>
+
+</tr>
+<tr>
+  <td align="center">
+ <%= render :partial => "gasbor_results" %>
+  </td><td>
+<div id="download">	
+<ul>	
+  <li><%= link_to("Download Average Model", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => "average_gasbor"}) %></li>
+  <li><%= link_to("Download Single Model", {:controller => "experiments", :action => "download_data", :id=>@experiment.id, :file => "single_gasbor"}) %></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+  <th colspan="2" align="center"><hr /></th>
+</tr>
+
+<% end %>
+
+<% if !@experiment.ensemble.nil?  %>
+<tr>
+	<td align="center"  class="graph_title"><h1 class="NewExperimentH2"><a name="ensemble">Ensemble Model</a></h1>
+<div class="forum_location"><p><a href="#top">back to top<span class="arrow">&rarr;</span></a></p></div>
+        </td><td></td>
+</tr>
+<tr>
+  <td align="center" colspan="2">
+ <%= render :partial => "ensemble" %>
+  </td>
+</tr>
+<tr>
+  <th colspan="2" align="center"><hr /></th>
+</tr>
+<% end %>
+
+<% if !@experiment.no_model.nil?  %>
+<tr>
+	<td align="center"  class="graph_title"><h1 class="NewExperimentH2"><a name="nomodel">No Model</a></h1>
+<div class="forum_location"><p><a href="#top">back to top<span class="arrow">&rarr;</span></a></p></div>
+        </td><td></td>
+</tr>
+<tr>
+  <td align="center" colspan="2">
+ <%= render :partial => "nomodel" %>
+  </td>
+</tr>
+<tr>
+  <th colspan="2" align="center"><hr /></th>
+</tr>
+<% end %>
+
+<tr>
+	 <td align="center" colspan="2">
+	 <table cellpadding="10" class="AdditionalSaxsDetails" width="100%">
+		 <tr><th colspan="2" class="specalt" align="left"><a name="additionaldetails">Additional Experimental Details</a></th></tr>
+         <tr><th colspan="2" align="left">Title<p class="about"><%= @experiment.title %></p></th></tr>
+
+         <tr><th colspan="2" align="left">Description<p class="about"><%= @experiment.description %></p></th></tr>
+		 <tr>
+		  <th colspan="2" align="left">Publication<p class="about"><%= @experiment.publication %></p></th>
+	     </tr>
+		 <tr>
+			<th align="left" colspan="2">Contributors<p><span class ="red_text"><% authors_count=1; for author in @experiment.authors %>
+						<%= author.lastname+", "+ author.initials %>
+						<% if (@experiment.authors.size > 1) && (authors_count < @experiment.authors.size) %>
+							<%= ",&nbsp;".html_safe %><% authors_count +=1 %>
+						<% end %> 
+				   <% end %>
+			</span></p></th>			
+		</tr>			
+			
+
+        <tr>
+			<th colspan="2" align="left">Genomics and Proteomics<p class="about">
+				The experiment is 
+				<%= @experiment.expgenes.size==1 ? orf="composed of a single gene/ORF" : orf="composed of #{@experiment.expgenes.size} genes/ORFs" %>
+								 
+				<% count = 1; for expgene in @experiment.expgenes %>
+                      <p class="about">
+                       Abbreviated name: <%= !expgene.abbr_name.empty? ? "#{expgene.abbr_name} " : "No Locus Name Available" %>
+                      </p><p class="about">
+	                   Annotation:
+	
+	                   <span class = "green_text">
+                       <%= expgene.annotation %>
+                      </span>
+                      </p>
+                      <% expgene.experimental_sequence.upcase! %>
+                      <table><tr class="sequence" align="left"><th>
+                       <% sequence=expgene.experimental_sequence.scan(/(..........)/) %>
+				       <% sequence.each do |x| %>
+				          <% x.each do |y| %>
+				             <%= y %>
+				          <% end %>
+				       <% end %>
+				       <%= expgene.experimental_sequence[expgene.experimental_sequence.scan(/(..........)/).size*10..expgene.experimental_sequence.size] %>
+		        	  </th></tr></table>
+		</th></tr>
+			        <tr>
+						<th colspan="2">
+		<table align="center">
+							      <% residues = expgene.experimental_sequence.scan(/./).inject(Hash.new(0)){|h,x| h[x]+=1;h} %>
+							      <tr>
+							       <td align="center" colspan="2">
+								  <% if residues.size > 4 %>
+							        <table id="aa_composition" >
+							        <tr><th scope="col" class="nobackground" width="30">category</th><th scope="col" class="aa_comp">amino acid composition(%)</th></tr>
+							        <tr><th scope="row" class="aaspec">Hydrophobic</th><td class="aa">I(<%= sprintf("%.1f",residues['I'].to_f/expgene.experimental_sequence.length.to_f*100) %>) V(<%= sprintf("%.1f",residues['V'].to_f/expgene.experimental_sequence.length.to_f*100) %>) L(<%= sprintf("%.1f",residues['L'].to_f/expgene.experimental_sequence.length.to_f*100) %>) M(<%= sprintf("%.1f",residues['M'].to_f/expgene.experimental_sequence.length.to_f*100) %>) A(<%= sprintf("%.1f",residues['A'].to_f/expgene.experimental_sequence.length.to_f*100) %>) G(<%= sprintf("%.1f",residues['G'].to_f/expgene.experimental_sequence.length.to_f*100) %>) P(<%= sprintf("%.1f",residues['P'].to_f/expgene.experimental_sequence.length.to_f*100) %>)</td></tr>
+							        <tr><th scope="row" class="aaspecalt">Aromatic</th><td class="aaalt">F(<%= sprintf("%.1f",residues['F'].to_f/expgene.experimental_sequence.length.to_f*100) %>) W(<%= sprintf("%.1f",residues['W'].to_f/expgene.experimental_sequence.length.to_f*100) %>) Y(<%= sprintf("%.1f",residues['Y'].to_f/expgene.experimental_sequence.length.to_f*100) %>)</td></tr>
+							        <tr><th scope="row" class="aaspec">Hydrophilic</th><td class="aa">R(<%= sprintf("%.1f",residues['R'].to_f/expgene.experimental_sequence.length.to_f*100) %>) K(<%= sprintf("%.1f",residues['K'].to_f/expgene.experimental_sequence.length.to_f*100) %>) E(<%= sprintf("%.1f",residues['E'].to_f/expgene.experimental_sequence.length.to_f*100) %>) D(<%= sprintf("%.1f",residues['D'].to_f/expgene.experimental_sequence.length.to_f*100) %>) Q(<%= sprintf("%.1f",residues['Q'].to_f/expgene.experimental_sequence.length.to_f*100) %>) N(<%= sprintf("%.1f",residues['N'].to_f/expgene.experimental_sequence.length.to_f*100) %>) H(<%= sprintf("%.1f",residues['H'].to_f/expgene.experimental_sequence.length.to_f*100) %>) S(<%= sprintf("%.1f",residues['S'].to_f/expgene.experimental_sequence.length.to_f*100) %>) T(<%= sprintf("%.1f",residues['T'].to_f/expgene.experimental_sequence.length.to_f*100) %>) C(<%= sprintf("%.1f",residues['C'].to_f/expgene.experimental_sequence.length.to_f*100) %>)</td></tr>
+							        </table>
+							     <% elsif residues.size <= 4 %>
+									<table id="aa_composition">
+							        <tr><th scope="col" class="nobackground" width="30">category</th><th scope="col" class="aa_comp">Residue composition (%)</th></tr>
+							        <tr><th scope="row" class="aaspec">Nucleotides</th><td class="aa">
+							G (<%= sprintf("%.1f",residues['G'].to_f/expgene.experimental_sequence.length.to_f*100) %>) C (<%= sprintf("%.1f",residues['C'].to_f/expgene.experimental_sequence.length.to_f*100) %>) A (<%= sprintf("%.1f",residues['A'].to_f/expgene.experimental_sequence.length.to_f*100) %>) U (<%= sprintf("%.1f",residues['U'].to_f/expgene.experimental_sequence.length.to_f*100) %>) T (<%=		       
+					sprintf("%.1f",residues['T'].to_f/expgene.experimental_sequence.length.to_f*100) %>)</td></tr>
+
+					<tr><td class="aa" colspan="2">Mass: <%= number_with_delimiter(expgene.exp_mw) %> Da | Total residues: <%= expgene.experimental_sequence.length %></td></tr>
+					               </table>
+							     <% end %>
+				</table>
+		
+		        <hr/>
+			    <% end %>
+			</p>
+			</th>
+		 </tr>		
+		
+    </table>
+    </td>
+  
+</tr>
+
+</table>
+<canvas id="testID" width="100" height="100"></canvas>

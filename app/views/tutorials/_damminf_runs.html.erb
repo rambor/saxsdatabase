@@ -1,0 +1,19 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+<p class="about">
+Both DAMMIN and DAMMIF can be run from the Scatter GUI. These programs are apart of the ATSAS suite and must be obtained from <%= link_to "EMBL", "http://www.embl-hamburg.de/biosaxs/download.html", :class=> "no_decor_link" %>. Please make note of the installation directory, specifically the location of the binaries.  In Windows, the binaries are installed in C:/ATSAS whereas on a MAC or LINUX, the binaries may be installed in /Users/home/name/ATSAS/bin. For Scatter to call ATSAS, you must specify the location of the directory where the binaries are located (Figure 1: circled in red).
+</p>
+<p class="about" align="left">Figure 1:</p>
+	<%= image_tag('dammin_figure_2.png', :width => '650') %>
+
+<p class="about">Which data should you model?  The dataset that should be used for modeling should be the one that gives the best P(r) distribution. This dataset will likely be a reduced data, free of possible issues near the beamstop and aggregation. Likewise, issues with buffer subtraction are typically mitigated by removing the high q-data (q > 0.2). Removal of the high-q data points will not reduce the "resolution" of the final averaged model, as DAMMIN/F uses a Porod-scaling that emphasizes the low-q data points. Therefore, when you settle on a P(r) distribution in Scatter and write the data to file using the 2File button (Figure 2: red circle), Scatter will automatically call DATGNOM on the data that is plotted in the P(r) tab. The *.out file from DATGNOM will be auto-loaded into the DAMMIN/F tab (Figure 3).</p>
+<p class="about" align="left">Figure 2:</p>
+	<%= image_tag('dammin_figure_1.png', :width => '650') %>
+<h1 class="welcometitle">Running DAMMIN/F</h1>	
+<p class="about">DAMMIN/F is a modeling algorithm that attempts to model the shape of the scattering object based on the SAXS profile. The resulting model is a low-resolution representation of the scattering volume. Since the algorithm uses a simulated annealing schedule, several independent DAMMIN/F runs must be performed then averaged (DAMAVER) to produce a bead density model (damfilt.pdb). In addition, averaging will produce a damstart.pdb file which can be used by DAMMIN as  an initial model. I like to do an initial modeling run with DAMMIF to generate a damstart.pdb and then refine the damstart.pdb with a subsequent DAMMIN refinement run. </p>
+<p class="about" align="left">Figure 3:</p>
+	<%= image_tag('dammin_figure_3.png', :width => '650') %>
+<p class="about" align="left">DAMMIN/F can be run from the Scatter GUI and can use any GNOM output file. Scatter will auto-generate a GNOM file as described above, however, you are free to run GNOM and specify the GNOM out file. Averaging should be performed on >10 independent runs. The number of active runs will be restricted to the number of CPU cores specified by the user and continue till all the runs are completed.  At which point, DAMAVER will be automatically called. All files will be written to a subdirectory in the user specified working directory.</p>	

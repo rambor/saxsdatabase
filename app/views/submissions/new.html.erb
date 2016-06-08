@@ -1,0 +1,23 @@
+<h1>New Deposit</h1>
+<p>A link will be sent to the provided email address for creating a new BioIsis deposit. This link will remain active for one week or until the deposit has been completed.</p>
+
+<p>The email will include a pdf document detailing the necessary information for submission. The deposit does not have to be completed in one session but can be saved. Access to a saved deposit will occur through the emailed link.</p>
+
+Many thanks,<br/>
+
+Rob Rambo, Ph.D. 
+
+<%= form_for @submission do |f| %>
+  
+
+  <p><%= f.label :email, "Email for Deposit" %><br />
+  <%= f.text_field :email %></p>
+
+
+
+  <p><%= f.submit "Send Submission Link", :name => 'submission[force_create]' %></p>
+<% end %>
+
+
+
+<%= link_to 'Back to Home', welcome_path %>

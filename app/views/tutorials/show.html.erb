@@ -1,0 +1,98 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>
+<% end -%>
+
+<% if params[:id].to_i == 1 %>
+    <% @tag = "Sample Preparation" %>
+    <%= render :partial => "prep" %>
+<% elsif params[:id].to_i == 2 %>
+    <% @tag = "Data Collection" %>
+    <%= render :partial => "collection" %>
+<% elsif params[:id].to_i == 3 %>
+    <% @tag = "Data Reduction" %>
+    <%= render :partial => "reduction" %>
+<% elsif params[:id].to_i == 4 %>
+    <% @tag = "Guinier Analysis" %>
+    <%= render :partial => "guinier" %>
+<% elsif params[:id].to_i == 5 %>
+    <% @tag = "The P(r) Distribution" %>
+    <%= render :partial => "distribution" %>
+<% elsif params[:id].to_i == 6 %>
+    <% @tag = "Kratky Analysis" %>
+    <%= render :partial => "kratky" %>
+<% elsif params[:id].to_i == 7 %>
+    <% @tag = "Guinier Derivation" %>
+    <%= render :partial => "guinier_derivation" %>
+<% elsif params[:id].to_i == 8 %>
+	<% @tag = "Data Depositing and Submission" %>
+	<%= render :partial => "deposit" %>
+<% elsif params[:id].to_i == 9 %>
+		<% @tag = "About Scatter" %>
+		<%= render :partial => "about_scatter" %>	
+<% elsif params[:id].to_i == 10 %>
+		<% @tag = "Loading Files" %>
+		<%= render :partial => "loading_files" %>	
+<% elsif params[:id].to_i == 11 %>
+		<% @tag = "Cross-Sectional Radius-of-gyration" %>
+		<%= render :partial => "cross_section" %>
+<% elsif params[:id].to_i == 12 %>
+		<% @tag = "Flexibility Analysis" %>
+		<%= render :partial => "flexibility_analysis" %>
+<% elsif params[:id].to_i == 13 %>
+		<% @tag = "Volume-of-Correlation" %>
+		<%= render :partial => "volume_correlation" %>							
+<% elsif params[:id].to_i == 14 %>
+		<% @tag = "Volume and Porod Exponent" %>
+		<%= render :partial => "volume_exponent" %>	
+<% elsif params[:id].to_i == 15 %>
+		<% @tag = "P(r)-distribution" %>
+		<%= render :partial => "pr_tutorial" %>
+<% elsif params[:id].to_i == 16 %>
+		<% @tag = "Particle Mass Determination" %>
+		<%= render :partial => "protein_rna_mass" %>
+<% elsif params[:id].to_i == 17 %>
+		<% @tag = "Merging and Data Reduction" %>
+		<%= render :partial => "merging" %>
+<% elsif params[:id].to_i == 18 %>
+		<% @tag = "Ratio as Residual Curve" %>
+		<%= render :partial => "ratio" %>
+<% elsif params[:id].to_i == 19 %>
+		<% @tag = "Scaling" %>
+		<%= render :partial => "scaling" %>	
+<% elsif params[:id].to_i == 20 %>
+		<% @tag = "Data Quality" %>
+		<%= render :partial => "data_quality" %>	
+<% elsif params[:id].to_i == 21 %>
+		<% @tag = "Normalized (Dimensionless) Kratky Analysis" %>
+		<%= render :partial => "normal_kratky" %>	
+<% elsif params[:id].to_i == 22 %>
+		<% @tag = "Plot Settings" %>
+		<%= render :partial => "plot_settings" %>	
+<% elsif params[:id].to_i == 23 %>
+		<% @tag = "Buffer Subtraction" %>
+		<%= render :partial => "buffer_subtraction" %>												
+<% elsif params[:id].to_i == 24 %>
+		<% @tag = "Information Content" %>
+		<%= render :partial => "information_content" %>	
+<% elsif params[:id].to_i == 25 %>
+		<% @tag = "DAMMIN/F" %>
+		<%= render :partial => "damminf_runs" %>
+<% elsif params[:id].to_i == 26 %>
+		<% @tag = "Subtraction" %>
+		<%= render :partial => "subtraction" %>		
+<% elsif params[:id].to_i == 27 %>
+		<% @tag = "P(r) calculation from PDB model" %>
+		<%= render :partial => "pr_pdb_calculation" %>	
+<% elsif params[:id].to_i == 28 %>
+		<% @tag = "SEC-SAXS" %>
+		<%= render :partial => "sec_saxs" %>
+<% elsif params[:id].to_i == 29 %>
+		<% @tag = "SAVING FILES" %>
+		<%= render :partial => "saving_files" %>
+<% elsif params[:id].to_i == 30 %>
+		<% @tag = "Guinier Peak Analysis" %>
+		<%= render :partial => "gpa" %>							
+<% elsif params[:id].to_i == 69 %>
+		<% @tag = "Thank You" %>
+		<%= render :partial => "thank_you" %>			
+<% end -%>

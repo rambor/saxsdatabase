@@ -1,0 +1,150 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+<h1></h1>
+<p>A complete deposit of an <I>Experiment</I> requires one or more of the following: 
+	<ul>
+	<li>an <I>ab initio</I> model calculated using DAMMIN or GASBOR</li><li>A Structural Model in PDB format fitted to the experimental data</li><li>An Ensemble Model set (from either EOM, MES, or EROS) </li><li> NO Model (used in the absence of any structural model)</li></ul>
+Multiple model uploads are allowed. Often DAMMIN and GASBOR are used to demonstrate consistent models.  If you have calculated models using either or all of the above algorithms, please feel free to deposit all of them; otherwise, deposit only the most reliable structural model for your experimental SAXS data.  Thanks.
+</p>
+<hr>
+<p>
+<div id="dammin_form">
+<% if !@experiment.dammin_result.nil? %>
+<table cellpadding="10">
+	<tr><td>    
+    <%= link_to("Remove DAMMIN Model", destroy_dammin_model_path(@submission.data_directory), :id=>'nohover') %>
+    </td><td>
+	<table>
+<tr><td><span class="instructions">Symmetry Group</span></td><td><span class="grey_text"><%= @experiment.dammin_result.spacegroup %></span></td></tr>
+<tr><td><span class="instructions">NSD</span></td><td><span class="grey_text"><%= @experiment.dammin_result.nsd %></span></td></tr>
+<tr><td><span class="instructions">STDEV NSD</span></td><td><span class="grey_text"><%= @experiment.dammin_result.sig_NSD %></span></td></tr>
+<tr><td><span class="instructions">Best Single Model</span></td><td><span class="grey_text"><%= @experiment.dammin_result.single_model_filename %></span></td></tr>
+<tr><td><span class="instructions">Average Model</span></td><td><span class="grey_text"><%= @experiment.dammin_result.average_model_filename %></span></td></tr>
+<% if !@experiment.dammin_result.subcomb_model.nil? %>
+<tr><td><span class="instructions">Hi-Res Model</span></td><td><span class="grey_text"><%= @experiment.dammin_result.subcomb_model %></span></td></tr>
+<% end %>
+<tr><td><span class="instructions">Number in Average</span></td><td><span class="grey_text"><%= @experiment.dammin_result.number_in_average %></span></td></tr>
+   </table>
+</td></tr>
+</table>
+<hr>
+<% else %>
+<%= link_to("Add a DAMMIN Model", add_dammin_model_path(@submission.data_directory)) %>
+<% end %>
+</div>
+</p>
+
+<p>
+<div id="gasbor_form">
+	<% if !@experiment.gasbor_results.empty? %>
+	<table cellpadding="10">
+		<tr><td>    
+	    <%= link_to("Remove GASBOR Model", destroy_gasbor_model_path(@submission.data_directory), :id=>'nohover') %>
+	    </td><td>
+		<table>
+	<tr><td><span class="instructions">Symmetry Group</span></td><td><span class="grey_text"><%= @experiment.gasbor_results[0].spacegroup %></span></td></tr>
+	<tr><td><span class="instructions">Chi Square</span></td><td><span class="grey_text"><%= @experiment.gasbor_results[0].chi_square %></span></td></tr>
+	<tr><td><span class="instructions">NSD</span></td><td><span class="grey_text"><%= @experiment.gasbor_results[0].nsd %></span></td></tr>
+	<tr><td><span class="instructions">STDEV NSD</span></td><td><span class="grey_text"><%= @experiment.gasbor_results[0].sig_NSD %></span></td></tr>
+	<tr><td><span class="instructions">Best Single Model</span></td><td><span class="grey_text"><%= @experiment.gasbor_results[0].single_model_filename %></span></td></tr>
+	<tr><td><span class="instructions">Average Model</span></td><td><span class="grey_text"><%= @experiment.gasbor_results[0].average_model_filename %></span></td></tr>
+	<% if !@experiment.gasbor_results[0].subcomb_model.nil? %>
+	<tr><td><span class="instructions">Hi-Res Model</span></td><td><span class="grey_text"><%= @experiment.gasbor_results[0].subcomb_model %></span></td></tr>
+	<% end %>
+	<tr><td><span class="instructions">Number in Average</span></td><td><span class="grey_text"><%= @experiment.gasbor_results[0].number_in_average %></span></td></tr>
+	   </table>
+	</td></tr>
+	</table>
+	<hr>
+	<% else %>
+	<%= link_to("Add a GASBOR Model", add_gasbor_model_path(@submission.data_directory), :id=>'nohover') %>
+	<% end %>	
+</div>
+</p>
+
+<p>
+<div id="structure_form">
+	<% if !@experiment.structural_model.nil? %>
+	<hr>
+	<table cellpadding="10" >
+		<tr><td>    
+	    <%= link_to("Remove Structural Model", destroy_structural_model_path(@submission.data_directory), :id=>'nohover') %>
+	    </td><td>
+		<table cellpadding = "5">
+	<tr><td align="right"><span class="instructions">Chi Square</span></td><td><span class="grey_text"><%= @experiment.structural_model.chi_square %></span></td></tr>
+	<tr><td align="right"><span class="instructions">Atomic PDB Model</span></td><td><span class="grey_text"><%= @experiment.structural_model.pdb_filename %></span></td></tr>
+	<tr><td align="right"><span class="instructions">Fit File</span></td><td><span class="grey_text"><%= @experiment.structural_model.fit_filename %></span></td></tr>
+	   </table>
+	</td></tr><tr><td>
+		<% if File.exists?(@fit_image) %>
+		<p>
+			<%= image_tag(image_path("/SAX_DATA/#{@submission.data_directory}/med_res_FIT.png"), :size => "386x300", :border => "0")%>	
+		</p>
+		<% end %>
+	</td><td valign="top"><p><span class="instructions">DESCRIPTION</span></p><p class="grey_text"><%= @experiment.structural_model.description %></p></td></tr>
+	</table>
+	<hr>
+	<% else %>
+        <%= link_to("Add a STRUCTURAL Model", add_structural_model_path(@submission.data_directory), :id=>'nohover') %>
+	<% end %>
+</div>
+</p>
+
+<p>
+<div id="ensemble_form">
+	<% if !@experiment.ensemble.nil? %>
+	<hr>
+	<table cellpadding="10" >
+		<tr><td>    
+	    <%= link_to("Remove ENSEMBLE Model", destroy_ensemble_model_path(@submission.data_directory), :id=>'nohover') %>
+	    </td><td>
+		<table cellpadding = "5">
+	<tr><td align="right"><span class="instructions">Selection Method</span></td><td><span class="grey_text"><%= @experiment.ensemble.selection_method %></span></td></tr>
+	<tr><td align="right"><span class="instructions">Simulation Method</span></td><td><span class="grey_text"><%= @experiment.ensemble.simulation_method %></span></td></tr>
+	<tr><td align="right"><span class="instructions">Simulation Algorithm</span></td><td><span class="grey_text"><%= @experiment.ensemble.simulation_algorithm %></span></td></tr>	
+	<tr><td align="right"><span class="instructions">FIT File</span></td><td><span class="grey_text"><%= @experiment.ensemble.fit_filename %></span></td></tr>	
+	<tr><td align="right"><span class="instructions">Ensemble Size</span></td><td><span class="grey_text"><%= @experiment.ensemble.ensemble_size %></span></td></tr>
+	<tr><td align="right"><span class="instructions">Member Size</span></td><td><span class="grey_text"><%= @experiment.ensemble.member_size %></span></td></tr>	
+	<tr><td align="right"><span class="instructions">Scoring Function</span></td><td><span class="grey_text"><%= @experiment.ensemble.scoring_function %></span></td></tr>	
+	<tr><td align="right"><span class="instructions">Score</span></td><td><span class="grey_text"><%= @experiment.ensemble.score %></span></td></tr>		
+	<tr><td align="right"><span class="instructions">PDB(s)</span></td><td><span class="grey_text"><%= @experiment.ensemble.pdbfiles %></span></td></tr>			
+	<tr><td align="right"><span class="instructions">Figure Legend</span></td><td><span class="grey_text"><%= @experiment.ensemble.figure_legend %></span></td></tr>				
+	   </table>
+	</td></tr><tr><td colspan="2">
+		<% if File.exists?(@ensemble_fit_image) %>
+		<p>
+			<%= image_tag(image_path("/SAX_DATA/#{@submission.data_directory}/med_res_ensemble_FIT.png"), :size => "386x300", :border => "0")%>	
+		</p>
+		<% end %>
+	</td></tr>
+	</table>
+	<hr>
+	<% else %>
+        <%= link_to("Add an ENSEMBLE Model", add_ensemble_model_path(@submission.data_directory), :id=>'nohover') %>
+	<% end %>
+</div>
+</p>
+
+<p>
+<div id="no_model_form">
+	<% if !@experiment.no_model.nil? %>
+	<hr>
+	<table cellpadding="10" border="1">
+		<tr><td>    
+	    <%= link_to("Remove No Model", destroy_no_model_path(@submission.data_directory), :id=>'nohover') %>
+	    </td><td><p><span class="instructions">DESCRIPTION</span></p>
+	</td></tr><tr><td>
+		<% if !@submission.nomodel.nil? %>
+		<p>
+			<%= image_tag(@submission.nomodel.url, :width => "280", :border => "0")%>	
+		</p>
+		<% end %>
+	</td><td valign="top"><p class="grey_text"><%= @experiment.no_model.description.html_safe %></p></td></tr>
+	</table>
+	<hr>
+	<% else %>
+          <%= link_to("Add NO Model", add_no_model_path(@submission.data_directory), :id=>'nohover') %>
+	<% end %>
+</div>
+</p>

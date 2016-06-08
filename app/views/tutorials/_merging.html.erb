@@ -1,0 +1,51 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+<p class="about">
+SAXS datasets are collected at multiple concentrations and exposure times. At beamline 12.3.1, in plate-loading mode, we collect three to four different exposures of a single sample. This is necessary to check for radiation damage. However, in SEC mode (Size-Exclusion Chromatography), a single exposure time is used but many exposures are taken across the eluting peak. If using a home source, several concentrations may be collected to check for interparticle interference and to collect data at both high and low scattering vectors. In all cases, the multiple datasets must be merged into a single SAXS dataset for structural analysis.  
+
+To maximize the value of your datasets, it is necessary to extract all the SAXS parameters from each dataset individually that includes:</p> 
+
+<ol>
+	<li class="darkred_text">Real and reciprocal space I(0)</li>
+	<li class="darkred_text">Real and reciprocal space R<sub>g</sub></li>
+	<li class="darkred_text">Real and reciprocal space V<sub>c</sub></li>	
+	<li class="darkred_text">Porod exponent</li>
+	<li class="darkred_text">Volume</li>
+	<li class="darkred_text">d-max</li>
+	<li class="darkred_text">Molecular mass</li>		
+</ol>
+<p class="about">Making a plot of any or all of these parameters vs the concentration or exposure time series is a direct method for displaying invariance of the SAXS signal. Download 2SAMRR dataset from BIOISIS. This will contain 5 different SAXS curves. 
+</p>
+Figure 1:<br><%= image_tag('merging_figure_1.png', :border=>"0", :width=>"650") %>
+
+<p class="about">Load the data and hit the "Plot" button. The auto-Rg algorithm should automatically determine the Guinier parameters for acceptable datasets. For those datasets with problematic Guinier regions, manual determination needs to be performed.  
+</p>
+<p class="about">
+Press the "Scale" button to overlay all the visible curves (Figure 2). Please note, scaling the datasets will not change I(0), I(0) is determined from the un-scaled datasets. The overlay looks reasonable, but is this ideal? SAM_2, SAM_3 and SAM_4 were collected on the same day whereas the remaining two were not. 
+</p>
+Figure 2:<br><%= image_tag('merging_figure_2.png', :border=>"0", :width=>"650") %>
+<p class="about">
+Zoom in on the Guinier region of the data (Figure 3). Do you see any severe down curvature (inter-particle interference) or up curvature (aggregation) in the beamstop?</p>
+Figure 3:<br><%= image_tag('merging_figure_3.png', :border=>"0", :width=>"650") %>
+<p class="about">
+The data looks great in the low q region, you could also look at the scaled data in the Kratky plot (Figure 4). Again, the low q region of the data looks great; however, we see in the higher q-region after the principal peak the data sets do not overlay well. It looks like the worst dataset (green Figure 4) is sam_3_merged.dat.</p>
+Figure 4:<br><%= image_tag('merging_figure_4.png', :border=>"0", :width=>"650") %>
+<p class="about">
+To check further, plot the ratio of SAM_2.dat to sam_3_merged.dat. We can do this by unchecking all the datasets in the "Analysis" tab while only leaving the SAM_2.dat and sam_3_merged.dat.</p>
+Figure 5:<br><%= image_tag('merging_figure_5.png', :border=>"0", :width=>"650") %>
+<p class="about">
+The ratio plot clearly illustrates a difference between the two curves (Figure 5). If the two SAXS datasets were identical, only differing by a scale factor, we would expect a nearly flat ratio (Figure 6). Here, we see features throughout the ratio plot suggesting structural differences between the two curves (Figure 5). As an additional check, we can look at their P(r) distributions as an overlay (try on your own).</p>
+Figure 6:<br><%= image_tag('merging_figure_6.png', :border=>"0", :width=>"650") %>
+<p class="about">
+I would exclude sam_3_merged.dat from the rest of the collection by unchecking the box. We offer two methods for reducing the dataset either by averaging the visible datasets (cyan arrow Figure 7) or by taking the median value (red arrow Figure 7) for each set of common q values. The two methods have different advantages. Obviously, averaging offers a way to reduce the noise of an I(q) observation whereas the median offers resistance to outliers in the I(q) set. If you have noisy data that may have some instrumental bias, like from low concentrations, short exposures or inadequate buffer subtraction, the median is a better method for recovering an unbiased signal but you will need at least 5 observation per I(q).  </p>
+Figure 7:<br><%= image_tag('merging_figure_7.png', :border=>"0", :width=>"650") %>
+<p class="about">
+Pressing either "Average Set" or "Median Set" will pop-up a dialog box, choose a file name and press save. You can load the new file by dropping into an available collection. 	
+</p>
+Figure 8:<br><%= image_tag('merging_figure_8.png', :border=>"0", :width=>"650") %>
+<p class="about">
+To recover a weak signal at higher q, I have a single SAXS measurement of a sample before buffer subtraction. The single measurement shows wide dispersion of the data at high q (Figure 8A) and will be susceptible to background subtraction noise in the high q region. Fortunately, I collected 5 separate SAXS curves of the buffer (meaning a new buffer was loaded and exposed 5 independent times). This usually happens in plate collection mode, I will collect a concentration series with every other well as buffer. Then, I subtracted each buffer from the single sample measurement resulting in 5 individual SAXS curves. Overlaying all 5 curves in Scatter (Figure 8B), we can see the information trending. Rather than taking the average at each I(q), I take the median (Figure 8C) to mitigate outlier influence and recover the SAXS signal at high q. With so few points, averaging each I(q) may erroneously pull the value towards the outlier.   
+</p>

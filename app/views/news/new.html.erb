@@ -1,0 +1,35 @@
+<% content_for :left do %>
+  <%= render :partial => "experiments/admin_left_menu" %>  
+<% end -%>
+
+<% content_for :right do %>
+  <%= render :partial => "experiments/right_side_list_menu" %>  
+<% end -%>
+
+<%= form_for @news do |f| %>
+<p>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+</p>
+<p><%= f.label :category %>
+<%= select(:news, :category, options_for_select([['Review','review'],['Journal Article','article'],['updates','updates'],['General Information','general']]))%>
+</p>
+<p>
+	<%= f.label :journal_info %>
+	<%= f.text_area :journal_info, "cols" =>80, "rows" =>7 %>
+</p>
+<p>
+	<%= f.label :abstract %>
+	<%= f.text_area :abstract, "cols" =>80, "rows" =>20 %>
+</p>
+<p>
+	<%= f.label :link %><%= f.text_field :link %>
+</p>
+<p>
+	<%= f.label :notes %>
+</p>
+<p>
+	<%= f.text_area :notes, "cols" =>80, "rows" =>20 %>
+</p>
+	<%= f.submit %>
+<% end %>

@@ -1,0 +1,82 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1233697813
+EMAIL		rprambo@lbl.gov
+CREATED_ON	2009-02-03 13:50:13 UTC
+
+#REMARK SUMMARY
+TITLE	Solution Structure of the Unbound Lysine Riboswitch from T. maritima
+BIOISIS_ID	3LYSRR
+EXP_DESCRIPTION	This experiment is part of a larger study examining the various conformational states of the lysine riboswitch.  Through SAXS, we have found that the bound and unbound forms of the riboswitch adopt nearly identical structures in solution.  Ligand binding does not appear to alter the conformational state of the molecule but rather alters a competing secondary structure during transcription of the endogenous gene.  The SAXS experiments were consistent with chemical probing and X-ray crystallography experiments.
+SOURCE_LOCATION	ALS BL 12.3.1
+PUBLICATION	Crystal structure of the lysine riboswitch regulatory mRNA element. Journal of Biological Chemistry, Journal of Biological Chemistry, Vol. 283, Issue 33, 22347-22351, August 15, 2008
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	Collected as a 2/3rds concentration series from 2 to 0.6 mg/mL of RNA.  A 10 mg/mL sample of the RNA was purified using a size-exclusion column prior to data collection.  
+BUFFER			Hepes
+pH			6.5
+TEMPERATURE		25.0
+SALT			KCl
+SALT_CONCENTRATION	50
+DIVALENT		MgCl2
+DIVALENT_CONCENTRATION	5.0
+ADDITIVES		
+PROTEIN			No
+DNA			No
+RNA			Yes
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			183.0
+SIG_Io			1.0
+Io_MOLECULAR_WEIGHT	52433
+DMAX			108
+RG			29.7
+SIG_RG			0.3
+RG_REAL			32.0
+SIG_RG_REAL		0.3
+V_POROD			74000
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Garst		A.D.
+AUTHOR	Heroux		A.
+AUTHOR	Rambo		R.P.
+AUTHOR	Batey		R.T.
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	LYSRBSWTCH
+EXP_MW		52364
+ANNOTATION	Thermotoga maritima asd lysine riboswitch ligand binding domain (161 nt).  Found in B. subtilis and E. coli and is implicated in conferring S-(2-aminoethyl)-L-cysteine (AEC) resistance.
+EXP_SEQUENCE	GGACGGAGGCGCGCCCGAGAUGAGUAGGCUGUCCCACAGGGGAGGAAUCGGGGACGGCUGAAAGGCGAGGGCGCCGAAGCGAGCAGAGUUCCUCCCGCUCUGCUUGGCUGGGGGUGAGGGGAAUACCCUUACCACUGUCGCGAAAGCGGAGAGCCGUCCA
+
+
+#REMARK DAMMIN
+SPACEGROUP		P1
+NSD			0.967
+STDEV_NSD		0.2
+AVERAGE_OF		10
+
+
+#REMARK GASBOR
+SPACEGROUP		P1
+NSD			1.37
+STDEV_NSD		0.1
+AVERAGE_OF		7
+CHI_SQUARE		1.012
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/free.dat
+pofr_data_file			originals/free108.out
+single_dammin_model.pdb		dammin/gP1_3-1.pdb
+average_dammin_model.pdb	dammin/damfilt_dP1.pdb
+hires_dammin_model.pdb		dammin/
+single_gasbor_model.pdb		gasbor/gP1_6.pdb
+average_gasbor_model.pdb	gasbor/damfilt.pdb
+hires_gasbor_model.pdb		gasbor/

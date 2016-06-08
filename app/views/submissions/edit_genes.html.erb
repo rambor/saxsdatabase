@@ -1,0 +1,111 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+
+<% if @gene.errors.any? %>
+<ul>
+<% @gene.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %>
+</ul>
+<% end %>
+
+<hr>
+<h1 class="NewExperimentH1"><a name="Authors">Protein | RNA | DNA | Polymer Info</a></h1>
+<div class="forum_location">
+<ul>
+<li>Multiple sequences can be uploaded. </li>
+<li>All fields are required. </li>
+</ul>
+<p>
+	<div>
+	       <%= form_for(@gene, :url => add_gene_path(@submission.data_directory)) do |f| %>
+
+		 <ul>
+		
+		 </ul>
+		  <p>
+		    Abbreviated Name like T7RNAP (10 character limit)<%= f.text_field :abbr_name, :size => "10" %>
+		  </p>					   
+
+		<ul><b>Paste the experimental sequence of your gene product in the following box.</b>
+		<li><span class="red_text">If your gene product is a protein, use the standard 1-letter abbreviations for the amino acids.  </span>
+		<li><span class="red_text">If your macromolecule is either RNA or DNA, please paste the experimental sequence utilizing the standard 1-letter abbreviations for the nucleotides.</span>
+		</ul>
+		  <p> 
+		    <%= f.text_area :experimental_sequence, :size =>"80x6" %>
+		  </p>
+		   <ul><b>Annotation. (Not optional)</b>
+		     <li><span class="red_text">Provide a concise functional annotation of your gene product.</span>
+		   </ul>
+		  <p>
+		    <%= f.text_area :annotation, :size => "80x6", :value =>"e.g., C-terminal ;ATP binding domain" %>
+		  </p>
+			<a name="Update"><%= f.submit :value => "Save and Add Another Gene" %></a>
+		   <% end %>
+	</div>	
+</p>
+</div>
+<hr>
+<p>
+	<% if @experiment.expgenes.size > 0 %>	
+	   <h1 class="NewExperimentH1"><a name="Authors">Added Bio | Polymer Information</a></h1>
+	<table >
+        <% @experiment.expgenes.each do |gene| %>
+          <tr><td colspan="2">
+	
+		   <% gene_result = gene %>
+		     <table class="gene_details_odd" >
+		      <tr>
+		       <td><%= gene.gene_count %>. Abbreviated Name: <%= gene.abbr_name %></td><td> <%= link_to "Remove Macromolecule", remove_gene_path(:id => @submission.data_directory, :delete_me => gene.gene_count ) %></td>
+		      </tr>
+		      <tr class="sequence">
+		       <th colspan="2" align="left">
+			    <% sequence = gene.experimental_sequence.scan(/(..........)/) %>
+		
+			
+			    <% if gene.experimental_sequence.length - gene.experimental_sequence.scan(/(..........)/).size*10 > 0 %>
+			      <% sequence << [gene.experimental_sequence.slice(gene.experimental_sequence.scan(/(..........)/).size*10..gene.experimental_sequence.length)] %>
+
+			    <% end %>
+		        <% sequence.each do |x| %>
+		             <%= x[0] %>
+		         <% end %>
+		       </th>
+		      </tr>
+	
+		      <% residues = gene_result.experimental_sequence.scan(/./).inject(Hash.new(0)){|h,x| h[x]+=1;h} %>
+		      <tr>
+		       <td align="center" colspan="2">
+			  <% if residues.size > 4 %>
+		        <table id="aa_composition">
+		        <tr><th scope="col" class="nobackground" width="30">category</th><th scope="col" class="aa_comp">amino acid composition(%)</th></tr>
+		        <tr><th scope="row" class="aaspec">Hydrophobic</th><td class="aa">I(<%= sprintf("%.1f",residues['I'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) V(<%= sprintf("%.1f",residues['V'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) L(<%= sprintf("%.1f",residues['L'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) M(<%= sprintf("%.1f",residues['M'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) A(<%= sprintf("%.1f",residues['A'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) G(<%= sprintf("%.1f",residues['G'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) P(<%= sprintf("%.1f",residues['P'].to_f/gene_result.experimental_sequence.length.to_f*100) %>)</td></tr>
+		        <tr><th scope="row" class="aaspecalt">Aromatic</th><td class="aaalt">F(<%= sprintf("%.1f",residues['F'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) W(<%= sprintf("%.1f",residues['W'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) Y(<%= sprintf("%.1f",residues['Y'].to_f/gene_result.experimental_sequence.length.to_f*100) %>)</td></tr>
+		        <tr><th scope="row" class="aaspec">Hydrophilic</th><td class="aa">R(<%= sprintf("%.1f",residues['R'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) K(<%= sprintf("%.1f",residues['K'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) E(<%= sprintf("%.1f",residues['E'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) D(<%= sprintf("%.1f",residues['D'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) Q(<%= sprintf("%.1f",residues['Q'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) N(<%= sprintf("%.1f",residues['N'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) H(<%= sprintf("%.1f",residues['H'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) S(<%= sprintf("%.1f",residues['S'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) T(<%= sprintf("%.1f",residues['T'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) C(<%= sprintf("%.1f",residues['C'].to_f/gene_result.experimental_sequence.length.to_f*100) %>)</td></tr>
+		        </table>
+		     <% elsif residues.size <= 4 %>
+				<table id="aa_composition">
+		        <tr><th scope="col" class="nobackground" width="30">category</th><th scope="col" class="aa_comp">Residue composition (%)</th></tr>
+		        <tr><th scope="row" class="aaspec">Nucleotides</th><td class="aa">
+		G (<%= sprintf("%.1f",residues['G'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) C (<%= sprintf("%.1f",residues['C'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) A (<%= sprintf("%.1f",residues['A'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) U (<%= sprintf("%.1f",residues['U'].to_f/gene_result.experimental_sequence.length.to_f*100) %>) T (<%=		       
+sprintf("%.1f",residues['T'].to_f/gene_result.experimental_sequence.length.to_f*100) %>)</td></tr>
+
+<tr><td class="aa" colspan="2">Mass: <%= number_with_delimiter(gene.exp_mw) %> Da | Total residues: <%= gene.experimental_sequence.length %></td></tr>
+               </table>
+		     <% end %>
+		       </td>
+		      </tr>
+		<tr><th colspan="2" align="left">Annotation</th></tr>
+		<tr><td colspan="2" align="left"><Annotation><%= gene.annotation %></th></tr>
+     </table>
+
+	</td>
+  </tr>
+        <% end %>
+    </table>
+	<% end %>	
+</p>
+
+
+
+
+

@@ -1,0 +1,36 @@
+<% content_for :left do %>
+  <%= render :partial => "experiments/admin_left_menu" %>  
+<% end -%>
+
+<% content_for :right do %>
+  <%= render :partial => "experiments/right_side_list_menu" %>  
+<% end -%>
+<hr />
+
+<table width="100%" class="SAXSDisplay" >
+
+   <tr class="ListLine2">
+	<td colspan="1"><B>ID</B></td>
+	<td colspan="1" align="center"><B>Created</B></td>
+    <td align="center"><B>Last Updated</B></td>
+	<td colspan="1"><B>Age</B></td>
+	<td colspan="1"><B>Email</B></td>
+	<td colspan="1"><B>Action</B></td>
+  </tr>
+	
+<% @submissions.each do |deposit| %>
+   <tr class="ListLine2">
+	<td colspan="1">
+	<%= link_to "#{deposit.id}", {:controller => :submissions, :action => :edit, :id => deposit.data_directory} %></td>
+	<td colspan="1" align="center">
+		<span class="data_date"><%= nice_date(deposit.created_at) %>
+        </span></td>
+    <td><span class="data_date"><%= nice_date(deposit.updated_at) %></span></td>
+    <td><span class="data_date"><%= ((Time.now-deposit.created_at)/60/60/24).to_i  %> days</span></td>
+    <td><span class="data_date"><%= deposit.email %> </span></td>
+	<td colspan="1"><%= link_to 'Destroy', destroy_submission_path(:id => deposit.id ), :confirm => 'Are you sure?', :action => :destroy_submission %></td>
+  </tr>
+ 
+<% end %>
+<tr><th colspan="5" class="specalt"><%= will_paginate @submissions %></th></tr>
+</table>

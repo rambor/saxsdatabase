@@ -1,0 +1,6 @@
+
+<div id=filename_<%= $ensemble %> > 
+	<%= fields_for :ensemble_pdb do |f| %>
+  PDB file: <%= f.file_field "pdb_filename_#{$ensemble}","size" => 80 %><%= link_to 'Remove', destroy_ensemble_pdb_path(:id =>@submission.data_directory,  :label => "filename_#{$ensemble}", :file => "new", :locals => {:pdbfile => $ensemble}), :remote => true %>
+    <% end %>
+</div>

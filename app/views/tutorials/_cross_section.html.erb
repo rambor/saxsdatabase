@@ -1,0 +1,23 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo
+</span>
+</div>
+
+<p class="about">
+The cross-sectional radius-of-gyration, R<sub>c</sub> is a useful parameter for samples that are highly asymmetric or elongated (see Chapter 4, p155 of Glatter and Kratky 1982). A similar q x R<sub>c</sub> < 1.3 limit applies to the upper q-region (yellow circle Figure 1); however, the lower q-region tends to be much more worrisome as it is severely corrupted by the transformation (Figure 1). To start, click "Rc (x-section)" button in the lower part of the panel (Figure 1). This will pop up the R<sub>c</sub> plot which is divided into the upper fit and lower residuals plots. 
+<ul>
+	<li class="red_text">If plot does not appear, check "end" points in Analysis tab.  Too few points and the plot will not appear.
+</ul>
+</p>
+Figure 1 |<br><%= image_tag('rc_figure_1.png') %>
+<p class="about">
+The goal here is to find the first linear region on the righthand side of the hump in the upper plot. To start, trim back the high-q data from the end until q x R<sub>c</sub> < 1.3. The hump originates from the first sinusoid of the Fourier transform. Sometimes, datasets may not contain this hump largely observed in samples with large R<sub>g</sub> values implying more low q data would be required for a typical Guinier analysis. In these cases, an R<sub>g</sub> will have to be determined using the P(r) distribution.  
+</p>
+Figure 2 |<br><%= image_tag('rc_figure_2.png', :width=> 640) %>
+<p class="about">
+Here, the data was truncated to the first 188 points. This sets the putative limit q x R<sub>c</sub> < 1.3.  Now, we truncate the starting points to capture the first linear region.  Please note, the R<sub>c</sub> value is updated in the analysis tab (red arrow Figure 2).
+</p>
+Figure 3 |<br><%= image_tag('rc_figure_3.png', :width=> 640) %>
+<p class="about">
+After truncating the starting point to 95, more points were removed from the end (Figure 3 and 4) to maintain the q x R<sub>c</sub> limit resulting in an R<sub>c</sub> of 14.7. This would be a satisfactory fit.  Having both R<sub>g</sub> and  R<sub>c</sub> allows for the estimation of the maximum dimension (see Glatter and Kratky 1982, Chapter 8 page 258)</p>
+Figure 4 |<br><%= image_tag('rc_figure_4.png', :width=> 640) %>

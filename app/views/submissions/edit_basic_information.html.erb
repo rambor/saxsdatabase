@@ -1,0 +1,29 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+<% if @experiment.errors.any? %>
+<ul>
+<% @experiment.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %></ul>
+<% end %>
+Registered as:<font color="skyblue"> <%= @submission.email %> </font>
+
+<%= form_for(@experiment, :url => deposition_save_path(@submission.data_directory), :html => {:multipart => true}) do |f| %>
+	<table class="NewDetails" >
+
+	<tr><td align="left" >
+	<span class="welcome_small_text"><%= nice_date(DateTime.now); @experiment.id%></span>
+	<hr>
+	<h1 class="NewExperimentH1"><a name="BasicInformation">Basic Information</a></h1>
+
+	<table class="BasicDetails">
+	<tr><td width="200px"><h1 class="submissionH1">EMAIL ADDRESS</h1><span class="instructions">This will be used to complete your deposit. </span></td><td><%= f.text_field :email, :value => @submission.email %></td></tr>
+	<tr><td><h1 class="submissionH1">TITLE</h1><span class="instructions">Please provide a concise meaningful title for your experiment.</span></td><td><%= f.text_field :title, "size" => 50 %></td></tr>
+	<tr><td><h1 class="submissionH1">DESCRIPTION</h1><span class="instructions">Please provide a suitable summary describing your experiment and the results.</span></td><td><%= text_area :experiment, :description, "cols" =>47, :value => @experiment.description %></td></tr>
+	<tr><td><h1 class="submissionH1">X-RAY SOURCE?</h1><span class="instructions"><I>i.e.</I>, using a home source, ALS BL 12.3.1... ?</span></td><td><%= f.text_field :source_location, :value => @experiment.source_location %></td></tr>
+	<tr><td><h1 class="submissionH1">PUBLICATION</h1><span class="instructions">If this work was published, please provide the <B>title</B>, <B>journal name</B>, <B>volume</B> and <B>pages</B> of the publication.  <p><I>e.g.</I>, Crystal Structure of the Lysine Riboswitch Regulatory mRNA Element, Journal of Biological Chemistry, Vol. 283, 22347-22351</p></span></td><td><%= text_area :experiment, :publication, "cols" =>47, "rows" =>5, :value => @experiment.publication %></td></tr>
+	</table>
+	</td></tr>
+    </table>
+<%= f.hidden_field :data_directory, :value => @submission.data_directory %>
+   <a name="Update"><%= f.submit :value => "Save and Return to Main Form" %></a>
+<% end %>

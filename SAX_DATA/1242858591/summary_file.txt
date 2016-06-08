@@ -1,0 +1,81 @@
+#REMARK USER INFORMATION 
+CREATED_ON	2009-05-20T22:29:51+00:00
+DATA_DIRECTORY	/users/home/rambor/domains/bioisis.net/web/releases/20090216104533/public/SAX_DATA/1242858591
+IP_ADDRESS	69.228.95.203
+EMAIL	glhura@lbl.gov
+SESSION	6425d243d127818183f60c5f7e74eec4
+
+#REMARK SUMMARY
+TITLE	PF0706.1 - Unfolded 
+DESCRIPTION	PF0706.1 is a newly annotated gene found after the first round of annotation. This small peptide is mostly unfolded under the conditions of this experiment. Its role has yet to be determined.
+SOURCE_LOCATION	ALS bl12.3.1 SIBYLS
+PUBLICATION	In press Nature Methods Rapid and robust proteomics-scale solution structural analyses determined efficiently by x-ray scattering (SAXS)
+LINK	0
+
+#REMARK EXPERIMENTAL CONDITIONS
+WAVELENGTH	1
+EXPERIMENTAL_DETAILS	Extrapolated to zero concentration from 4 different concentrations between 1 and 10 mg/mL
+BUFFER	20mM Tris-Base
+pH	8.0
+TEMPERATURE	25.0
+SALT	KCl
+SALT_CONCENTRATION	200
+DIVALENT	none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES	4mM TCEP
+
+#REMARK EXPERIMENTAL VALUES
+Io	8.283
+SIG_Io	0.05
+Io_MOLECULAR_WEIGHT	8344
+DMAX	80
+RG	18.6
+SIG_RG	0.13
+RG_REAL	20.7
+SIG_RG_REAL	0.0
+V_POROD	6000
+iofq_file_name	0706M.dat
+pofr_file_name	p0706.pofr
+
+#REMARK AUTHORS
+AUTHOR	Rambo	R.P.
+AUTHOR	Hura	G.L.
+AUTHOR	Hammel	M.
+AUTHOR	Tainer	J.A.
+AUTHOR	Adams	M.W.W.
+AUTHOR	Menon	A.L.
+
+#REMARK NEW ORF(S)
+GENE_ID	0
+LOCUS_NAME	not known
+ACCESSION	NP_877900
+EXPERIMENTAL_SEQUENCE	AHHHHHHGSEAKVCKFCAGERLDDVVKLLKEKGYKVSIEECIGLCAKYGCGNINVIAGEKEISVGSFEELIKALEE
+ANNOTATION	conserved hypothetical protein
+EXP_MW	8349.654
+
+
+#REMARK DAMMIN
+SPACEGROUP	P1
+CHI_SQUARE	2.04
+NSD	0.563
+NUMBER_IN_AVERAGE	8
+
+#REMARK GASBOR
+SPACEGROUP	P1
+CHI_SQUARE	2.0
+NSD	0.893
+NUMBER_IN_AVERAGE	8
+
+#REMARK NO MODEL
+DESCRIPTION	This protein is unfolded. See Kratky plot.
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+RENAMED FILE			ORIGINAL FILE
+iofq_data_file.dat		originals/0706M.dat
+pofr_data_file.dat		originals/p0706.pofr
+single_dammin_model.pdb		dammin/dP1_7-1.pdb
+average_dammin_model.pdb	dammin/damfilt_dP1.pdb
+single_gasbor_model.pdb		gasbor/gP1_1.pdb
+average_gasbor_model.pdb	gasbor/damfilt_gP1.pdb

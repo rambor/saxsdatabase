@@ -1,0 +1,13 @@
+<p>
+Please use the following link to continue your deposit at BioIsis. You will be prompted for your registration username and password.
+</p><p>
+<%= url_for(:host => "bioisis.net", :controller=>"submissions", :action=>"edit", :id=>@submission.data_directory) %>
+</p><p>
+This link will remain active until you are finished or until one week has passed from <%= @start_date %>.
+</p><p>
+Access to the active submission will expire on <%= @remaining %>.  
+</p>
+<p>
+Thanks,
+</p>
+Rob Rambo, Ph.D.

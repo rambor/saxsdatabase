@@ -1,0 +1,68 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1430795193
+EMAIL		htang@lbl.gov
+CREATED_ON	2015-05-05 03:07:14 UTC
+
+#REMARK SUMMARY
+TITLE	HU ab
+
+BIOISIS_ID	HUab1P
+EXP_DESCRIPTION	Here we determined crystal structures of these chromosome-associated proteins in complex with native duplex DNA. Distinct DNA-binding modes of HUαα- and HUαβ elucidate fundamental features of bacterial chromosome packing regulating gene transcription. By combining crystal structures with solution X-ray scattering results, we determined architectures of HU’s-DNA nucleoproteins in near physiological conditions.
+SOURCE_LOCATION	ALS SIBYLS
+
+PUBLICATION	Shift in the HU multimerization controlling DNA architecture, Science (2015)
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	SAXS data were collected at the ALS beamline 12.3.1 (SIBYLS) LBNL Berkeley, California  for HU concentrations of 17 to 200 μM spanning the measured intracellular HU concentrations of 25-100 μM. The wavelength λ=1.0 Å and sample-to-detector distances were set to 1.5m, resulting in scattering vectors, q, ranging from 0.01 Å-1 to 0.32 Å-1. The scattering vector is defined as q = 4π sinθ/λ, where 2θ is the scattering angle.
+BUFFER			Tris-Base
+pH			7.5
+TEMPERATURE		20.0
+SALT			NaCl
+SALT_CONCENTRATION	150
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		1 mM DTT, 1 mM PMSF
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			210.0
+SIG_Io			0.0
+Io_MOLECULAR_WEIGHT	18000
+DMAX			60
+RG			23.0
+SIG_RG			0.0
+RG_REAL			24.3
+SIG_RG_REAL		0.429
+V_POROD			40000
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Hammel		M
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	HUb
+EXP_MW		9225
+ANNOTATION	HU beta
+EXP_SEQUENCE	MNKSQLIDKIAAGADISKAAAGRALDAIIASVTESLKEGDDVALVGFGTFAVKERAARTGRNPQTGKEITIAAAKVPSFRAGKALKDAVN
+
+
+#REMARK STRUCTURAL MODEL
+CHI_SQUARE		0.53
+FIT_FILENAME		HUab_mes2_54%HUabBILBO1_46%HUabBILBO2huab.fit
+DESCRIPTION		HUab
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/huab.dat
+pofr_data_file			originals/huab.out.pofr
+fitted_SAXS_with_model.dat	structure/HUab_mes2_54%HUabBILBO1_46%HUabBILBO2huab.fit
+pdb_model.pdb			structure/HUab_merged.pdb

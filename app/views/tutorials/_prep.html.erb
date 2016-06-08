@@ -1,0 +1,42 @@
+<table border="0">
+<tr><th class="tutorialtext" colspan="2" align="left">
+
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+</th></tr>
+
+<tr><th colspan="2" align="left" class="tutorialtext">
+<p class="about">
+The determination of a macromolecular SAXS profile requires at least two experimental measurements.  One measurement is of the "buffer blank" - the sample containing only the solvent without the macromolecule (<I>Figure A</I>).&nbsp;&nbsp;The other measurement is of the sample - containing both the macromolecule and solvent (<I>Figure B</I>).</p>
+
+<p class="about">Therefore, the actual SAXS profile due to the macromolecule is determined as a difference curve by subtracting the scattering due to the "buffer blank" from the scattering due to the "sample".  </p>  
+<br>
+
+<table>
+<tr><td align="center">Fig. A: Buffer</td><td align="center">Fig. B: Sample and Buffer</td><td align="center">Fig. C: SAXS Profile</td></tr>
+<tr class="GraphBackground">
+	<td class="GraphBackground"><%= image_tag('buffer_blank.gif', :size=>'200x200')%></td>
+	<td class="GraphBackground"><%= image_tag('contrast_variation.gif', :size=>'200x200')%></td>
+	<td class="GraphBackground"><%= image_tag('sample_prep_IofQ.png', :size=>'200x200')%></td></tr>	
+</table>
+<p class="about">The magnitude of the differences between sample and buffer can be modulated by changing either 1) particle concentration or 2) average electron density of the solvent. Solvent electron density can be changed by adding sucrose, glycerol or salt to the buffer.</p>
+<p class="about">We recommend either of the following techniques for generating a suitable buffer blank:</p> 
+
+<ol class="optionslist">
+    <li>Equilibrium Dialysis: Dialysis of a sample against a suitable buffer thereby reserving the equilibriated buffer as a "blank".</li>
+    <li>Buffer Exchange: Utilizes a spin-filter device such as an Amicon Ultra, or Vivaspin.  It is best to wash the device first with buffer prior to application of the sample.</li>   
+    <li>Gel Filtration Chromatograpy: This separation effectively exchanges the sample into the running buffer.    
+</ol>
+
+
+<p class="about">
+For more specific details regarding SAXS data collection and sample preparation at a synchrotron X-ray source please follow this link to <a href="http://bl1231.als.lbl.gov/saxs_protocols/saxs_sample_prep.php">BL12.3.1</a> at the ALS.  
+</p>
+
+
+</th>
+</tr>
+
+</table>

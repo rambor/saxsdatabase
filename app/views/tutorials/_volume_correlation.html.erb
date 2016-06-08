@@ -1,0 +1,14 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo
+</span>
+</div>
+<p class="about">
+The volume-of-correlation, V<sub>c</sub>, is a newly defined SAXS invariant akin to radius-of-gyration (see <%= link_to "Rambo and Tainer Nature 496, 477-481 2013", "http://www.nature.com/nature/journal/v496/n7446/full/nature12070.html", :class=>'no_decor_link', :confirm => "Are you sure?" %>). V<sub>c</sub> is derived from the total scattered intensity plot and represents the ratio of the particle's volume to correlation length. This parameter will be sensitive to conformational changes and can be used corroborate changes in R<sub>g</sub>. Also, V<sub>c</sub> can be combined with R<sub>g</sub> to define a ratio, Q<sub>R</sub>, for determining the molecular mass of the scattering particle.</p>
+<p class="about">
+V<sub>c</sub> requires an accurate determination of I(0). This must be done first before clicking the "Vc" button using either the Guinier analysis or real-space P(r) distribution (preferably both). The "Vc" button will open a window with two plots (Figure 1). The lefthand side is the total scattered intensity plot and the righthand side is the integrated area of the total scattered intensity as a function of q (Figure 1).
+</p>
+Figure 1:<br><%= image_tag('vc_figure_1.png', :width=>'650') %>
+<p class="about">
+Integration of the total scattered intensity should always converge to a finite value seen as a plateau in the integrated area plot. The I(0) estimate from either the Guinier analysis or P(r)-distribution is used to extrapolate the scattering dataset to q = 0. Thus, a poorly determined I(0) will be visible as a discontinuity or abrupt extrapolation in the total scattered intensity plot (green arrow Figure 2). In addition, a poor buffer subtraction or the presence of aggregation or interparticle interference will be readily visible in the integrated area plot as a severe slope at high q values.
+</p>
+Figure 2:<br><%= image_tag('vc_figure_2.png' ) %>

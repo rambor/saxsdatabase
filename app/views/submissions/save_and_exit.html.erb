@@ -1,0 +1,15 @@
+<p>
+Your submission has been saved!
+</p><p>
+An email has been sent to <span class="red_text"> <%= @submission.email %></span>.  Please use this email to complete your deposit.  This email will contain a link to:
+</p><p>
+<%= url_for(:host => "bioisis.net", :controller=>"submissions", :action=>"edit", :id=>@submission.data_directory) %>
+</p><p>
+This link will remain active until you are finished or until one week has passed from your start date: <%= @start_date %>.
+</p><p>
+Access to the active submission will expire on <%= @remaining %>.  
+</p>
+<p>
+Thanks,
+</p>
+BioIsis

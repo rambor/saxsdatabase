@@ -1,0 +1,92 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1441104253
+EMAIL		stephane.rety@ibcp.fr
+CREATED_ON	2015-09-01 10:50:32 UTC
+
+#REMARK SUMMARY
+TITLE	Yar1-Rps3 complex from Saccharomyces cerevisiae (truncated complex with Yar1 core and Rps3 N-terminal domain)
+
+BIOISIS_ID	YRNTRP
+EXP_DESCRIPTION	Yar1 is a Rps3 chaperone which associates with Rps3 before its association with 40S ribosomal subunit. Recombinant Yar1-Rps3 complex was purified and analyzed in solution.
+SOURCE_LOCATION	SOLEIL SYnchrotron, SWING beamline
+
+PUBLICATION	To be published
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	SAXS profile was recorded on an in-line HPLC SEC peak (Agilent BioSec3 size-exclusion column at a 200 microliter/min flow rate). Sample was loaded at 10mg/ml concentration
+BUFFER			Tris-Base
+pH			7.5
+TEMPERATURE		20.0
+SALT			NaCl
+SALT_CONCENTRATION	200
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			0.0274
+SIG_Io			0.00005
+Io_MOLECULAR_WEIGHT	28355
+DMAX			74
+RG			21.3
+SIG_RG			0.35
+RG_REAL			21.55
+SIG_RG_REAL		0.35
+V_POROD			45369
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Mitterer		V
+AUTHOR	Murat		G
+AUTHOR	Rety		S
+AUTHOR	Blaud		M
+AUTHOR	Delbos		L
+AUTHOR	Stanborough		T
+AUTHOR	Bregler		H
+AUTHOR	Leulliot		N
+AUTHOR	Kressler		D
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	Yar1core
+EXP_MW		16586
+ANNOTATION	Yar1 core domain
+EXP_SEQUENCE	MAPLDQEDQDTIILDARAGDLDSLKDIFTTLVSPELLSTCKESESDSTALHMAAANGHIETVRYILETVSRANSAEDLKAFVNEVNKTGNTALHWASLNGKLDVVKLLCDEYEADPFIRNKFGHDAIFEAENSGKEEVETYFLKKYDVE
+
+INFO_2
+ABBR_NAME	Rps3Nter
+EXP_MW		11656
+ANNOTATION	Rps3 N-ter (1-95)
+EXP_SEQUENCE	MVALISKKRKLVADGVFYAELNEFFTRELAEEGYSGVEVRVTPTKTEVIIRATRTQDVLGENGRRINELTLLVQKRFKYAPGTIVLYAERVQDRGHHHHHH
+
+
+#REMARK DAMMIN
+SPACEGROUP		P1
+NSD			0.603702
+STDEV_NSD		0.142126
+AVERAGE_OF		50
+
+
+#REMARK STRUCTURAL MODEL
+CHI_SQUARE		1.055
+FIT_FILENAME		YRN_model_court00.fit
+DESCRIPTION		Modeled from Yar1-Rps3 complex (PDB 4BSZ)
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/YRN_truncated.dat
+pofr_data_file			originals/YR_court_A.out.pofr
+single_dammin_model.pdb		dammin/run14-1.pdb_rt.pdb
+average_dammin_model.pdb	dammin/damfilt.pdb
+hires_dammin_model.pdb		dammin/best.pdb
+fitted_SAXS_with_model.dat	structure/YRN_model_court00.fit
+pdb_model.pdb			structure/YRN_model_court.pdb

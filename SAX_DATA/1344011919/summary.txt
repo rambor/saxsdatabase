@@ -1,0 +1,78 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1344011919
+EMAIL		ashkumatov@gmail.com
+CREATED_ON	2013-03-23 22:09:23 UTC
+
+#REMARK SUMMARY
+TITLE	Characterization of enzymes from Legionella pneumophila involved in reversible adenylylation of Rab1
+BIOISIS_ID	1DRRAP
+EXP_DESCRIPTION	After the pathogenic bacterium Legionella pneumophila is phagocytosed, it injects more than 250 different proteins into the cytoplasm of host cells to evade lysosomal digestion and to replicate inside the host cell. Among these secreted proteins is the protein DrrA/SidM, which has been shown to modify Rab1, a main regulator of vesicular trafficking in eukaryotic cells, by transfer of adenosine monophosphate (AMP) to Tyr77. In addition, Legionella provides the protein SidD that hydrolytically reverses the covalent modification, suggesting a tight spatial and temporal control of Rab1 function by Legionella during infection. Small angle x-ray scattering (SAXS) experiments of DrrA allowed us to validate a tentative complex model built by combining available crystallographic data. We have established the effects of adenylylation on Rab1 interactions and properties in a quantitative way. In addition, we have characterized the kinetics of DrrA catalyzed adenylylation as well as SidD catalyzed deadenylylation towards Rab1 and have determined the nucleotide specificities of both enzymes. This study enhances our knowledge of proteins subverting Rab1 function at the LCV.
+SOURCE_LOCATION	X33
+PUBLICATION	Characterization of enzymes from Legionella pneumophila involved in reversible adenylylation of Rab1, Journal of Biological Chemistry (under final revision)
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	Extrapolated to zero concentration from 4 different concentrations between 1 and 10 mg/mL
+BUFFER			Hepes
+pH			8.0
+TEMPERATURE		20.0
+SALT			NaCl
+SALT_CONCENTRATION	50
+DIVALENT		MgCl2
+DIVALENT_CONCENTRATION	1.0
+ADDITIVES		2 mM DTE
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			58.6
+SIG_Io			0.4
+Io_MOLECULAR_WEIGHT	52000
+DMAX			140
+RG			39.0
+SIG_RG			2.0
+RG_REAL			42.7
+SIG_RG_REAL		0.25
+V_POROD			130000
+V_C			1001.0
+POROD_EXPONENT		9.99
+
+#REMARK AUTHORS
+AUTHOR	Shkumatov		AV
+AUTHOR	Mueller		MP
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	DrrA
+EXP_MW		92518
+ANNOTATION	Rab1 adenylation (AMPylation) protein
+EXP_SEQUENCE	GHMSIMGRIKMSVNEEQFGSLYSDERDKPLLSPTAQKKFEEYQNKLANLSKIIRENEGNEVSPWQEWENGLRQIYKEMIYDAFDALGVEMPKDMEVHFAGSLAKAQATEYSDLDAFVIVKNDEDIKKVKPVFDALNNLCQRIFTASNQIYPDPIGINPSRLIGTPDDLFGMLKDGMVADVEATAMSILTSKPVLPRYELGEELRDKIKQEPSFSNMVSAKKFYNKAIKDFTAPKEGAEVVSVKTHIMRPIDFMLMGLREEFNLYSEDHLSAPGTIRLLREKNLLPEEQIARIESVYNQAMSKRFELHAEHKKEHDEMPYSDAKAMLDEVAKIRELGVQRVTRIENLENAKKLWDNANSMLEKGNISGYLKAANELHKFMKEKNLKEDDLRPELSDKTISPKGYAILQSLWGAASDYSRAAATLTESTVEPGLVSAVNKMSAFFMDCKLSPNERATPDPDFKVGKSKILVGIMQFIKDVADPTSKIWMHNTKALMNHKIAAIQKLERSNNVNDETLESVLSSKGENLSEYLSYKEYDYLFKLLLIGDSGVGKSCLLLRFADDTYTESYISTIGVDFKIRTIELDGKTIKLQIWDTAGQERFRTITSSYYRGAHGIIVVYDVTDQESYANVKQWLQEIDRYASENVNKLLVGNKSDLTTKKVVDNTTAKEFADSLGIPFLETSNATNVEQAFMTMAAEIKKRMYATKDEGREHRYTASTENFKNVKEKYQQMRGDALKTEILADFKDKLAEATDEQSLKQIVAELKSKDEYRILAKGQGLTTQLLGLKTSSVSSFEKMVEETRESIKSQERQTIKIK
+
+
+#REMARK GASBOR
+SPACEGROUP		P1
+NSD			1.61
+STDEV_NSD		0.06
+AVERAGE_OF		20
+CHI_SQUARE		0.9
+
+
+#REMARK STRUCTURAL MODEL
+CHI_SQUARE		1.2
+FIT_FILENAME		xray_ali00.fit
+DESCRIPTION		hypothetical model composed of high resolution models put together.
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/drraFLm.dat
+pofr_data_file			originals/drraFLm_hi.out.pofr
+single_gasbor_model.pdb		gasbor/drr1.pdb
+average_gasbor_model.pdb	gasbor/damfilt.pdb
+hires_gasbor_model.pdb		gasbor/
+fitted_SAXS_with_model.dat	structure/xray_ali00.fit
+pdb_model.pdb			structure/xray_ali.pdb

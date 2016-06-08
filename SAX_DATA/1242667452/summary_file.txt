@@ -1,0 +1,61 @@
+#REMARK USER INFORMATION 
+CREATED_ON	2009-05-18T17:24:12+00:00
+DATA_DIRECTORY	/users/home/rambor/domains/bioisis.net/web/releases/20090216104533/public/SAX_DATA/1242667452
+IP_ADDRESS	131.243.85.144
+EMAIL	glhura@lbl.gov
+SESSION	23e4ea6024b490d3be5fdd6ea48abff6
+
+#REMARK SUMMARY
+TITLE	PF1733  - Aggregated
+DESCRIPTION	PF1733 is currently listed as a conserved hypothetical. This was one of the few truly un-analyzable data sets from a set of 16 produced by Mike Adams in the first MAGGIE set. The protein needs an entirely new look from the beginning.
+SOURCE_LOCATION	ALS bl12.3.1 SIBYLS
+PUBLICATION	Nature Methods. Robust proteomic-scale solution structure analyses determined efficiently by X-ray scattering (SAXS)
+LINK	0
+
+#REMARK EXPERIMENTAL CONDITIONS
+WAVELENGTH	1
+EXPERIMENTAL_DETAILS	Extrapolated to zero concentration from 4 different concentrations between 1 and 10 mg/mL
+BUFFER	Tris-Base
+pH	8.0
+TEMPERATURE	25.0
+SALT	NaCl
+SALT_CONCENTRATION	300
+DIVALENT	none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES	
+
+#REMARK EXPERIMENTAL VALUES
+Io	1102.5
+SIG_Io	15.5
+Io_MOLECULAR_WEIGHT	100000000
+DMAX	280
+RG	58.2
+SIG_RG	4.65
+RG_REAL	63.0
+SIG_RG_REAL	0.0
+V_POROD	329000
+iofq_file_name	PF1733Merge.dat
+pofr_file_name	gnom.pofr
+
+#REMARK AUTHORS
+AUTHOR	Hura	G.L.
+AUTHOR	Adams	M.W.
+AUTHOR	Mennon	A.L.
+
+#REMARK EXPERIMENTAL ORF(S)
+GENE_ID	1586
+LOCUS_NAME	PF1733
+ACCESSION	0
+EXPERIMENTAL_SEQUENCE	AHHHHHHGSEKKFIAIYDLESDKIEIIDDKFRFKCIEDCGKCCIYNEIPLREEDIQKILSLGYEEEYFVDYTKMFYRGPKFLGYGMKKRPFDDACVFLDPETKKCRIYEHRPVACRIYPFVLVKHEKKLEIYVKEDPRCPGINSPDGEGIVEIIKKYFIPIIEELKGEINGNRRSRQEDFISFNRRLETVV
+ANNOTATION	hypothetical protein
+EXP_MW	22742
+
+#REMARK NO MODEL
+DESCRIPTION	The scattering profile has no features. The Dmax is challenging to define. The Kratky plot is hopeful but this is most likely a mixture with some species of large size.
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+RENAMED FILE			ORIGINAL FILE
+iofq_data_file.dat		originals/PF1733Merge.dat
+pofr_data_file.dat		originals/gnom.pofr

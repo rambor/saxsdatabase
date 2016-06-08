@@ -1,0 +1,20 @@
+<% if !params[:ensemble_pdb].nil? %>
+<% params[:ensemble_pdb].each do |x| %>
+<div id=pdb_filename_<%= x[0].split(/filename_/)[1]  %> align="left"> 
+	<%= fields_for :ensemble_pdb do |ff| %>
+  PDB file: &nbsp <%= link_to 'Remove', destroy_ensemble_pdb_path(:id =>@submission.data_directory,  :label => "pdb_filename_#{x[0].split(/filename_/)[1]}", :file => "#{x[1].original_filename}", :locals => {:pdbfile =>  x[0].split(/filename_/)[1]}), :remote => true %> &nbsp <%= x[1].original_filename %> 
+    <% end %>
+</div>
+
+<% end %>
+<% end %>
+
+<% if @temp_files.size > 0 %>
+  <% @temp_files.each do |file| %>
+  <div id=pdb_filename_<%= file.split(/\.pdb/)[0]  %> align="left"> 
+	<%= fields_for :ensemble_pdb do |ff| %>
+	  PDB file: &nbsp <%= link_to 'Remove', destroy_ensemble_pdb_path(:id =>@submission.data_directory,  :label => "pdb_filename_#{file.split(/\.pdb/)[0]}", :file => "#{file}", :locals => {:pdbfile => file}), :remote => true %> &nbsp <%= file %> 
+	 <% end %>
+  </div>	
+  <% end %>
+<% end %>

@@ -1,0 +1,58 @@
+#REMARK USER INFORMATION 
+CREATED_ON	2010-10-07T23:16:19+00:00
+DATA_DIRECTORY	/users/home/rambor/domains/bioisis.net/web/releases/20100323222431/public/SAX_DATA/1286493379
+IP_ADDRESS	131.243.85.236
+EMAIL	mHammel@lbl.gov
+SESSION	c798c56ad6dc3f6e575ff6b9f8b6f756
+
+#REMARK SUMMARY
+TITLE	Solution structure of DNA-PKcs 
+DESCRIPTION	To define the structure of DNA-PKcs in solution, we generated SAXS profiles over a protein concentration range of 1.5-15 mg/ml.  The SAXS curves displayed a concentration-dependence arising from the tendency of DNA-PKcs to undergo self-association at high protein concentrations. Interference-free SAXS profiles were estimated by extrapolating the measured scattering curves to infinite dilution. Analysis of the interference free SAXS profile, which represents the monomeric state of DNA-PKcs, shows a typical globular particle with a Dmax of ~155Å. Although variation exists between the individual SAXS envelopes, the position of the head and palm regions previously described in cryo-EM envelopes and crystal structure  could be visualized. Similar to the 3D-EM reconstructions, the SAXS envelopes show distinct hollow features located inside the head region. Our SAXS envelopes show flattening of the shape in one direction which is consistent with the structure determined crystallography. To test the accuracy of the DNA-PKcs shape, we measured a second independently prepared sample. The P(r) functions matched well and the reconstructed average shapes show identical structural features in handedness symmetry in both possible hands as expected. 
+SOURCE_LOCATION	ALS BL 12.3.1
+PUBLICATION	Hammel M, Yu Y, Mahaney BL, Cai B, Ye R, Phipps BM, et al. Ku and DNA-dependent protein kinase dynamic conformations and assembly regulate DNA binding and the initial non-homologous end joining complex. J Biol Chem. 2010;285(2):1414-23. PMCID: 2801267.
+LINK	0
+
+#REMARK EXPERIMENTAL CONDITIONS
+WAVELENGTH	1.033
+EXPERIMENTAL_DETAILS	We generated SAXS profiles over a protein concentration range of 1.5-15 mg/ml.  The SAXS curves displayed a concentration-dependence arising from the tendency of DNA-PKcs to undergo self-association at high protein concentrations. Interference-free SAXS profiles were estimated by extrapolating the measured scattering curves to infinite dilution.
+BUFFER	Tris-HCl
+pH	8.0
+TEMPERATURE	20.0
+SALT	KCl
+SALT_CONCENTRATION	100
+DIVALENT	none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES	5% glycerol, 0.2mM EDTA, 0.2mM DTT, 0.1mM benzamidine, 0.2mM PMSF, 0.2 ug/mL Pepstatin
+
+#REMARK EXPERIMENTAL VALUES
+Io	4547.0
+SIG_Io	0.1
+Io_MOLECULAR_WEIGHT	410000
+DMAX	155
+RG	55.0
+SIG_RG	0.1
+RG_REAL	54.45
+SIG_RG_REAL	0.1
+V_POROD	0
+iofq_file_name	pkmerge.dat
+pofr_file_name	pkmerge.por
+
+#REMARK AUTHORS
+AUTHOR	Hammel	M.
+AUTHOR	Yu	Y.
+
+#REMARK GASBOR
+SPACEGROUP	P1
+CHI_SQUARE	1.0
+NSD	1.793
+NUMBER_IN_AVERAGE	10
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+RENAMED FILE			ORIGINAL FILE
+iofq_data_file.dat		originals/pkmerge.dat
+pofr_data_file.dat		originals/pkmerge.por
+single_gasbor_model.pdb		gasbor/gas11r.pdb
+average_gasbor_model.pdb	gasbor/damfilt.pdb

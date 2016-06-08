@@ -1,0 +1,38 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+<p class="about">
+ The "Ratio" button is just a plotting tool used to display the ratio of two scattering curves. The plot can be useful for: 
+</p>
+<ul class="about">
+	<li>detecting conformational changes		
+	<li>verifying concentration independence
+	<li>triaging buffer subtraction		
+    <li>assessing radiation damage
+</ul>
+<h4>Conformational Changes</h4>
+<p class="about">
+Large conformational changes between two samples can result in measurable differences in the R<sub>g</sub> from Guinier analysis. Remember, Guinier analysis is a low resolution Taylor series approximation, therefore, more subtle conformational differences could be detected by examining the entire SAXS dataset. Here, we look at the ratio of two curves. Conformational changes that change the P(r) distribution albeit limited by resolution should manifest a different SAXS curve. As such, we can compare two curves as the ratio or log[ratio] and examine the features of the plot (Figure 1). Here, we see features within the ratio, past the Guinier region indicating a conformational difference between the two samples. The differences are subtle meaning similar R<sub>g</sub>'s and so higher resolution information is required to confidently assert a different conformational state exists.  
+</p>
+<h3>Figure 1</h3><br><%= image_tag('merging_figure_5.png', :border=>"0", :width=>"650") %>
+<h4>Concentration Independence</h4>
+<p class="about">
+If the two SAXS curves differ by a scale factor (concentration), then the ratio would be nearly flat over the entire q range (Figure 2). Here, we noted the two curves differed by concentration therefore implying the SAXS information is the same between the two curves and concentration independent.  	
+</p>
+<h3>Figure 2</h3><br><%= image_tag('merging_figure_6.png', :border=>"0", :width=>"650") %>
+<p class="about">
+If you do have concentration dependent scattering, it will likely be 1) interparticle interference, 2) aggregation or 3) self-association. Interparticle interference occurs at high particle concentrations leading to a non-unity structure factor. This is due to the d-spacing vector being able to sample more than one molecule at a time (under dilute conditions we assume single particle sampling) and not necessarily due to particle-particle interactions. As such, the interference causes a reduction in the observed scattering at low angles and returns to unity at higher angles. The ratio plot easily displays this behavior by illustrating a slope in the Guinier region that becomes flat (Figure 3).</p>
+<p class="about">Likewise, aggregation or self-association behave similarly in the low q-region but do not necessarily disappear at higher q-values. For self-association you will see features throughout the entire scattering curve dependent upon the relative concentration of the multimer to monomer. 	
+</p>
+<h3>Figure 3</h3><br><%= image_tag('ratio_figure_3.png', :border=>"0", :width=>"650") %>	
+
+<h4>Buffer Subtraction</h4>
+
+<p class="about">
+Variations in buffer subtraction between SAXS samples of the same particle and buffer condition tend to show a systematic curvature in the ratio plot at high q-values.  Such curvature as seen in Figure 4, will either be up or down and implies we can not directly merge the two datasets due to poor buffer subtraction for one of the curves.  Which dataset has the poor subtraction?
+</p>
+<h3>Figure 4</h3><br><%= image_tag('ratio_figure_4.png', :border=>"0", :width=>"650") %>
+<p class="about">We have to look at the real-space transforms for each SAXS curve. The poor subtraction will tend to have a bump/bulge in the P(r) distribution near d<sub>max</sub>. If we want to combine these two datasets, the green curve would have to be truncated to q of ~0.15. </p>
+<h3>Figure 5</h3><br><%= image_tag('ratio_figure_5.png', :border=>"0", :width=>"650") %>
+

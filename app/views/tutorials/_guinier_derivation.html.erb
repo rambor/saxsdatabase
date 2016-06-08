@@ -1,0 +1,66 @@
+<table border="0" width="650">
+<tr><th colspan="2" align="left">
+
+<div class="welcometitle">Guinier Derivation
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+</th></tr>
+<tr>
+<th colspan="2" >
+<p class ="about" align="left">
+The radius-of-gyration, R<sub>g</sub>, describes the mass distribution of the macromolecule around its center of gravity.  It is potentially a very powerful parameter to measure in a experiment especially if the macromolecule is undergoing conformational changes during substrate binding.  The R<sub>g</sub> is sometimes called the second moment of inertia, please see this <%= link_to("wiki", "http://en.wikipedia.org/wiki/Radius_of_gyration") %> for more information.  
+</p>
+
+
+
+<%= image_tag('substitution4.png')%>
+
+
+<p class="about" align="left">
+The Guinier analysis is a linearization of the small angle scattering data in the region closest to the zero scattering angle.  Starting with the classic description of scattering, the following is a derivation of the Guinier plot and analysis.  	
+</p>
+
+<%= image_tag('SAXS_equation.png')%>
+
+<p class="about" align="left">
+The above sine function can be approximated by a Taylor series expansion.  However, the equation will evaluate the experimental data closest to the zero angle, therefore, we can set a = 0 to produce the McLaurin series expansion of sine.    	
+</p>
+
+<%= image_tag('mclaurin_series.png')%>
+
+<p class="about" align="left">
+The McLaurin representation of sine simplifies the expression thereby re-writing the classic scattering equation as a polynomial in terms of q & r (see following derivation).	Now, if we consider the fact that the function will be evaluated when <I>q</I> is very small, say less than 0.003, then the higher order terms will essentially make very little contribution to the function (q<sup>4</sup> = 0.000000000081).
+</p>
+<p class="about" align="left">
+<%= image_tag('substitution.png')%>
+</p>
+<p class="about" align="left">
+Thus, we can consider the first two terms in the expansion as significant and ignore the higher order terms, <I>q<sup>4</sup>, q<sup>6</sup>, q<sup>8</sup>, ...</I>This greatly simplifies the polynomial expansion of the scattering function resulting in:
+</p>
+<p class="about" align="left">
+<%= image_tag('substitution1a.png')%>
+</p>
+<p class="about" align="left">
+Now, we need to define I(0) and R<sub>g</sub> as follows and substitute.
+</p>
+<p class="about" align="left">
+<%= image_tag('substitution2.png')%>
+</p>
+<p class="about" align="left">
+The equation is not a linear equation; however, Guinier's approach recognized the boxed region below to be a Taylor series expansion of <I>e</I><sup>x</sup>.  This substitution is an approximation to the function and still requires <I>q</I> to be small.  
+</p>
+<p class="about" align="left">
+<%= image_tag('substitution3.png')%>
+</p>
+<p class="about" align="left">
+Finally, we can linearize the equation by taking the natural logarithm of both sides thereby producing the recognizable form of y = m x + b. 
+</p>
+
+<%= image_tag('substitution4.png')%>
+
+
+</th>
+</tr>
+</table>

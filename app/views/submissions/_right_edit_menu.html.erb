@@ -1,0 +1,13 @@
+<table class="RightMenu_Details">
+
+<tr><th align="center"><p id="RightTitle"><span color="red">Missing Info</span></p></th></tr>
+</table>
+
+<%= @experiment.errors.select{|v| v =~ /(source_location|title|description|email|publication)/}.empty? ? "" : "<p class=\"red_text\">...in Basic Information</p>".html_safe %>
+
+<%= @experiment.errors.select{|v| v =~ /(experimental_details|pH|salt_concentration|salt|buffer)/}.empty? ? "" : "<p class=\"red_text\">...in Experimental Details</p>".html_safe %>
+
+<%= @experiment.errors.select{|v| v =~ /(dmax|rg|io|io_molecular_weight|sig_Io|sig_Rg|v_porod)/ && !(v =~ /iofq_file_name/) }.empty? ? "" : "<p class=\"red_text\">...in SAXS Parameters</p>".html_safe %>
+<%= @experiment.errors.select{|v| v =~ /iofq_file_name|pofr_file_name/ }.empty? ? "" : "<p class=\"red_text\">...in Upload Data Files</p>".html_safe %>
+<%= @experiment.errors[:base].select{|v| v =~ /DAMMIN|GASBOR/ }.empty? ? "" : "<p class=\"red_text\">...must add Model</p>".html_safe %>
+<%= @experiment.errors[:base].select{|v| v =~ /gene/}.empty? ? "" : "<p class=\"red_text\">...must add a Gene</p>".html_safe %>

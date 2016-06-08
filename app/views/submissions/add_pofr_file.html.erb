@@ -1,0 +1,43 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+<% if @submission.errors.any? %>
+<ul>
+<% @submission.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %></ul>
+<% end %>
+
+<ul>
+<% if !(@files.nil?) %>
+	<% @files.each do |file| %>
+
+	<li><font id="readthisgood">Currently Uploaded:</font> <%= file.split(/originals\//)[1].chomp(".pofr") %></li>	
+   <% end %>
+
+</ul>
+<p>To replace current file, just upload a new one.  </p>
+<% end %>
+
+
+<h1>P(r) Data File </h1>
+<p>The experimental pair-distance distribution, P(r), function should be uploaded as a text file with three columns (tab or space delimited) or a GNOM output file.  The columns (from left to right) should correspond to the real space distance (r), histogram and standard error. 
+</p>
+
+
+<%= form_tag({ :action => 'upload_pofr_file', :data_directory => @submission.data_directory}, :multipart => true) do %>
+
+<p><label for="upload_file">Select File</label> :
+<%= file_field 'submission', 'datafile' %></p>
+<%= submit_tag "Upload" %>
+<% end %>
+
+
+
+<% if @pofrState %>
+<%= render :partial => "load_pofr_file", :formats => [:js], :content_type => 'text/javascript' %>
+<h2>Pair-Distance Distribution Plot</h2>
+
+<canvas id="pofrPlot" width="386" height="300">
+<p>Your browser doesn't support canvas.</p>
+</canvas>
+
+<% end %>

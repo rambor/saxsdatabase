@@ -1,0 +1,6 @@
+<p>Download from: <%= @user.last_name %>, <%= @user.first_name %></p>
+<p>Institution: <%= @download.institution %></p>
+<p>Country: <%= @download.country %></p>
+<p>Email: <%= @user.email %></p>
+<p>UserID: <%= @user.id %></p>
+<p>PI: <%= @download.pi %></p>

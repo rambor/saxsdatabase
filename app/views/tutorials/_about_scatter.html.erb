@@ -1,0 +1,105 @@
+<table border="0">
+<tr><th class="tutorialtext" colspan="2" align="left">
+
+<div class="welcometitle"><%= @tag.upcase %>
+<span class="tutorial_small_text">
+</span>
+</div>
+</th></tr>
+
+<tr><th colspan="2" align="left" class="tutorialtext">
+<p class="about">
+Sc&#8491;tter is a JAVA-based application for basic analysis of SAXS datasets. Sc&#8491;tter is developed by Robert Rambo at the Diamond Light Source (Didcot, UK). The program was previously developed at the SIBYLS beamline (12.3.1) of the Advanced Light Source, Berkeley, CA.</p>
+<h5>Current Release <%= @versionhistory.last.version %> - <%= @versionhistory.last.created_at %></h5>
+<p class="about"><%= link_to "Download via BioIsis", scatter_path(), :class=>"no_decor_link" %></p>
+<p>
+<ul id="Requirement">
+<li><span>JAVA requirement:</span><p class="about"> JAVA 8 (platform 1.8) or greater for Windows, Mac OS X or LINUX</p>
+<li><span>Starting Sc&#8491;tter:</span>
+<p class="about"> Sc&#8491;tter comes as a compressed zip file. Unzip the file into a directory, typically accomplished by double clicking the downloaded file. If the file was unzipped in a "Downloads" directory, simply drag the entire unzipped directory to a more permanent location.</p>
+<%= image_tag('scatter_directory.png', :width=>'250') %>
+<p class="about">Open the directory and double-click "scatter.jar". The *.jar file can be moved to any suitable directory, just be sure to have the directory available to the system by setting appropriate path statements.</p>
+	
+<p class="about"><span class="blue_text">Windows</span> and <span class="darkred_text">LINUX</span> users! Depending on security settings, Sc&#8491;tter may be started from command line using "java -jar scatter.jar" </p>	
+
+<p class="about"><span class="red_text">Apple OSX</span> users: Scatter can be added to the dock. Just drag the jar file to the area next to the trash can.  See <%= link_to "link", "http://stackoverflow.com/questions/8916269/launching-a-jar-file-as-an-app-on-mac-from-the-dock", :class=> "no_decor_link" %>.</p>
+<li><span>Intensity file:</span><p class="about"> Sc&#8491;tter can read any 3 column text file (column 1: q, column 2: Intensity, column 3: error ) delimited by space or tabs.  Header or footer information starting with # will be ignored.  In addition, Sc&#8491;tter can read Bruker *.brml SAXS file formats. If you are experiencing problems, please contact Robert Rambo.</p>		
+</ul>
+
+<h1 class="welcometitle">Future Updates</h1>
+<p class="about">
+	<ul>
+	<li>Independent component analysis for resolving individual scattering curves of components in a mixture.</li>
+	<li>Direct fitting of PDB models to scattering profiles.</li>
+	</ul>
+</p>
+
+<h1 class="welcometitle">Disclaimer</h1>
+<p class="about">JAVA is a platform independent language that is entirely objected oriented. We tried to optimize the analysis around the object oriented platform. Sc&#8491;tter is currently not released as an open source package but we are willing to share source code with collaborators.</p>
+<br>
+<h1 class="welcometitle">Change Log</h1>
+
+<% @versionhistory.each do |ele| %>
+<h5>Release <%= ele.version %> - <%= nice_date(ele.created_at) %></h5>
+<p class="about"><%= ele.title %>:</p>
+<ul>
+	<% rows = ele.comments.split(/[\r\n]+/); rows.each do |row| %>
+	<li><%= row %></li>
+	<% end %>
+</ul>
+<h1 class="welcometitle"></h1>
+<% end %>
+
+<h5>Release 2.1 c - June 30, 2014</h5>
+<p class="about">Version 2.1c fixes a few bugs and has some added features by request:</p>
+<ul>	
+<li>Data is exported on Results tab</li>
+<li>Filenames are no longer auto-generated (2FILE P(r) tab)</li>
+<li>The previous specified working directory will be set on start-up</li>
+<li>Limited access to ATSAS (DATGNOM AND DAMMIN/F) from Sc&#8491;tter GUI</li>
+<li>User must specify directory of the ATSAS binaries in Settings tab</li>
+<li>2File (on P(r) tab) automatically calls DATGNOM on the data visible in plot</li>
+<li>Output from DATGNOM is auto-loaded into DAMMIN/F tab for modeling.</li>
+<li>Truncation of data in manual Guinier analysis carries over to the working dataset in Analysis tab</li>
+<li>Crosshairs can be toggled off by right-click on graph (popup menu)</li>
+</ul>
+<h1 class="welcometitle"></h1>
+<h5>Release 2.0 beta - January 3, 2014</h5>
+<p class="about">Version 2.0 is a major re-write of the entire program. Due to several bugs and user feedback, Scatter was refactored and improved with the following additional features:</p>
+<ul>	
+<li>Unlimited data files per collection</li>
+<li>Output SVG and PDF formats</li>
+<li>Colors and point size editor for individual datasets</li>
+<li>Buffer subtraction </li>
+<li>Multi-file chi<sub>free</sub> calculations</li>
+<li>Regularized inverse transform using L1-norm</li>
+<li>Complex formation detection algorithm</li>
+<li>I(0)/Rg plots over all visible datasets</li>
+</ul>
+<p class="about">
+This is a beta release and we appreciate bug reporting from our users.
+</p>
+
+<h5>Release 1.7i - July 31, 2013</h5>
+<p class="about">Fixed bug in windows 7, 8 and LINUX, program would not start due to error in determining home directory.</p>
+
+<h5>Release 1.7f - July 20, 2013</h5>
+<p class="about">Fixed Windows 8 bug (directory determination would halt start of program).</p>
+<p class="about">Corrected scaling of mass when scale factor is not 1.0 when using Vc button.</p>
+
+<h5>Release 1.7e - July 19, 2013</h5>
+<p class="about">Fixed repopulating of Results tab.</p>
+
+<h5>Release 1.7d - July 18, 2013</h5>
+<p class="about">Fixed auto-zoom that was only affecting data with the max I(q) <  1.</p>
+
+<p class="about">Fixed bug in Guinier fitting. For datasets with I(q) < 1 in Guinier region, auto_Rg and manual Guinier would initially report -1 and 0 for I(0) and Rg until data was adjusted manually.  Now, Scatter reports the proper parameters.</p>
+<br>
+<h5>Release 1.7c - July 16, 2013</h5>
+<p class="about">Fixed Chi_free calculation. FOXS rounds the q-value to one less significant figure. Scatter now actively rounds the number to find corresponding number in FOXS fit file. Rounded numbers are printed to console.</p>
+<br>
+
+</th>
+</tr>
+
+</table>

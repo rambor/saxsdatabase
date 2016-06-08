@@ -1,0 +1,28 @@
+<p>A ENSEMBLE model was determined using the following:</p>
+   <table border="0">               
+<tr><td class="spec">Simulation Method</td><td class="spec"><%= @experiment.ensemble.simulation_method %>&nbsp;</td></tr>
+<tr><td class="spec">Simulation Algorithm</td><td class="spec"><%= @experiment.ensemble.simulation_algorithm %>&nbsp;</td></tr>
+<tr><td class="spec">Ensemble Size</td><td class="spec"><%= @experiment.ensemble.ensemble_size %>&nbsp;</td></tr>
+<tr><td class="spec">Selection Method</td><td class="spec"><%= @experiment.ensemble.selection_method %>&nbsp;</td></tr>
+<tr><td class="spec">Member Size</td><td class="spec"><%= @experiment.ensemble.member_size %>&nbsp;</td></tr>
+<tr><td class="spec">Scoring Function</td><td class="spec"><%= @experiment.ensemble.scoring_function %>&nbsp;</td></tr>
+<tr><td class="spec">Score</td><td class="spec"><%= @experiment.ensemble.score %>&nbsp;</td></tr>	
+<tr>
+<td width="390" colspan="2" class="graph_title">
+    <% if File.exists?(Rails.root.join("public", "SAX_DATA", @experiment.data_directory, "med_res_ensemble_FIT.png")) %>
+	  <h1 class="NewExperimentH2">Ensemble Fit </h1>
+      <%= image_tag("/SAX_DATA/#{@experiment.data_directory}/med_res_ensemble_FIT.png", :size => "386x300", :border => "0")%>
+    <% end %>
+
+<p class="about"> The red line is the calculated SAXS profile from the ENSEMBLE model scaled to the experimental SAXS curve (cyan).</p> 
+
+    <% if File.exists?(Rails.root.join("public", "SAX_DATA", @experiment.data_directory, "ensemble", "diagnostic.png")) %>
+	  <h1 class="NewExperimentH2">Supportive Diagnostic Figure for ENSEMBLE Selection</h1>
+      <%= image_tag("/SAX_DATA/#{@experiment.data_directory}/ensemble/diagnostic.png", :size => "579x450", :border => "0")%>
+    	<p class="about">Fig: <%= @experiment.ensemble.figure_legend %></p>
+
+    <% end %>
+
+</td>
+</tr>	
+    </table>

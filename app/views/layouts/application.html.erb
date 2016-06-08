@@ -1,0 +1,33 @@
+<%= render :partial => "layouts/head" %>
+<body>
+<div id="container">
+
+  <div id="left"><%= yield :left %></div>
+
+  <div id="leftbox"><%= yield :leftbox %></div>
+
+<div id="content">
+<%= content_tag 'p', h(flash[:notice]), :class => 'notice' if flash[:notice] %>
+<%= content_tag 'p', h(flash[:error]), :class => 'notice error' if flash[:error] %>
+
+<%= yield %>
+</div>
+
+<div id="right"><%= yield :right %></div>
+
+<br style="clear:both;" />
+
+</div>
+
+<div id="footer">
+<p class="links">
+<a href="http://bl1231.als.lbl.gov">SIBYLS</a>&nbsp;|&nbsp;<a href="http://www.diamond.ac.uk/Beamlines/Soft-Condensed-Matter/small-angle/B21.html">B21 (DLS)</a>&nbsp;|&nbsp;<a href="http://www.synchrotron-soleil.fr/Recherche/LignesLumiere/SWING">SWING (SOLEIL)</a>&nbsp;|&nbsp;<a href="http://www.embl-hamburg.de/biosaxs/">P12 (EMBL)</a>&nbsp;|&nbsp;<a href="http://www.esrf.eu/UsersAndScience/Experiments/MX/About_our_beamlines/BM29">BM29 (ESRF)</a>&nbsp;|&nbsp;
+<a href="http://www-ssrl.slac.stanford.edu/~saxs/index.htm">BL4-2 (SSRL)</a>&nbsp;|&nbsp;
+<a href="http://www.macchess.cornell.edu/MacCHESS/biosaxs.html">MacCHESS</a>
+</p>
+<p class="copyright">&copy; <%= Time.now.year %> All Rights Reserved</p>
+  <br style="clear:both;" />
+
+</div>
+</body>
+</html>

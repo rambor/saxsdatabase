@@ -1,0 +1,20 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+<p class="about">
+Examining your SAXS data from the perspective of the P(r)-distribution is the best way for understanding or detecting conformational changes. Notwithstanding the fact that the P(r)-distribution is a real-space representation of the SAXS curve, the P(r)-distribution is the resolution-limited perspective of the collected SAXS curve that contains the least noise. However, the distribution itself is simple and interpreting the features may be aided by superimposing the P(r)-distribution from a known (homology) model. </p>
+<p class="about">Here, P4P6_A4_2.mccd.dat is loaded with the PDB file "single.pdb". As you can see the data goes to high q (~0.42 &Aring;<sup>-1</sup>). To load a PDB file, simply drag the file into one of the four panels. Scatter will automatically convert the file to a SAXS curve based on the P(r)-distribution. This calculation can take some time, so please be patient.  Waters are excluded by default.  To include waters, the flag can be changed in "Settings" (see Figure 2, red arrow). Note, Scatter will determine dmax from the PDB and report it in the 
+</p>
+<p class="about" align="left"><b>Figure 1 |</b></p>
+	<%= image_tag('pr_pdb_1.png', :width => '640') %>
+<p class="about">The calculation is performed over the entire set of atoms in the PDB.</p>
+<p class="about" align="left"><b>Figure 2 |</b></p>
+	<%= image_tag('pr_pdb_2.png', :width => '640') %>
+	<p class="about">In addition, the resolution of the calculated P(r)-distribution can be set (default: 0.4). Depending on the size of the molecule, the calculation can take some time.  Sc&Aring;tter will also determine dmax for the input molecule by calculating the 3D convex hull and taking the furthest two points of the hull as d<sub>max</sub>. Also, I refined the experimental distribution determining a new d<sub>max</sub> of 115 &Aring; that seems better suited for the reduced dataset. </p>
+<p class="about" align="left"><b>Figure 3 |</b></p>	
+	<%= image_tag('pr_pdb_3.png', :width => '640') %>	
+<p class="about">The scale will be off for many of reasons including concentration, contrast and scale of the experimental intensities. Therefore, I have included a scale that can be set. If P(r) molecule is smaller than the experimental distribution, set scale to 1.02 and press "return" key several times to upscale the distribution.  Likewise, if it is larger, set the scale to 0.98.  </p>	
+
+	
+	

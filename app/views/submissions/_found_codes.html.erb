@@ -1,0 +1,10 @@
+<% if @ids.size == 0 && @code.size == 6 %>
+	<h1>Congrats!  Your code is acceptable</h1>
+<% elsif @ids.size > 0 %>
+     <% @ids.each do |x| %>
+
+          <p id="readthisbad">Already Taken: <%= x.bioisis_id %></p>
+<p>Try again!</p>
+
+     <% end %>
+<% end %>

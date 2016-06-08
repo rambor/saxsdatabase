@@ -1,0 +1,72 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1323364592
+EMAIL		william_bauer@urmc.rochester.edu
+CREATED_ON	2012-11-23 10:39:57 UTC
+
+#REMARK SUMMARY
+TITLE	wtTIA-RRM123, residues 1-247 (CHESS)
+BIOISIS_ID	2TIAKP
+EXP_DESCRIPTION	Pro-Apoptotic, alternative splicing factor TIA-1 RRM1-RRM2-RRM3 domains in the absence of RNA, for comparison with TIA-1/RNA complex. The average solution conformation of three TIA-1 RRMs is an obtuse V shape. Data collected at CHESS were a reasonable match with the wtTIA-RRM123 data collected at ALS.
+SOURCE_LOCATION	CHESS BL F2
+PUBLICATION	Three RNA Recognition Motifs Participate in RNA Recognition and Structural Organization by the Pro-Apoptotic Factor TIA-1, Journal of Molecular Biology xx (2011) xxx–xxx
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	wtTIA-RRM123 was purified by gel filtration and confirmed to be monodisperse by DLS. SAXS data were collected from 3 different concentrations (8.0, 4.0, 2.0 mg/mL)and exposed for 3 and 9 minutes. The exposures and then concentrations were merged to create
+BUFFER			Hepes
+pH			7.4
+TEMPERATURE		10.0
+SALT			NaCl
+SALT_CONCENTRATION	300
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		0.2 mM TCEP, 3% glycerol
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			1.48
+SIG_Io			0.01
+Io_MOLECULAR_WEIGHT	30000
+DMAX			100
+RG			30.3
+SIG_RG			0.3
+RG_REAL			30.6
+SIG_RG_REAL		0.1
+V_POROD			48330
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Bauer		W.J.
+AUTHOR	Heath		J.
+AUTHOR	Jenkins		J.L.
+AUTHOR	Kielkopf		C.L.
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	wtTIA123
+EXP_MW		30867
+ANNOTATION	wtTIA RRM1-RRM2-RRM3 residues 1-274
+EXP_SEQUENCE	GPLGSMEDEMPKTLYVGNLSRDVTEALILQLFSQIGPCKNCKMIMDTAGNDPYCFVEFHEHRHAAAALAAMNGRKIMGKEVKVNWATTPSSQKKDTSNHFHVFVGDLSPEITTEDIKAAFAPFGRISDARVVKDMATGKSKGYGFVSFFNKWDAENAIQQMGGQWLGGRQIRTNWATRKPPAPKSTYESNTKQLSYDEVVNQSSPSNCTVYCGGVTSGLTEQLMRQTFSPFGQIMEIRVFPDKGYSFVRFNSHESAAHAIVSVNGTTIEGHVVKCYWGK
+
+
+#REMARK DAMMIN
+SPACEGROUP		P1
+NSD			0.72
+STDEV_NSD		0.02
+AVERAGE_OF		10
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/wtTIA123(CHESS).dat
+pofr_data_file			originals/wt-chess-Gnom.out.pofr
+single_dammin_model.pdb		dammin/wt-chess-best-single.pdb
+average_dammin_model.pdb	dammin/wt-chess-Dammin.pdb
+hires_dammin_model.pdb		dammin/Sup-wt-chess-2.pdb

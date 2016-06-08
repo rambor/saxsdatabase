@@ -1,0 +1,27 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+<% if @no_model.errors.any? %>
+<ul>
+<% @no_model.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %></ul>
+<% end %>
+<hr>
+<h1 class="NewExperimentH1"><a name="NoModel">No Structural Model Deposition Form</a></h1>
+<p>
+<ul>
+	<li>If no reasonable model is available and you would like to report your SAXS data as an empirical observation, please use this form.  Your description should be detailed and meaningful thereby providing visitors some experimental insight on your conclusion.
+    <li>If necessary, please upload a figure supporting your hypothesis such as a native gel, chromatogram, DLS data, etc.  
+</ul>
+</p>
+
+<%= form_for(:no_model, :url => save_no_model_path(@submission.data_directory), :html => { :multipart => true}) do |nomodel_fields| %>
+
+  <table  class="SkyParameters">
+      <tr><td>
+          <h1 class="NewExperimentH1">Description</h1><span class="instructions">...provide a concise conclusion to the experiment,<I> i.e., the protein is conformationally flexible existing in multiple conformations, or is a mixture at this pH but appears to be stabilized by ATP.</I></span></td><td><%= nomodel_fields.text_area :description, "cols" =>47 %>
+      </td></tr>
+<tr><td><h1>Figure File</h1><span class="instructions">...this should be either a *.gif or *.png file format.  We recommend a graphic file no larger than => width 600px x height 500px.</span></td><td><%= nomodel_fields.file_field :figure %></td></tr>
+
+</table>
+		<%= nomodel_fields.submit "Submit Model" %>
+<% end %>

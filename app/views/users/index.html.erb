@@ -1,0 +1,22 @@
+<% content_for :left do %>
+<%= render "experiments/admin_left_menu" %>
+<% end -%>
+
+<% content_for :right do %>
+
+<% end -%>
+<hr />
+Total users: <%= @users_size %>
+<% count = 1 %>
+<table width="100%" class="users">
+<% @users.each do |user| %>
+
+ 
+<tr><td>( <%= link_to "destroy", destroy_user_path(user), :id=>"user" %> ) <%= link_to user.email, edit_user_path(user), :id => "edit_user" %></td><td><%= user.last_name %>, <%= user.first_name %></td><td><%= nice_date(user.last_sign_in_at) %></td></tr>
+  
+
+<% count += 1 %>
+<% end %>
+<tr><th colspan="3" class="specalt"><%= will_paginate @users %></th></tr>
+</table>
+

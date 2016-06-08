@@ -1,0 +1,44 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+<% if @dammin.errors.any? %>
+<ul>
+<% @dammin.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %></ul>
+<% end %>
+<hr>
+<h1 class="NewExperimentH1"><a name="Dammin">DAMMIN/F Model</a></h1>
+<p>
+<ul>
+	<li>You must deposit two PDB files: one describing a single DAMMIN model and another describing a model averaged from several DAMMIN calculations (at least six).  
+    <li>In addition, please specify the number of models used in calculating the averaged model.
+</ul>
+</p>
+
+<%= form_for @dammin, :id => @submission.data_directory, :html => { :multipart => true } do |dammin_fields| %>
+
+  <table  class="GrayParameters">
+      <tr><td>
+          <h1 class="NewExperimentH1">Symmetry Group</h1><span class="instructions"><I>...symmetry group used in the DAMMIN modeling.</I></span></td><td><%= dammin_fields.text_field :spacegroup, "size"=> 5 %>
+      </td></tr>
+      <tr><td>
+	          <h1 class="NewExperimentH1">Single Model</h1><span class="instructions"><I>...the single model is the one that best corresponds to the experimental SAXS data as identified by DAMAVER.</I></span></td><td><%= dammin_fields.file_field :single_model_filename %><% if !@dammin.single_model_filename.nil? %>UPLOADED: <%= @dammin.single_model_filename %><% end %>
+      </td></tr>	
+	
+      <tr><td>
+              <h1 class="NewExperimentH1">Averaged Model</h1><span class="instructions"><I>...the averaged model corresponds to the average of the aligned ab initio models typically the DAMFILT output file.</I></span></td><td><%= dammin_fields.file_field :average_model_filename %><br/><% if !@dammin.average_model_filename.nil? %>UPLOADED: <%= @dammin.average_model_filename %><% end %>
+      </td></tr>
+      <tr><td>
+              <h1 class="NewExperimentH1">Superpositioned PDB Model</h1><span class="instructions"><I>...OPTIONAL; this model is the superpositioned model derived from an atomic model aligned into your averaged <I>ab initio</I> SAXS model.</I></td><td><%= dammin_fields.file_field :subcomb_model %><% if !@dammin.subcomb_model.nil? %>UPLOADED: <%= @dammin.subcomb_model %><% end %>
+      </td></tr>
+      <tr><td>
+              <h1 class="NewExperimentH1">Mean NSD</h1><span class="instructions"><I>...from DAMSEL/DAMAVER calculation, NSD corresponds to the normalized spatial discrepancy.</I></span></td><td><%= dammin_fields.text_field :nsd, "size"=> 5 %>
+      </td></tr>
+      <tr><td>
+              <h1 class="NewExperimentH1">Variation of NSD</h1><span class="instructions"><I>...from DAMSEL/DAMAVER calculation, examine output log file.</I></span></td><td><%= dammin_fields.text_field :sig_NSD, "size"=> 5 %>
+      </td></tr>
+      <tr><td>
+              <h1>Number of Models Used in Averaging</h1></td><td><%= dammin_fields.text_field :number_in_average, "size"=> 4 %> 
+      </td></tr>
+</table>
+<%= dammin_fields.submit :value => "Save DAMMIN/F Model" %>
+<% end %>

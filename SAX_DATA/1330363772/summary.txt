@@ -1,0 +1,74 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1330363772
+EMAIL		jermaine_jenkins@urmc.rochester.edu
+CREATED_ON	2014-08-28 23:52:29 UTC
+
+#REMARK SUMMARY
+TITLE	U2AF65 RRM1-RRM2, with N- and C-terminal flanking sequences
+BIOISIS_ID	2U2FKP
+EXP_DESCRIPTION	SAXS profile of human U2AF65 RRM1-RRM2, residues 136-347, with N-terminal 'GPLGS' sequence from protease site. This residue range includes 12 residues N-terminal to RRM1 and 11 residues C-terminal to RRM2. Sample was purified by gel filtration and homogeneity was verified by dynamic light scattering prior to data collection.
+SOURCE_LOCATION	ALS BL 12.3.1
+PUBLICATION	Major Contribution of Elongated Conformations to the Solution Ensemble of the Essential Splicing Factor U2AF65, submitted
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	Samples at 5 or 10 mg/mL were used for 6s and 60s exposures, followed by a 6s exposure to check for radiation damage. Appropriate resolution ranges of the exposures and concentrations were merged in the final data file.
+BUFFER			25 mM Hepes
+pH			7.4
+TEMPERATURE		10.0
+SALT			NaCl
+SALT_CONCENTRATION	250
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		3% glycerol, 0.2 mM TCEP
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			196.2
+SIG_Io			0.3
+Io_MOLECULAR_WEIGHT	23420
+DMAX			85
+RG			24.6
+SIG_RG			0.1
+RG_REAL			25.6
+SIG_RG_REAL		0.03
+V_POROD			34623
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Jenkins		JL
+AUTHOR	Kielkopf		CL
+AUTHOR	Laird		KM
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	U2AF65FIR
+EXP_MW		23420
+ANNOTATION	RNA recognition motif domains RRM1 and RRM2 of essential pre-mRNA splicing factor U2AF65, with 11-12 flanking residues and 'GPLGS' from cloning site
+EXP_SEQUENCE	GPLGSPVPVVGSQMTRQARRLYVGNIPFGITEEAMMDFFNAQMRLGGLTQAPGNPVLAVQINQDKNFAFLEFRSVDETTQAMAFDGIIFQGQSLKIRRPHDYQPLPGMSENPSVYVPGVVSTVVPDSAHKLFIGGLPNYLNDDQVKELLTSFGPLKAFNLVKDSATGLSKGYAFCEYVDINVTDQAIAGLNGMQLGDKKLLVQRASVGAKNATLVSP
+
+
+#REMARK ENSEMBLE MODEL
+SCORING_FUNCTION	Chi Squared
+SCORE			1.1
+SELECTION_METHOD	EOM
+SIMULATION_METHOD	GAJOE
+SIMULATION_ALGORITHM	Genetic Algorithm Judging Optimization of Ensembles
+FIT_FILENAME		profilesfir2_101112004.fit
+ENSEMBLE_SIZE		10000
+MEMBER_SIZE		2
+DIAGNOSTIC_LEGEND		The radii of gyration (RG) of the structures are plotted on the x-axis, against the frequency with which a structure of a given RG occurs in the selected ensemble on the y-axis. Gray dashed lines represent the randomized starting pool of structures. Solid lines are the selected pool (2 PDB ensemble - best fit when compared with 3,4,5,20-PDB) showing the presence of two major types of conformations
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/fir2_101112.dat
+pofr_data_file			originals/gnomfirU2F85.out.pofr
+fitted_SAXS_ensemble_with_model.dat		originals/profilesfir2_101112004.fit
+pdb_filename_ .pdb			originals/

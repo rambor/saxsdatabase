@@ -1,0 +1,72 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1364076984
+EMAIL		robert_p_rambo@hotmail.com
+CREATED_ON	2013-03-23 22:33:37 UTC
+
+#REMARK SUMMARY
+TITLE	Crystal structure of the bifunctional proline utilization A flavoenzyme from Bradyrhizobium japonicum
+BIOISIS_ID	BJPUTP
+EXP_DESCRIPTION	The bifunctional proline catabolic flavoenzyme, proline utilization A (PutA), catalyzes the oxidation of proline to glutamate via the sequential activities of FAD-dependent proline dehydrogenase (PRODH) and NAD+-dependent Δ1-pyrroline-5-carboxylate dehydrogenase (P5CDH) domains. Although structures for some of the domains of PutA are known, a structure for the full-length protein has not previously been solved. We report the 2.1 Å resolution crystal structure of PutA from Bradyrhizobium japonicum, along with data from small-angle x-ray scattering, analytical ultracentrifugation, and steady-state and rapid-reaction kinetics. PutA forms a ring-shaped tetramer in solution having a diameter of 150 Å. Within each protomer, the PRODH and P5CDH active sites face each other at a distance of 41 Å and are connected by a large, irregularly shaped cavity.
+SOURCE_LOCATION	SIBYLS beamline 12.3.1
+PUBLICATION	PNAS    Volume: 107    Issue: 7    Pages: 2878-2883    Published: FEB 16 2010 
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	Extrapolated to zero concentration from 4 different concentrations between 1 and 10 mg/mL
+BUFFER			Tris-Base
+pH			7.5
+TEMPERATURE		25.0
+SALT			NaCl
+SALT_CONCENTRATION	50
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		0.5 mM EDTA, 5% glycerol
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			2180.7
+SIG_Io			22.6
+Io_MOLECULAR_WEIGHT	448000
+DMAX			140
+RG			52.6
+SIG_RG			0.7
+RG_REAL			51.9
+SIG_RG_REAL		0.5
+V_POROD			857176
+V_C			1538.0
+POROD_EXPONENT		3.9
+
+#REMARK AUTHORS
+AUTHOR	Hura		GL
+AUTHOR	Tanner		JJ
+AUTHOR	Srivastava		D
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	PUTA
+EXP_MW		107364
+ANNOTATION	The. bifunctional. proline. catabolic. flavoenzyme,. proline. utilization. A. (PutA),. catalyzes. the. oxidation. of. proline. to. glutamate. via. the. sequential. activities. of. FAD-dependent. proline. dehydrogenase. (PRODH). and. NAD(+)-dependent. Delta(1)-pyrroline-5-carboxylate. dehydrogenase. (P5CDH). domains.
+EXP_SEQUENCE	MPNIPPPFTAPYAPDDAEIAARLLPASHLSPPQEARIHRTATRLIEAIRKRDDRLGGVEDMLREFALSTKEGLALMVLAEALLRVPDARTADQFIEDKLGEGDFIHHETKSTAFLVNASAWALGLSARVIQPGETPDGTIGRLVKRLGAPAVRTATRQAMRLMGNHFVLGETIEQALERGKPRSGQKTRYSFDMLGEGARTAADARRYFDAYASAIETIGKAAGNHALPDRPGISVKLSALHPRFEAISRARVMVELVPQLLDLAQRAKAHDLNFTVDAEEADRLELSLDVIAATLADPSLKGWDGFGLAIQAYQKRASAVIDYVDALARAHDRKLMVRLVKGAYWDTEIKRAQERGLDGYPVFTRKAMTDLNYVACASKLLALRPRIFPQFATHNALTVATVLEMAEGSSGFEFQRLHGMGEALYEQLAKDHADIAYRTYAPVGSHRDLLAYLVRRLLENGANSSFVAQAADYRVPVPALLQRPADAIVRPQAAAHPRIPLPCDLFAPERRNSRGVEFGARTALDQLLTDVKAETGDLKPIADATPDQAHAAVAAARAGFAGWSRTPAGIRAAALEQAAHLLESRSAHFIALLQREGGKTLDDALSELREAADFCRYYAAQGRKLFGSETAMPGPTGESNALTMRGRGVFVAISPWNFPLAIFLGQVTAALMAGNSVVAKPAEQTPRIAREAVALLHEAGIPKSALYLVTGDGRIGAALTAHPDIAGVVFTGSTEVARSINRALAAKDGPIVPLIAETGGINAMIADATALPEQVADDVVTSAFRSAGQRCSALRLLFVQEDVADRMIEMVAGAARELKIGDPSDVATHVGPVIDVEAKQRLDAHIARMKTEARLHFAGPAPEGCFVAPHIFELTEAGQLTEEVFGPILHVVRYRPENLERVLRAIERTGYGLTLGVHSRIDDSIEAIIDRVQVGNIYVNRNMIGAVVGVQPFGGNGLSGTGPKAGGPHYLARFATEQTVTINTAAAGGNAALLAGEE
+
+
+#REMARK GASBOR
+SPACEGROUP		P1
+NSD			1.1
+STDEV_NSD		1.1
+AVERAGE_OF		10
+CHI_SQUARE		2.1
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/BjPutA1_protein6.0015.dat
+pofr_data_file			originals/BjPutA1_protein6.0015.pofr.dat.pofr
+single_gasbor_model.pdb		gasbor/gP1_0r.pdb
+average_gasbor_model.pdb	gasbor/damfilt_dP1A.pdb
+hires_gasbor_model.pdb		gasbor/Tetramer.pdb

@@ -1,0 +1,54 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1358442887
+EMAIL		
+CREATED_ON	2013-01-17 17:15:59 UTC
+
+#REMARK SUMMARY
+TITLE	Replication Protein A DNA-Binding Core (RPA-DBC)
+
+BIOISIS_ID	
+
+EXP_DESCRIPTION	SAXS profile of the DNA-binding core of Replication Protein A (RPA).  The construct used in these experiments contains principal DNA-binding domains 70A and 70B which are flexibly linked in tandem to RPA's trimeric core, which contains the remaining two DNA-binding domains 70C and 32D and the structural domain 14.
+SOURCE_LOCATION	ALS BL12.3.1
+
+PUBLICATION	A new structural framework for integrating replication protein A into DNA processing machinery Nucleic Acids Research 2013, doi: 10.1093/nar/gks1332
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	Collected a concentration series (1X, 2X, 4X) starting at 2.4 mg/mL.  Data was analyzed at 2.4 mg/mL (1X) due to aggregation at higher concentrations.
+BUFFER			Hepes
+pH			7.5
+TEMPERATURE		15.0
+SALT			NaCl
+SALT_CONCENTRATION	200
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		5 mM DTT, 2% glycerol
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			
+SIG_Io			
+Io_MOLECULAR_WEIGHT	
+DMAX			171
+RG			38.8
+SIG_RG			0.2
+RG_REAL			42.1
+SIG_RG_REAL		
+V_POROD			167
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Brosey		CA
+AUTHOR	Tsutakawa		SE
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE

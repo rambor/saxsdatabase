@@ -1,0 +1,10 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_edit_menu" %>  
+<% end -%>
+<h1>Editing experiment ID: <%= @experiment.id %></h1>
+Note: For new entries, ID is next available in database.
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @experiment %> |
+<%= link_to 'Back', :controller=>"experiments", :action=>"admin_list" %>

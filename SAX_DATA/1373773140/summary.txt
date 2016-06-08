@@ -1,0 +1,66 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1373773140
+EMAIL		robert_p_rambo@hotmail.com
+CREATED_ON	2013-07-14 17:25:15 UTC
+
+#REMARK SUMMARY
+TITLE	Median and Mean Xylanase Data
+BIOISIS_ID	1XYNTP
+EXP_DESCRIPTION	High noise dataset used to demonstrate propagation of error and influence of noise on Chi-square. 10 independent, 5 sec exposures of size-exclusion chromatography purified xylanase collected to qmax = 0.31 (Å-1) at ~1.4 mg/ml. Median SAS curve is the median intensity for each I(q). Intensities and associated uncertainties that are taken as the median best approximate the average I(q) without signal enhancement from averaging. Model fits with CRYSOL to PDB: 1REF produced a chi2 of 0.995 and chi2free of 1.66.  Average SAS curve  is the average intensity for each I(q). Model fits with CRYSOL produced a conventional chi2 of 1.00 and chi2free of 1.56.
+SOURCE_LOCATION	ALS BL 12.3.1
+PUBLICATION	Accurate assessment of mass, models and resolution by small-angle scattering. Nature. 2013 Apr 25;496(7446):477-81.
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	single concentration. Sample was divided into 10 separate wells with 10 different buffers.
+BUFFER			HEPES
+pH			7.2
+TEMPERATURE		25.0
+SALT			NaCl
+SALT_CONCENTRATION	50
+DIVALENT		MgCl2
+DIVALENT_CONCENTRATION	10.0
+ADDITIVES		50 mM KCl
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			133.0
+SIG_Io			0.75
+Io_MOLECULAR_WEIGHT	21000
+DMAX			43
+RG			16.74
+SIG_RG			0.82
+RG_REAL			15.96
+SIG_RG_REAL		0.04
+V_POROD			26421
+V_C			166.0
+POROD_EXPONENT		4.0
+
+#REMARK AUTHORS
+AUTHOR	Rambo		RP
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	XYNAT1
+EXP_MW		20843
+ANNOTATION	Xylanase. sequence. from. 1REF
+EXP_SEQUENCE	ETIQPGTGYNNGYFYSYWNDGHGGVTYTNGPGGQFSVNWSNSGNFVGGKGWQPGTKNKVINFSGSYNPNGNSYLSVYGWSRNPLIEYYIVENFGTYNPSTGATKLGEVTSDGSVYDIYRTQRVNQPSIIGTATFYQYWSVRRNHRSSGSVNTANHFNAWAQQGLTLGTMDYQIVAVEGYFSSGSASITVS
+
+
+#REMARK STRUCTURAL MODEL
+CHI_SQUARE		1.6
+FIT_FILENAME		1REF00_median.fit
+DESCRIPTION		Xylanase crystal structure 1REF
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/median_trunc.dat, mean_trunc.dat
+pofr_data_file			originals/median_trunc.pofr.dat.pofr
+fitted_SAXS_with_model.dat	structure/1REF00_median.fit
+pdb_model.pdb			structure/1REF.pdb

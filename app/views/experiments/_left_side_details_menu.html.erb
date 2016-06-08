@@ -1,0 +1,16 @@
+<div id="LeftMenu">
+<ul id="RightSideList">
+<li><%= link_to "SAXS Results",{:controller => "experiments", :action => "details", :id => @experiment.id} %></li>
+<li><a href="#pofr">P(r) Distribution</a></li>
+<li><a href="#guinier">Guinier Plot</a></li>
+<li><a href="#kratky">Kratky Plot</a></li>
+<% if File.exists?("#{Rails.root}/public/SAX_DATA/#{@experiment.data_directory}/fitted_SAXS_with_model.dat") %><li><a href="#fitted_model">Fitted Model</a></li><% end %>
+<% if !@experiment.dammin_result.nil? %><li><a href="#dammin">DAMMIN/F Model</a></li><% end %>
+<% if !@experiment.gasbor_results.empty? %><li><a href="#gasbor">GASBOR Model</a></li><% end %>
+<% if !@experiment.ensemble.nil? %><li><a href="#ensemble">ENSEMBLE Model</a></li><% end %>
+<% if !@experiment.no_model.nil? %><li><a href="#nomodel">No Model</a></li><% end %>
+<li><a href="#additionaldetails">Additional Details</a></li>
+<li></li>
+<li><%= link_to("Download", {:controller => "experiments", :action => "download", :id => @experiment.id}) %></li>
+</ul>
+</div>

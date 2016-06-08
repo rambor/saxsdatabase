@@ -1,0 +1,40 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+<% if @experiment.errors.any? %>
+<ul>
+<% @experiment.errors.full_messages.each do |error| %><li><font color="red"><%= error %></font></li><% end %></ul>
+<% end %>
+
+Registered as:<font color="skyblue"> <%= @submission.email %> </font>
+
+<%= form_for(@experiment, :url => deposition_save_path(@submission.data_directory), :html => {:multipart => true}) do |f| %>
+<h1 class="NewExperimentH1"><a name="ExperimentalConditions">Experimental SAXS Parameters and Invariants</a></h1>
+<div class="forum_location">
+	
+	<table class="SAXSParameters">
+	<tr><td><h1>I<sub>o</sub></h1><span class="instructions">Extrapolated value from a Guinier Plot</span></td><td><%= f.text_field :io, "size"=>10 %></td><tr>
+	<tr><td><h1>&#177;&nbsp;error for I<sub>o</sub></h1></td><td><%= f.text_field :sig_Io, "size"=>10 %></td><tr>
+	<tr><td width="280px"><h1>Proposed molecular weight</h1><span class="instructions">This molecular weight should be consistent with the I<sub>o</sub></td><td><%= f.text_field :io_molecular_weight, "size"=>10 %>&nbsp;in Daltons</td></tr>
+	<tr><td><h1>D<sub>max</sub></h1><span class="instructions"><I>...in Angstroms</I></span></td><td><%= f.text_field :dmax, "size" =>8 %>&nbsp;&Aring;</td></tr>
+
+	<tr><td><h1>R<sub>g</sub></h1><span class="instructions"><I>...from Guinier Plot</I></span></td><td><%= f.text_field :rg, "size" =>8 %>&nbsp;&Aring;</td></tr>
+
+	<tr><td><h1>&#177;&nbsp;error for Rg</h1><span class="instructions"><I>...from Guinier fit</I></span></td><td><%= f.text_field :sig_Rg, "size" =>8 %>&nbsp;&Aring;</td></tr>
+
+	<tr><td><h1>real space R<sub>g</sub> </h1><span class="instructions"><I>...from P-of-R distribution</I></span></td><td><%= f.text_field :rg_real, "size" =>8 %>&nbsp;&Aring;</td></tr>
+
+	<tr><td><h1>&#177;&nbsp;error for real Rg</h1></td><td><%= f.text_field :sig_Rg_real, "size" =>8 %>&nbsp;&Aring;</td></tr>
+
+	<tr><td><h1>Volume-of-Correlation</h1></td><td><%= f.text_field :volume_of_correlation, "size"=> 10 %>&nbsp;&Aring;<sup>2</sup></td></tr>
+
+	<tr><td><h1>Porod Exponent</h1></td><td><%= f.text_field :porod_exponent, "size"=> 10 %></td></tr>
+
+	<tr><td><h1>Porod Volume</h1><span class="instructions"></span></td><td><%= f.text_field :v_porod, "size"=> 10 %>&nbsp;&Aring;<sup>3</sup></td></tr>
+
+	</table>	
+	
+<%= f.hidden_field :data_directory, :value => @submission.data_directory %>
+<a name="Update"><%= f.submit :value => "Save and Return to Main Form" %></a>
+<% end %>
+</div>

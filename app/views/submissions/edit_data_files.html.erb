@@ -1,0 +1,34 @@
+<% content_for :left do %>
+  <%= render :partial => "left_side_menu" %>  
+<% end -%>
+<p>A complete SAS deposition requires two files:</p>
+<ul>
+	<li>the experimental scattering intensities and scattering angles </li>
+	 <li>pair-distance distribution function</li>
+</ul>		
+		
+		<p> One or more sets of scattering intensities can be uploaded as separate data files which, in general, corresponds to a concentration series; however, a single concentration or extrapolated scattering data set can be uploaded that should be consistent with concentration independent scatttering.  </p>
+
+<h1>Scattering Data File</h1>	
+<p>The experimental scattering intensities should be uploaded as a text file with three columns (tab or space delimited).  The columns (from left to right) should correspond to the scattering angle (q), experimental intensities and standard error of the experimental intensities.  
+</p>
+
+
+<% if @experiment.iofq_file_name.nil? %>
+
+	<p id="readthisbad">No File(s) selected, please add <%= link_to "Add File(s)", add_iofq_file_path(:data_directory => @submission.data_directory) %></p>
+	
+<% else %>
+	<p id="readthisgood"><%= @size %> File(s) have been previously selected. Click to <%= link_to "Edit File(s)", add_iofq_file_path(:data_directory => @submission.data_directory) %></p>
+<% end %>
+
+<h1>P(r) Data File </h1>
+<p>The experimental pair-distance distribution, P(r), function should be uploaded as a text file with three columns (tab or space delimited).  The columns (from left to right) should correspond to the real space distance (r), histogram and standard error.  
+</p>
+
+<% if @experiment.pofr_file_name.nil? %>
+	<p id="readthisbad">No file selected, please add <%= link_to "Add File(s)", add_pofr_file_path(:data_directory => @submission.data_directory) %></p>
+	
+<% else %>
+	<p id="readthisgood">A file have been previously uploaded. Click to <%= link_to "Edit File(s)", add_pofr_file_path(:data_directory => @submission.data_directory) %></p>
+<% end %>

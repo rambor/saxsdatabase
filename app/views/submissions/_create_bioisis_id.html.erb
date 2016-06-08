@@ -1,0 +1,27 @@
+<p>You can create your own BioIsis Id (BID) to reference for publication.  The BID code is a six (6) letter number combination.  We reserve the last position to identify composition of the sample.</p>
+
+<p>Based on your sample composition, the last letter of your code will be <span id="readthisbad"><%= @code_termini %></span>.
+<p>Please type in a 5 letter and number combination to be your BID code.</p>
+
+<%= form_tag code_search_path, :method => 'get', :id => "code_search", :name => "code_search" do %>
+     <%= hidden_field(:code_search, :code_termini, :value => @code_termini)%>
+    
+    <p>
+	<% if @submission.bioisis_id.nil? %>
+        <%= text_field_tag :search, params[:search], :size => '5', :id => 'submitsearch' %> 
+        <span id="readthisbad"><%= @code_termini %></span>
+    <% else %>
+        <%= text_field_tag :search, params[:search], :size => '5', :id => 'submitsearch', :value => @submission.bioisis_id %> <span id="readthisbad"><%= @code_termini %></span>
+    <% end %>
+
+	<br>
+	<input readonly type="text" name="remLen1" size="3" maxlength="3" value="5">
+	characters left
+	<br>
+	
+	<%= submit_tag "Submit Data for Deposit" %>
+	</p>
+	
+<% end %>
+
+	<div id="found_codes"></div>	

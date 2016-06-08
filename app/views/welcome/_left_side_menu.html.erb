@@ -1,0 +1,15 @@
+<div id="LeftMenu" align="center">
+<p align="center">BioIsis ID SEARCH</p>
+<p class="subtitle" align="center">(6 character code)</p>
+<%= form_tag bid_search_path, :method => 'get', :remote => true do %>
+       <%= text_field_tag :search, params[:search] %> 
+       <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<br>
+</div>
+<div id="found_codes">
+
+</div>
+
+

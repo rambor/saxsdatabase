@@ -1,0 +1,86 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1441099612
+EMAIL		stephane.rety@ibcp.fr
+CREATED_ON	2015-09-01 10:14:16 UTC
+
+#REMARK SUMMARY
+TITLE	Yar1 from Saccharomyves cerevisiae
+
+BIOISIS_ID	YAR1P
+EXP_DESCRIPTION	SAXS profile of Yar1. Yar1 associates with ribosomal protein Rps3 and prevents Rps3 from aggregation before assembly of Rps3 in 40S ribosomal subunit. Yar1 alone is soluble and was studied in solution.
+SOURCE_LOCATION	SOLEIL synchrotron
+
+PUBLICATION	To be published
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	Data was collected on in line HPLC-SEC peak (Agilent SEC-3 size-exclusion column at a flow rate of 200 microliter/min). Sample was loaded at 10mg/ml concentration
+BUFFER			Tris-Base
+pH			7.5
+TEMPERATURE		20.0
+SALT			NaCl
+SALT_CONCENTRATION	200
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		
+
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			21.8
+SIG_Io			0.023
+Io_MOLECULAR_WEIGHT	26000
+DMAX			108
+RG			30.94
+SIG_RG			1.2
+RG_REAL			30.96
+SIG_RG_REAL		1.2
+V_POROD			41600
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Mitterer		V
+AUTHOR	Murat		G
+AUTHOR	Rety		S
+AUTHOR	Blaud		M
+AUTHOR	Delbos		L
+AUTHOR	Stanborough		T
+AUTHOR	Bregler		H
+AUTHOR	Leulliot		N
+AUTHOR	Kressler		D
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	Yar1
+EXP_MW		23967
+ANNOTATION	Full-length Yar1 from Saccharomyces cerevisiae, with N-terminal Histidine tag
+EXP_SEQUENCE	MGSSHHHHHHSQDPMGLHSEPLDQEDQDTIILDARAGDLDSLKDIFTTLVSPELLSTCKESESDSTALHMAAANGHIETVRYILETVSRANSAEDLKAFVNEVNKTGNTALHWASLNGKLDVVKLLCDEYEADPFIRNKFGHDAIFEAENSGKEEVETYFLKKYDVEPEDDEEDTQTEGKNSVQITKGTEIEQVTKEATEALREETEKLNINKD
+
+
+#REMARK DAMMIN
+SPACEGROUP		P1
+NSD			0.577915
+STDEV_NSD		0.0962877
+AVERAGE_OF		50
+
+
+#REMARK STRUCTURAL MODEL
+CHI_SQUARE		1.063
+FIT_FILENAME		Yar1_model01.fit
+DESCRIPTION		Modelled from Yar1-Rps3 complex (PDB 4BSZ)
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/Yar1_6_12_A.dat
+pofr_data_file			originals/Yar1_6_12_A.out.pofr
+single_dammin_model.pdb		dammin/run05-1.pdb_rt.pdb
+average_dammin_model.pdb	dammin/damfilt.pdb
+hires_dammin_model.pdb		dammin/run05-1.pdb_rt.pdb
+fitted_SAXS_with_model.dat	structure/Yar1_model01.fit
+pdb_model.pdb			structure/Yar1_model.pdb

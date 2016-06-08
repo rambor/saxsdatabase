@@ -1,0 +1,26 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+<p class="about">
+SAXS can be a powerful tool for assessing the "unfolded-ness" or "random coil" likeness of your biological macromolecule. The analysis is typically qualitative via the Kratky plot but we can provide some quantitative metrics. We will determine the Porod exponent, volume and density of the particle. Here, we are assuming a homogenous pure sample. Using a merged and loaded dataset, click on the "Flexibility Plots" button (red arrow Figure 1). Make sure the entire q range is available by adjusting the "start" and "end" boxes (arrow Figure 1).</p>
+Figure 1<br>
+<%= image_tag('flexibility_figure_1.png', :width=>'650') %>
+<p class="about">
+A new plot will pop-up with 4 sub-plots. Each plot is has a different axis and we are exploiting a power-law relationship that exists given the type of sample (compact vs flexible). For more information, please see Rambo and Tainer Biopolymers.  Using the slider (green arrow Figure 1), slide back until you find the first linear range/plateau. If the plateau occurs in the Kratky-Debye plot, you have a flexible sample.  If the plateau occurs in the Porod-Debye plot, you have a compact particle. However, for molecules with significant asymmetry such as the P4-P6 RNA domain, the plateau will not be readily apparent in the Porod-Debye region.  We will see a linear region and the important observation is the q-max that defines the upper q-range.  In this case, the q-max is ~0.125 (see upper left plot Figure 2). Also, we cannot have negative linear slopes, this automatically disqualifies those plots (Kratky-Debye) from further consideration.  
+</p>
+Figure 2<br>
+<%= image_tag('flexibility_figure_2.png', :width=>'650') %>
+<p class="about">
+Now, click on the "Volume" button in the "Analysis" tab.  This will bring up another window with three plots. The first plot is the standard Kratky plot, next is the residuals plot for a power low fit to the data defined by "Start" and "End" in the window.  The lower plot is the Porod-Debye plot (Figure 3). Using the "Start" and "End" boxes trim the data to the first linear region after the hyperbolic rise (green arrow Figure 3). The defined data is the subset of data fit by our algorithm.  
+</p>
+Figure 3<br>
+<%= image_tag('flexibility_figure_3.png', :width=>'650') %>
+<p class="about">
+Here, we truncated the data from 134 to 202 points to define the Porod exponent (see Feign and Svergun Structure Analysis by SAX/NS (1987) and Rambo and Tainer Biopolymers (2011)). This region coincidently determines the correction factor for the Porod Invariant as well as the Porod exponent. The Porod exponent is a quantitive metric for assessing compactness and is recorded by Scatter once the determination occurs. You want to find a linear region after the first hyperbolic rise that shows an unbiased distribution in the residuals plot (upper right plot Figure 3).
+</p>
+Figure 4<br>
+<%= image_tag('flexibility_figure_4.png', :width=>'650') %>
+<p class="about">
+The particle is fairly compact with a Porod exponent of 3.7. There is a discontinuity in the data (Figure 3) suggesting a problem with merging or buffer subtraction lending further analysis by the volume-of-correlation problematic.  
+</p>

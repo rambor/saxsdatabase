@@ -1,0 +1,10 @@
+<div id="LeftMenu">
+<ul id="RightSideList">
+<li><%= link_to "Admin List", {:controller=>"experiments", :action=>"admin_list"} %></li>
+<li><%= link_to "Pending Deposit", {:controller=>"submissions", :action=>"pending"} %></li>
+<li><%= link_to "Active Deposit ", {:controller=>"submissions", :action=>"active"} %></li>
+<li><%= link_to "NEWS", {:controller=>"news", :action=>"new"} %></li>
+<li><%= link_to "Users", {:controller=>"users", :action=>"index"} %> </li>
+<li><%= link_to "Scatter Updates", {:controller=>"scatter", :action=>"new"} %> </li>
+</ul>
+</div>

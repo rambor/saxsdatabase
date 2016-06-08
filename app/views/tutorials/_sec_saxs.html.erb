@@ -1,0 +1,40 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+<p class="about">
+Sc&Aring;tter can process unsubtracted HPLC SEC SAXS data.  Files (3 column, space-delimited) must be loaded in the order corresponding to the elution time of the HPLC run. This can be easily performed on a MAC where *.dat files are sorted by time and then grabbed as a single block and dropped into the "SAMPLE" box (Figure 1).</p>
+<p class="about"> On WINDOWS machines, the block must be grabbed from the top of the list that corresponds to the start and then dropped into the "SAMPLE" box.  WINDOWS machines will start the loading from the point at which the block was grabbed.  You can also load whole directories, but the directories should only contain un-subtracted dat files that can be sorted by the timestamp.
+</p>
+<p class="about">Before you begin, it is important to set the output directory where all the subtracted files and images will be stored.  This can be performed using the "Set Output Directory" at bottom.
+</p>
+<p class="about" align="left"><b>Figure 1 |</b></p>
+	<%= image_tag('sec_figure_1.png', :width => '640') %>
+	<p class="about"> Here, I am loading an HPLC run that was collected using 3 second exposures with a total of 539 frames. Loading many files takes time so please wait.  If you are using data collected in nm<sup>-1</sup>, you will need to convert to &Aring;<sup>-1</sup> by checking the "on drop : convert nm<sup>-1</sup> to &Aring;<sup>-1</sup>" box (Figure 3, cyan arrow).
+	</p>	
+<p class="about" align="left"><b>Figure 2 |</b></p>
+	<%= image_tag('sec_figure_2.png', :width => '640') %>
+	<p class="about"> To create the trace of the HPLC run, hit the "TRACE" button (Figure 3, red arrow). This will estimate, roughly, the background and determine a signal from each frame.</p>
+	<p class="about" align="left"><b>Figure 3 |</b></p>
+		<%= image_tag('sec_figure_3.png', :width => '640') %>
+	<p class="about"> After creating the trace, you must select a region of the trace to use as the buffer (Figure 4). Use the mouse, highlight a continuous block within the Signal Plot and then hit "SET BUFFER" (red arrow). More than one region can be selected by repeating the process.  Setting the buffer loads the corresponding frames into the "BUFFERS" panel on right.</p>	
+	<p class="about" align="left"><b>Figure 4 |</b></p>		
+		<%= image_tag('sec_figure_4.png', :width => '640') %>
+		<p class="about"> Once you have set your selected buffers, next highlight the peak you would like to analyze. Here, I selected the main peak. You can do some preliminary analysis at this step by clicking on the "SET RANGE" button (Figure 4, green arrow). Setting the range will restrict the replotting of the signal plot to the highlighted range.  Now, we can calculate the Rg across the selected region by checking "Add Rg to Signal Plot" and then clicking on "Signal Plot" below the SAMPLES Panel.</p>	
+		<p class="about" align="left"><b>Figure 5 |</b></p>		
+			<%= image_tag('sec_figure_5.png', :width => '640') %>
+			<p class="about"> Rg values are only calculated for signals above a specified threshold, in this case 0.44.  You can adjust this threshold, it correlates with the q-max of the input datasets.  From this plot, I can select a subset of frames for averaging or to subtract without averaging. I have selected frames 301 to 310 and given an output name of temp.</p>	
+			<p class="about" align="left"><b>Figure 6 |</b></p>		
+				<%= image_tag('sec_figure_6.png', :width => '640') %>		
+				<p class="about"> The subtracted file is automatically loaded into Scatter as the last two files appended to the list.  There is the *_average_average.dat (Figure 8: purple) and *_average_median.dat (Figure 8: lime green).  The average and median refer to the average or median set of the buffers.</p>					
+				<p class="about" align="left"><b>Figure 7 |</b></p>					
+					<%= image_tag('sec_figure_7.png', :width => '640') %>
+<p class="about">During the averaging, Scatter by default will use a singular value decomposition (SVD) method to noise reduce and average. In addition, we can use SVD to determine the number of major variations in the set of frames.  The output is written to "Messages" panel (Figure 7a).</p>
+<p class="about" align="left"><b>Figure 7a |</b></p>					
+	<%= image_tag('sec_figure_6a.png') %>
+<p class="about">Based on the SVD results, we see one large singular value (at 0.3664) followed by a set of much smaller numbers, with the second singular value being ~5x-fold smaller than the first one.</p>					
+					<p class="about" align="left"><b>Figure 8 |</b></p>		
+						<%= image_tag('sec_figure_8.png', :width => '640') %>
+	
+	
+	

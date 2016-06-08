@@ -1,0 +1,82 @@
+#REMARK USER INFORMATION 
+DATA_DIRECTORY	1242686667
+EMAIL		glhura@lbl.gov
+CREATED_ON	2009-06-22
+
+#REMARK SUMMARY
+TITLE	PF0230 - Mixed Multimeric state of recombinant Pyrococcus furiosus ORF 0230
+BIOISIS_ID	1ARSRP
+EXP_DESCRIPTION	PF0230 is part of a 16 member set produced by Mike Adam's lab. Native gels show 2 distinct bands. While it is speculative to identify which multimeric states are present - the shapes determined from this mixture are suggestive of a mostly dimeric system. This is based on an available crystal structure of a homolog and the basic size of the ab initio models.
+SOURCE_LOCATION	ALS bl1231 SIBYLS
+PUBLICATION	Robust, high-throughput solution structural analyses by small angle X-ray scattering (SAXS). Nat Methods. 2009 Aug;6(8):606-12.
+
+#REMARK EXPERIMENTAL CONDITIONS
+EXPERIMENTAL_DETAILS	
+BUFFER			Tris-Base
+pH			8.0
+TEMPERATURE		25.0
+SALT			NaCl
+SALT_CONCENTRATION	300
+DIVALENT		none
+DIVALENT_CONCENTRATION	0.0
+ADDITIVES		
+PROTEIN			Yes
+DNA			No
+RNA			No
+MEMBRANE		No
+NANOPARTICLE		No
+
+#REMARK EXPERIMENTAL VALUES
+Io			1092.6
+SIG_Io			3.51
+Io_MOLECULAR_WEIGHT	32000
+DMAX			120
+RG			27.5
+SIG_RG			0.2
+RG_REAL			29.05
+SIG_RG_REAL		0.2
+V_POROD			77203
+V_C			
+POROD_EXPONENT		
+
+#REMARK AUTHORS
+AUTHOR	Hura		G.L.
+AUTHOR	Hammel		M.
+AUTHOR	Adams		M.W.W.
+AUTHOR	Menon		A.L.
+
+#REMARK BIO | POLYMER INFORMATION
+INFO_1
+ABBR_NAME	ArsRReg
+EXP_MW		23766
+ANNOTATION	transcriptional regulatory protein, arsR family
+EXP_SEQUENCE	AHHHHHHGSTKRVKVITDPEVIKVMLEDTRRKILQLLRNREMTISQLSEILGKMPQTIYHHIEKLKEAGLVEVKRTEMKGNLVEKYYGRTADVFYINLYMGDEELRYLARSRLKTKLDIFKKLGYKFDEEELLNVMDRILEKEHEVKVEISKEIENVEDSLKEFSNEDIIHAIEWLAMARLAQDEEYIELVKKLGQILKR
+
+
+#REMARK DAMMIN
+SPACEGROUP		P1
+NSD			0.484
+STDEV_NSD		0.1
+AVERAGE_OF		6
+
+
+#REMARK GASBOR
+SPACEGROUP		P1
+NSD			1.51
+STDEV_NSD		0.1
+AVERAGE_OF		6
+CHI_SQUARE		3.98
+
+
+#REMARK	ALL UPLOADED FILES ARE RENAMED
+#REMARK	USE THE FOLLOWING KEY TO DETERMINE THE ORIGINAL UPLOADED FILE(S).
+#REMARK
+# RENAMED FILE			ORIGINAL FILE
+iofq_data_file			originals/PF0230Merge.dat
+pofr_data_file			originals/PF0230Merge.dat
+single_dammin_model.pdb		dammin/dam12-1.pdb
+average_dammin_model.pdb	dammin/damfilt.pdb
+hires_dammin_model.pdb		dammin/
+single_gasbor_model.pdb		gasbor/gas15.pdb
+average_gasbor_model.pdb	gasbor/damfilt.pdb
+hires_gasbor_model.pdb		gasbor/RePose.pdb

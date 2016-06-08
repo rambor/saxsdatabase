@@ -1,0 +1,11 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+<p class="about">
+During analysis, the "Current Working Directory" must be set where Sc&#8491;tter will output and save files. The working directory can be set on the "Analysis" or "Settings" tab. A working directory that is not reachable, or writable will result in an error.</p>  
+<p class="about">
+Scatter writes two types of data files:</p> <ol><li>Intensity (*_sx.dat)</li><li>real-space data (*_pr.dat)</li></ol><p class="about">Intensity (_sx.dat) or real-space data (_pr.dat) files will have a header attached to them that uses the PDB REMARK 265 tag reserved for SAXS. All values that are determined throughout the analysis are recorded in the header along with associated uncertainties (Figure 1). </p><p class="about">The header contains space for specifying the buffer composition, beamline and source information. This needs to be completed by the user to finalize a datafile for deposition. </p>  
+
+<b>Figure 1:</b><br><%= image_tag('saving_figure_1.png', :border=>"0", :width=>"640") %>

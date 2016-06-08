@@ -1,0 +1,18 @@
+<div class="welcometitle"><%= "#{@tag.upcase}" %>
+<span class="tutorial_small_text">... by Robert P. Rambo, Ph.D.
+</span>
+</div>
+
+<p class="about">
+A SAXS measurement is a difference measurement. We collect an exposure of the sample in a buffer and then collect a corresponding exposure of the buffer alone. Here, everything needs to be as closely matched as possible, meaning the exact same sample cell is used in both measurements with the variations in the placement of the cell between successive measurements made negligible. In addition, the buffer measurement must be made in a clean cell. There can not be any protein adhering to the path of the X-ray window.  This will contribute significantly to a poor subtraction. 
+
+A poor buffer subtraction is easy to detect if you have multiple SAXS datasets e.g., a concentration series, and assuming one of the datasets have a correctly matched buffer. However, assessing a poor buffer subtraction for single curves is much more difficult but we can provide some guidelines for a single measurement.  </p>
+
+<p class="about">
+For a concentration series, we previously noted that variations in buffer subtraction between SAXS samples of the same particle and buffer condition tend to show a systematic curvature in the ratio plot at high q-values.  Such curvature as seen in Figure 1, will either be up or down and implies we can not directly merge the two datasets due to poor buffer subtraction for one of the curves.  But which dataset has the poor subtraction?
+</p>
+<h3>Figure 1</h3><br><%= image_tag('ratio_figure_4.png', :border=>"0", :width=>"650") %>
+<p class="about">We have to look at the real-space transforms for each SAXS curve. The poor subtraction will tend to have a bump/bulge in the P(r) distribution near d<sub>max</sub>. If we want to combine these two datasets, the green curve would have to be truncated to q of ~0.15. </p>
+<h3>Figure 2</h3><br><%= image_tag('ratio_figure_5.png', :border=>"0", :width=>"650") %>
+<p class="about">In addition, we can also look at the V<sub>c</sub> plots of the scaled datasets. If the two curves differ by a concentration, then they should perfectly overlay in both plots (Figure 3). However, we see that the two curves differ at higher q-values. A correctly subtracted SAXS curve should flatten to a plateau in the integrated area plot (Figure 3, right) and we see for the green curve it has a greater positive slope than the blue suggesting the green curve is the problematic dataset. </p>
+<h3>Figure 3</h3><br><%= image_tag('buffer_subtraction_figure_3.png', :border=>"0", :width=>"650") %>
