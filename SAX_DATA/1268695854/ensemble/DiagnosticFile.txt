@@ -1,3 +1,0 @@
-SeventeenPcnt.pdb 0.17
-sixtyNinePcnt.pdb 0.69
-ThirteenPcnt.pdb 0.13
